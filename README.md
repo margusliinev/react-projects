@@ -7,7 +7,7 @@ This is a repository for projects built with React.
 ## Technologies
 
 -   HTML
--   Tailwind CSS
+-   CSS/SCSS
 -   Javascript
 -   React
 
