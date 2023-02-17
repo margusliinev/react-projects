@@ -113,5 +113,56 @@ h6 {
     background-color: $colorPrimary7;
 }
 
+/* ERROR PAGE */
+/* ==================================================================================================== */
+
+.error-page {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    background-color: $colorPrimary1;
+    text-align: center;
+    padding: 20rem 0;
+    h1 {
+        font-size: 10rem;
+        color: $colorDark;
+        font-weight: 600;
+    }
+    h3 {
+        color: $colorGray;
+        font-weight: 500;
+    }
+    .btn {
+        text-transform: uppercase;
+        letter-spacing: $spacingWide;
+    }
+}
+
+/* LOGIN PAGE */
+/* ==================================================================================================== */
+
+.login-page {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    .container {
+        width: 90vw;
+        max-width: 600px;
+        text-align: center;
+        h1 {
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            color: $colorDark;
+        }
+        .btn {
+            text-transform: uppercase;
+            letter-spacing: $spacingWide;
+        }
+    }
+}
+
+/* DASHBOARD PAGE */
+/* ==================================================================================================== */
+
 /* END */
 /* ==================================================================================================== */
