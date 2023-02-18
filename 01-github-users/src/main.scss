@@ -331,7 +331,7 @@ h6 {
         }
     }
     .bio {
-        margin-bottom: 0.75rem;
+        margin-bottom: 1rem;
     }
     .links {
         display: grid;
@@ -355,15 +355,7 @@ h6 {
 }
 
 .followers {
-    background-color: $colorWhite;
-    padding: 1rem 2rem;
     position: relative;
-    display: grid;
-    grid-template-columns: 1fr;
-    row-gap: 2rem;
-    height: 18rem;
-    max-width: 550px;
-    overflow: scroll;
     &::before {
         content: 'Followers';
         position: absolute;
@@ -380,22 +372,33 @@ h6 {
         font-weight: 600;
         color: $colorPrimary5;
     }
-    div {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        img {
-            height: 4rem;
-            width: 4rem;
-            border-radius: 9999px;
-        }
+    .followers-container {
+        grid-template-rows: repeat(auto-fill, minmax(65px, 1fr));
+        background-color: $colorWhite;
+        padding: 1.5rem 2rem;
+        display: grid;
+        grid-template-columns: 1fr;
+        row-gap: 1.7rem;
+        height: 18rem;
+        max-width: 550px;
+        overflow-y: scroll;
         div {
-            display: grid;
-            grid-template-columns: 1fr;
-            row-gap: 0;
-            a {
-                color: $colorGray;
-                text-decoration: underline;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            img {
+                height: 4rem;
+                width: 4rem;
+                border-radius: 9999px;
+            }
+            div {
+                display: grid;
+                grid-template-columns: 1fr;
+                row-gap: 0;
+                a {
+                    color: $colorGray;
+                    text-decoration: underline;
+                }
             }
         }
     }
