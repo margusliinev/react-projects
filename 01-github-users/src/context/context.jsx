@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import mockFollowers from './mockData.js/mockUser';
+import mockFollowers from './mockData.js/mockFollowers';
 import mockRepos from './mockData.js/mockRepos';
 import mockUser from './mockData.js/mockUser';
 import axios from 'axios';

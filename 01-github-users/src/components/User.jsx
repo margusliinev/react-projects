@@ -1,5 +1,15 @@
+import Profile from './Profile';
+import Followers from './Followers';
+
 const User = () => {
-    return <div>User</div>;
+    return (
+        <section className='dashboard-user'>
+            <div className='user-container'>
+                <Profile />
+                <Followers />
+            </div>
+        </section>
+    );
 };
 
 export default User;
