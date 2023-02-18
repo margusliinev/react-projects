@@ -113,6 +113,43 @@ h6 {
     background-color: $colorPrimary7;
 }
 
+.pink {
+    color: #ec4899;
+    background-color: lighten(#ec4899, 25%);
+    height: 3rem;
+    width: 3rem;
+    display: grid;
+    place-items: center;
+    border-radius: 9999px;
+}
+.green {
+    color: #16a34a;
+    background-color: lighten(#16a34a, 25%);
+    height: 3rem;
+    width: 3rem;
+    display: grid;
+    place-items: center;
+    border-radius: 9999px;
+}
+.purple {
+    color: #9333ea;
+    background-color: lighten(#9333ea, 25%);
+    height: 3rem;
+    width: 3rem;
+    display: grid;
+    place-items: center;
+    border-radius: 9999px;
+}
+.yellow {
+    color: #eab308;
+    background-color: lighten(#eab308, 25%);
+    height: 3rem;
+    width: 3rem;
+    display: grid;
+    place-items: center;
+    border-radius: 9999px;
+}
+
 /* ERROR PAGE */
 /* ==================================================================================================== */
 
@@ -163,6 +200,61 @@ h6 {
 
 /* DASHBOARD PAGE */
 /* ==================================================================================================== */
+
+.dashboard {
+    min-height: 100vh;
+    background-color: $colorPrimary1;
+}
+
+.dashboard-info {
+    display: grid;
+    place-items: center;
+}
+
+.info-container {
+    max-width: $width-lg;
+    margin: 0 auto;
+    width: 90vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 1rem;
+    column-gap: 1rem;
+    article {
+        border-radius: $radius-sm;
+        background-color: white;
+        padding: 0.5rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        span {
+            .icon {
+                font-size: 1.6rem;
+            }
+        }
+        div {
+            display: grid;
+            grid-template-columns: 1fr;
+            place-items: center;
+
+            p {
+                text-transform: capitalize;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: $width-md) {
+    .info-container {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: $width-lg) {
+    .info-container {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
 
 /* END */
 /* ==================================================================================================== */
