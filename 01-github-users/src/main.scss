@@ -211,6 +211,19 @@ h6 {
     display: grid;
     place-items: center;
     padding: 1rem;
+    .error-msg {
+        max-width: $width-lg;
+        margin: 0 auto;
+        width: 90vw;
+        font-size: 1rem;
+        color: $colorDanger;
+        font-weight: 400;
+        padding-bottom: 0.5rem;
+        visibility: hidden;
+    }
+    .show-error {
+        visibility: visible;
+    }
     .search-container {
         width: 90vw;
         display: grid;
@@ -245,9 +258,9 @@ h6 {
             }
             .btn {
                 font-size: 1.1rem;
-                padding: 0.3rem 0.5rem;
+                padding: 0.35rem 0.7rem;
                 border-radius: $radius-sm;
-                margin-right: 0.5rem;
+                margin-right: 0.4rem;
             }
         }
         p {
@@ -397,6 +410,8 @@ h6 {
     }
     .bio {
         margin-bottom: 1rem;
+        max-height: 22px;
+        overflow: hidden;
     }
     .links {
         display: grid;

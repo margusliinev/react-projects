@@ -18,19 +18,19 @@ const Profile = () => {
                     follow
                 </a>
             </header>
-            <p className='bio'>{bio}</p>
+            <p className='bio'>{bio || 'User has not set up their biography.'}</p>
             <div className='links'>
                 <p>
                     <MdBusiness className='profile-link-icon'></MdBusiness>
-                    {company}
+                    {company || 'Freelancer'}
                 </p>
                 <p>
                     <MdLocationOn className='profile-link-icon'></MdLocationOn>
-                    {location || 'earth'}
+                    {location || 'Earth'}
                 </p>
                 <a href={`https://${blog}`} target='_blank'>
                     <MdLink className='profile-link-icon'></MdLink>
-                    {blog}
+                    {blog || `${html_url}`}
                 </a>
             </div>
         </article>

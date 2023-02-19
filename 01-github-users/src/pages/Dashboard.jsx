@@ -7,7 +7,7 @@ import User from '../components/User';
 const Dashboard = () => {
     return (
         <main className='dashboard'>
-            {/* <Navbar /> */}
+            <Navbar />
             <Search />
             <Info />
             <User />
