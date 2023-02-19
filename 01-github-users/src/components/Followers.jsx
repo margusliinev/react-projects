@@ -3,7 +3,6 @@ import { GithubContext } from '../context/context';
 
 const Followers = () => {
     const { followers } = useContext(GithubContext);
-    console.log(followers);
 
     return (
         <article className='followers'>
