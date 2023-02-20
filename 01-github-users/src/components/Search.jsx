@@ -3,7 +3,7 @@ import { MdSearch } from 'react-icons/md';
 import { GithubContext } from '../context/context';
 
 const Search = () => {
-    const { user, setUser, handleSubmit, requests, error, searchGithubUser } = useContext(GithubContext);
+    const { user, setUser, handleSubmit, requests, error } = useContext(GithubContext);
     return (
         <section className='dashboard-search'>
             <p className={error.show ? 'error-msg show-error' : 'error-msg'}>{error.msg}</p>

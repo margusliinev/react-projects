@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import mockFollowers from './mockData.js/mockFollowers';
-import mockUser from './mockData.js/mockUser';
 import axios from 'axios';
 
 const rootUrl = 'https://api.github.com';
@@ -8,12 +6,12 @@ const rootUrl = 'https://api.github.com';
 const GithubContext = React.createContext();
 
 const GithubProvider = ({ children }) => {
-    const [followers, setFollowers] = useState(mockFollowers);
-    const [githubUser, setGithubUser] = useState(mockUser);
-    const [user, setUser] = useState('');
+    const [followers, setFollowers] = useState({});
+    const [githubUser, setGithubUser] = useState({});
+    const [user, setUser] = useState('margusliinev');
     const [requests, setRequests] = useState(0);
-    const [loading, setLoading] = useState(false);
     const [error, setError] = useState({ show: false, msg: 'Username does not exist, please try again!' });
+    const [loading, setLoading] = useState(false);
 
     const searchGithubUser = async (user) => {
         toggleError();
@@ -22,6 +20,16 @@ const GithubProvider = ({ children }) => {
             setGithubUser(response.data);
         } else {
             toggleError(true, 'Username does not exist, please try again!');
+        }
+    };
+
+    const searchGithubFollowers = async (user) => {
+        toggleError();
+        const response = await axios(`${rootUrl}/users/${user}/followers`).catch((err) => console.log(err));
+        if (response) {
+            setFollowers(response.data);
+        } else {
+            return;
         }
     };
 
@@ -41,13 +49,21 @@ const GithubProvider = ({ children }) => {
         setError({ show, msg });
     };
 
-    useEffect(checkRequests, []);
+    useEffect(checkRequests, [githubUser]);
+
+    useEffect(() => {
+        searchGithubUser(user);
+        searchGithubFollowers(user);
+        setUser('');
+    }, []);
 
     const handleSubmit = (e) => {
         e.preventDefault();
         if (user) {
             searchGithubUser(user);
+            searchGithubFollowers(user);
         } else {
+            toggleError(true, 'Please enter a username!');
             return;
         }
     };

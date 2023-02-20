@@ -18,7 +18,7 @@ const Profile = () => {
                     follow
                 </a>
             </header>
-            <p className='bio'>{bio || 'User has not set up their biography.'}</p>
+            <p className='bio'>{bio || `${name} has not set up their biography.`}</p>
             <div className='links'>
                 <p>
                     <MdBusiness className='profile-link-icon'></MdBusiness>
