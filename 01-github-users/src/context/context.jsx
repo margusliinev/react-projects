@@ -15,12 +15,14 @@ const GithubProvider = ({ children }) => {
 
     const searchGithubUser = async (user) => {
         toggleError();
+        setLoading(true);
         const response = await axios(`${rootUrl}/users/${user}`).catch((err) => console.log(err));
         if (response) {
             setGithubUser(response.data);
         } else {
             toggleError(true, 'Username does not exist, please try again!');
         }
+        setLoading(false);
     };
 
     const searchGithubFollowers = async (user) => {
@@ -68,7 +70,7 @@ const GithubProvider = ({ children }) => {
         }
     };
 
-    return <GithubContext.Provider value={{ githubUser, followers, user, setUser, handleSubmit, requests, error, searchGithubUser }}>{children}</GithubContext.Provider>;
+    return <GithubContext.Provider value={{ githubUser, followers, user, setUser, handleSubmit, requests, error, searchGithubUser, loading }}>{children}</GithubContext.Provider>;
 };
 
 export { GithubContext, GithubProvider };
