@@ -8,30 +8,40 @@ const GithubContext = React.createContext();
 const GithubProvider = ({ children }) => {
     const [followers, setFollowers] = useState({});
     const [githubUser, setGithubUser] = useState({});
-    const [user, setUser] = useState('margusliinev');
+    const [user, setUser] = useState('');
     const [requests, setRequests] = useState(0);
-    const [error, setError] = useState({ show: false, msg: 'Username does not exist, please try again!' });
+    const [error, setError] = useState({ show: false, msg: '' });
     const [loading, setLoading] = useState(false);
 
     const searchGithubUser = async (user) => {
         toggleError();
         setLoading(true);
-        const response = await axios(`${rootUrl}/users/${user}`).catch((err) => console.log(err));
+        const response = await axios(`${rootUrl}/users/${user}`).catch((err) => {
+            if (err.response.status === 403) {
+                toggleError(true, 'Sorry, you have exceeded your hourly rate limit!');
+            }
+            if (err.response.status === 404) {
+                toggleError(true, 'Username does not exist, please try again!');
+            }
+        });
         if (response) {
             setGithubUser(response.data);
-        } else {
-            toggleError(true, 'Username does not exist, please try again!');
         }
         setLoading(false);
     };
 
     const searchGithubFollowers = async (user) => {
         toggleError();
-        const response = await axios(`${rootUrl}/users/${user}/followers`).catch((err) => console.log(err));
+        const response = await axios(`${rootUrl}/users/${user}/followers`).catch((err) => {
+            if (err.response.status === 403) {
+                toggleError(true, 'Sorry, you have exceeded your hourly rate limit!');
+            }
+            if (err.response.status === 404) {
+                toggleError(true, 'Username does not exist, please try again!');
+            }
+        });
         if (response) {
             setFollowers(response.data);
-        } else {
-            return;
         }
     };
 
@@ -54,9 +64,8 @@ const GithubProvider = ({ children }) => {
     useEffect(checkRequests, [githubUser]);
 
     useEffect(() => {
-        searchGithubUser(user);
-        searchGithubFollowers(user);
-        setUser('');
+        searchGithubUser('margusliinev');
+        searchGithubFollowers('margusliinev');
     }, []);
 
     const handleSubmit = (e) => {
