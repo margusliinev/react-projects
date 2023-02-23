@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { useParams, useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 const SingleProductPage = () => {
