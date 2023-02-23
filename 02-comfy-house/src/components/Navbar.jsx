@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FaBars, FaShoppingCart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { NavigateContext } from '../context/NavigateContext';
 
 const Navbar = () => {
+    const { openSidebar } = useContext(NavigateContext);
     return (
         <nav className='nav'>
             <div className='nav-container'>
@@ -10,7 +12,7 @@ const Navbar = () => {
                     <h4>
                         Comfy<span>House</span>
                     </h4>
-                    <button type='button' className='nav-toggle-btn'>
+                    <button type='button' className='nav-toggle-btn' onClick={openSidebar}>
                         <FaBars />
                     </button>
                 </div>

@@ -1,17 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FaTimes, FaShoppingCart } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
+import { NavigateContext } from '../context/NavigateContext';
 
 const Sidebar = () => {
-    const isOpen = true;
+    const { isSidebarOpen, closeSidebar } = useContext(NavigateContext);
     return (
-        <aside className={isOpen ? 'sidebar sidebar-open' : 'sidebar'}>
+        <aside className={isSidebarOpen ? 'sidebar sidebar-open' : 'sidebar'}>
             <div className='sidebar-container'>
                 <div className='sidebar-header'>
                     <h4>
                         Comfy<span>House</span>
                     </h4>
-                    <button type='button' className='sidebar-toggle-btn'>
+                    <button type='button' className='sidebar-toggle-btn' onClick={closeSidebar}>
                         <FaTimes />
                     </button>
                 </div>
