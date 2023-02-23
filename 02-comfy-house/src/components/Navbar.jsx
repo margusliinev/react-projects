@@ -1,5 +1,5 @@
-import React from 'React';
-import { FaBars, FaShoppingCart, FaUserMinus, FaUserPlus } from 'react-icons/fa';
+import React from 'react';
+import { FaBars, FaShoppingCart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
