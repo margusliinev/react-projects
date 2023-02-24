@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import { FaBars, FaShoppingCart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import { NavigateContext } from '../context/NavigateContext';
+import { SidebarContext } from '../context/SidebarContext';
 
 const Navbar = () => {
-    const { openSidebar } = useContext(NavigateContext);
+    const { openSidebar } = useContext(SidebarContext);
     return (
         <nav className='nav'>
             <div className='nav-container'>

@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import { NavigateProvider } from './context/NavigateContext';
+import { SidebarProvider } from './context/SidebarContext';
 import './main.scss';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-    <NavigateProvider>
+    <SidebarProvider>
         <App />
-    </NavigateProvider>
+    </SidebarProvider>
 );

@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import { FaTimes, FaShoppingCart } from 'react-icons/fa';
-import { Link, Navigate } from 'react-router-dom';
-import { NavigateContext } from '../context/NavigateContext';
+import { Link } from 'react-router-dom';
+import { SidebarContext } from '../context/SidebarContext';
 
 const Sidebar = () => {
-    const { isSidebarOpen, closeSidebar } = useContext(NavigateContext);
+    const { isSidebarOpen, closeSidebar } = useContext(SidebarContext);
     return (
         <aside className={isSidebarOpen ? 'sidebar sidebar-open' : 'sidebar'}>
             <div className='sidebar-container'>
@@ -19,35 +19,35 @@ const Sidebar = () => {
 
                 <ul className='sidebar-links'>
                     <li>
-                        <Link to={'/'} className='sidebar-link'>
+                        <Link to={'/'} className='sidebar-link' onClick={closeSidebar}>
                             Home
                         </Link>
                     </li>
                     <li>
-                        <Link to={'/about'} className='sidebar-link'>
+                        <Link to={'/about'} className='sidebar-link' onClick={closeSidebar}>
                             About
                         </Link>
                     </li>
                     <li>
-                        <Link to={'/products'} className='sidebar-link'>
+                        <Link to={'/products'} className='sidebar-link' onClick={closeSidebar}>
                             Products
                         </Link>
                     </li>
                     <li>
-                        <Link to={'/checkout'} className='sidebar-link'>
+                        <Link to={'/checkout'} className='sidebar-link' onClick={closeSidebar}>
                             Checkout
                         </Link>
                     </li>
                 </ul>
                 <div className='sidebar-buttons'>
-                    <Link to={'/cart'} className='sidebar-cart-btn'>
+                    <Link to={'/cart'} className='sidebar-cart-btn' onClick={closeSidebar}>
                         <div className='cart-icon-container'>
                             <FaShoppingCart className='sidebar-cart-icon' />
                             <span className='cart-value'>0</span>
                         </div>
                     </Link>
                     <div className='button-divider'></div>
-                    <button type='button' className='sidebar-login-btn'>
+                    <button type='button' className='sidebar-login-btn' onClick={closeSidebar}>
                         Login
                     </button>
                 </div>
