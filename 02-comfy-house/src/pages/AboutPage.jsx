@@ -2,7 +2,7 @@ import React from 'react';
 import aboutImg from '../assets/hero-bcg.jpeg';
 
 const AboutPage = () => {
-    return <h4>about page</h4>;
+    return <section>about page</section>;
 };
 
 export default AboutPage;

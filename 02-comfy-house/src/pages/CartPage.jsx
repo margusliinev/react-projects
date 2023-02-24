@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const CartPage = () => {
-    return <h4>cart page</h4>;
+    return <section>cart page</section>;
 };
 
 export default CartPage;
