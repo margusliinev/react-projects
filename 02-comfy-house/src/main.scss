@@ -447,5 +447,39 @@ section {
     }
 }
 
+/* ABOUT PAGE */
+/* ==================================================================================================== */
+
+.about-page {
+    .about-page-container {
+        display: grid;
+        row-gap: 1rem;
+        width: 90vw;
+        margin: 0 auto;
+        padding: 3rem 0;
+    }
+}
+
+/* PAGE HERO */
+/* ==================================================================================================== */
+
+.page-hero {
+    height: 15rem;
+    background-color: $colorPrimary10;
+    display: grid;
+    align-items: center;
+    .page-hero-container {
+        max-width: $width-lg;
+        margin: 0 auto;
+        width: 90vw;
+    }
+    h4 {
+        color: $colorPrimary5;
+        span {
+            color: $colorPrimary2;
+        }
+    }
+}
+
 /* END */
 /* ==================================================================================================== */
