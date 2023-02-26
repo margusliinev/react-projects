@@ -1,6 +1,7 @@
 import React from 'react';
 import heroImg1 from '../assets/hero-bcg.jpeg';
 import heroImg2 from '../assets/hero-bcg-2.jpeg';
+import { GiCompass, GiDiamondHard, GiStabbedNote } from 'react-icons/gi';
 
 const HomePage = () => {
     return (
@@ -16,6 +17,25 @@ const HomePage = () => {
                 <div className='home-page-image-container'>
                     <img src={heroImg1} alt='furniture image big' className='hero-img-main' />
                     <img src={heroImg2} alt='furniture image small' className='hero-img-secondary' />
+                </div>
+            </div>
+            <div className='home-page-services'>
+                <div className='home-page-services-container'>
+                    <article className='home-page-service'>
+                        <GiCompass className='service-icon' />
+                        <h5>Mission</h5>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit facilis asperiores neque ad suscipit commodi eos qui molestias iste nulla.</p>
+                    </article>
+                    <article className='home-page-service'>
+                        <GiDiamondHard className='service-icon' />
+                        <h5>Vision</h5>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit facilis asperiores neque ad suscipit commodi eos qui molestias iste nulla.</p>
+                    </article>
+                    <article className='home-page-service'>
+                        <GiStabbedNote className='service-icon' />
+                        <h5>History</h5>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit facilis asperiores neque ad suscipit commodi eos qui molestias iste nulla.</p>
+                    </article>
                 </div>
             </div>
         </section>

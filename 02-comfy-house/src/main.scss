@@ -132,6 +132,7 @@ section {
     place-items: center;
     box-shadow: $shadow-md;
     background-color: $colorWhite;
+    z-index: 10;
 }
 
 .nav-container {
@@ -536,6 +537,14 @@ section {
     .btn {
         margin-bottom: 1rem;
     }
+    @media screen and (min-width: $width-sm) {
+        h3 {
+            max-width: 350px;
+        }
+        p {
+            max-width: 450px;
+        }
+    }
 }
 
 .home-page-image-container {
@@ -602,6 +611,51 @@ section {
             max-width: 500px;
             margin-bottom: 1.5rem;
         }
+    }
+}
+
+.home-page-services {
+    background-color: $colorPrimary10;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    padding: 3rem 0;
+    margin-bottom: 3rem;
+}
+
+.home-page-services-container {
+    max-width: $width-lg;
+    margin: 0 auto;
+    width: 90vw;
+    display: grid;
+    row-gap: 2rem;
+}
+
+.home-page-service {
+    background-color: $colorPrimary7;
+    display: grid;
+    justify-items: center;
+    text-align: center;
+    padding: 2rem 1rem;
+    border-radius: $radius-sm;
+    .service-icon {
+        font-size: 2rem;
+        background-color: $colorPrimary10;
+        width: 50px;
+        height: 50px;
+        padding: 0.75rem;
+        border-radius: 9999px;
+        margin-bottom: 0.5rem;
+    }
+    h5 {
+        margin-bottom: 0.25rem;
+    }
+}
+
+@media screen and (min-width: $width-md) {
+    .home-page-services-container {
+        display: flex;
+        gap: 1.5rem;
     }
 }
 
