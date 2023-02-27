@@ -1,11 +1,11 @@
-import React, { useContext } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import heroImg1 from '../assets/hero-bcg.jpeg';
 import heroImg2 from '../assets/hero-bcg-2.jpeg';
 import { GiCompass, GiDiamondHard, GiStabbedNote } from 'react-icons/gi';
-import { ProductsContext } from '../context/ProductsContext';
+import { FeaturedProducts } from '../components';
 
 const HomePage = () => {
-    const { featured_products } = useContext(ProductsContext);
     return (
         <section className='home-page'>
             <div className='home-page-container'>
@@ -20,6 +20,16 @@ const HomePage = () => {
                     <img src={heroImg1} alt='furniture image big' className='hero-img-main' />
                     <img src={heroImg2} alt='furniture image small' className='hero-img-secondary' />
                 </div>
+            </div>
+            <div className='featured-products'>
+                <h4>Featured Products</h4>
+                <div className='title-underline'></div>
+                <div className='featured-products-container'>
+                    <FeaturedProducts />
+                </div>
+                <Link to={'/products'} className='btn'>
+                    all products
+                </Link>
             </div>
             <div className='home-page-services'>
                 <div className='home-page-services-container'>
