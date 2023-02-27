@@ -38,6 +38,20 @@ const HomePage = () => {
                     </article>
                 </div>
             </div>
+            <div className='home-page-contact'>
+                <div className='home-page-contact-container'>
+                    <div className='contact-info'>
+                        <h5>Join our newsletter and get 20% off</h5>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est ea praesentium dolore nulla animi saepe dicta placeat iure nostrum repudiandae.</p>
+                    </div>
+                    <form className='contact-form'>
+                        <input type='email' placeholder='Enter Email' className='contact-form-input' />
+                        <button type='submit' className='btn submit-btn'>
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+            </div>
         </section>
     );
 };

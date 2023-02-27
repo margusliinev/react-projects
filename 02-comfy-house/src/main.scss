@@ -659,5 +659,69 @@ section {
     }
 }
 
+.home-page-contact {
+    width: 100%;
+    display: grid;
+    place-items: center;
+    padding: 2rem 0;
+    margin-bottom: 3rem;
+}
+
+.home-page-contact-container {
+    max-width: $width-md;
+    margin: 0 auto;
+    width: 90vw;
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 1.5rem;
+}
+
+.contact-info {
+    h5 {
+        margin-bottom: 0.5rem;
+    }
+    p {
+        line-height: 1.75;
+        color: darken($colorGray, 10%);
+    }
+}
+
+.contact-form {
+    display: flex;
+    .contact-form-input {
+        border: 2px solid #222;
+        border-radius: $radius-sm;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        flex: auto;
+        font-size: 1.1rem;
+        padding-left: 1rem;
+    }
+    .contact-form-input::placeholder {
+        color: darken($colorGray, 10%);
+    }
+    .submit-btn {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border: 2px solid #222;
+        border-left: 0px;
+        flex: none;
+        color: $colorDark;
+        font-size: 1.1rem;
+    }
+    .submit-btn:hover {
+        background-color: $colorPrimary6;
+    }
+}
+
+@media screen and (min-width: $width-xl) {
+    .home-page-contact-container {
+        max-width: $width-lg;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        column-gap: 2rem;
+    }
+}
+
 /* END */
 /* ==================================================================================================== */
