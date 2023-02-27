@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import heroImg1 from '../assets/hero-bcg.jpeg';
 import heroImg2 from '../assets/hero-bcg-2.jpeg';
 import { GiCompass, GiDiamondHard, GiStabbedNote } from 'react-icons/gi';
+import { ProductsContext } from '../context/ProductsContext';
 
 const HomePage = () => {
+    const { featured_products } = useContext(ProductsContext);
     return (
         <section className='home-page'>
             <div className='home-page-container'>
