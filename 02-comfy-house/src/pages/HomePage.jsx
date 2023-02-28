@@ -12,9 +12,9 @@ const HomePage = () => {
                 <div className='home-page-header'>
                     <h3>Design Your Comfort Zone</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam fugiat sit voluptates, cupiditate temporibus quasi accusamus debitis reiciendis nobis maxime culpa, labore nam pariatur voluptatum error eos nostrum placeat at.</p>
-                    <button type='button' className='btn'>
+                    <Link to={'/products'} className='btn'>
                         SHOP NOW
-                    </button>
+                    </Link>
                 </div>
                 <div className='home-page-image-container'>
                     <img src={heroImg1} alt='furniture image big' className='hero-img-main' />

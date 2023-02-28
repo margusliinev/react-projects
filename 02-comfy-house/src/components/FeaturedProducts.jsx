@@ -1,22 +1,42 @@
 import React, { useContext } from 'react';
 import { ProductsContext } from '../context/ProductsContext';
 import { Loader, Error } from '../components';
+import { FaSearch } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const FeaturedProducts = () => {
     const { featured_products: featured, products_loading: loading, products_error: error } = useContext(ProductsContext);
 
     if (loading) {
-        return <Loader />;
+        return (
+            <>
+                <div></div>
+                <Loader />
+                <div></div>
+            </>
+        );
     }
     if (error) {
-        return <Error />;
+        return (
+            <>
+                <div></div>
+                <Error />
+                <div></div>
+            </>
+        );
     }
+
     return (
         <>
-            {featured.map((product) => {
+            {featured.slice(0, 3).map((product) => {
                 return (
                     <article key={product.id} className='featured-product'>
-                        <img src={product.image} alt='featured product image' className='featured-product-img' />
+                        <div className='featured-product-img-container'>
+                            <img src={product.image} alt='featured product image' className='featured-product-img' />
+                            <Link to={`/products/${product.id}`} className='product-link'>
+                                <FaSearch className='product-icon' />
+                            </Link>
+                        </div>
                         <div className='featured-product-info'>
                             <h6>{product.name}</h6>
                             <p>{product.price}</p>
