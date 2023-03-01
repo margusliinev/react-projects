@@ -1,5 +1,5 @@
 const Error = () => {
-    return <div>Error</div>;
+    return <div className='featured-products-error'>New products coming soon!</div>;
 };
 
 export default Error;
