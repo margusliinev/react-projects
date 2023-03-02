@@ -6,7 +6,6 @@ import { GET_PRODUCTS_BEGIN, GET_PRODUCTS_SUCCESS, GET_PRODUCTS_ERROR, GET_SINGL
 const ProductsContext = createContext();
 
 const products_url = 'https://course-api.com/react-store-products';
-const single_product_url = `https://course-api.com/react-store-single-product?id=`;
 
 const initialState = {
     products_loading: false,
@@ -32,11 +31,22 @@ const ProductsProvider = ({ children }) => {
         }
     };
 
+    const fetchSingleProduct = async (url) => {
+        dispatch({ type: GET_SINGLE_PRODUCT_BEGIN });
+        try {
+            const response = await axios.get(url);
+            const product = response.data;
+            dispatch({ type: GET_SINGLE_PRODUCT_SUCCESS, payload: product });
+        } catch (error) {
+            dispatch({ type: GET_SINGLE_PRODUCT_ERROR });
+        }
+    };
+
     useEffect(() => {
         fetchProducts(products_url);
     }, []);
 
-    return <ProductsContext.Provider value={{ ...state }}>{children}</ProductsContext.Provider>;
+    return <ProductsContext.Provider value={{ ...state, fetchSingleProduct }}>{children}</ProductsContext.Provider>;
 };
 
 export { ProductsContext, ProductsProvider };
