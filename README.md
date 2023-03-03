@@ -14,3 +14,4 @@ This is a repository for projects built with React.
 ## Projects
 
 1. Github Users
+2. Comfy House
