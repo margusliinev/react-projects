@@ -913,6 +913,11 @@ section {
 
 .product-alt-img {
     border-radius: $radius-sm;
+    filter: brightness(60%);
+}
+
+.active {
+    filter: brightness(100%);
 }
 
 .single-product-name {
@@ -948,6 +953,9 @@ hr {
     .single-product {
         grid-template-columns: 1fr 1fr;
         column-gap: 2rem;
+    }
+    .product-main-img {
+        max-height: 325px;
     }
 }
 
