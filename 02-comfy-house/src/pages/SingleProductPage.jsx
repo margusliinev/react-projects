@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { ProductsContext } from '../context/ProductsContext';
-import { PageHero, Loader, Error, ProductImages } from '../components';
+import { PageHero, Loader, Error, ProductImages, Stars } from '../components';
 import { formatPrice } from '../utils/formatPrice';
 
 const single_product_url = `https://course-api.com/react-store-single-product?id=`;
@@ -54,7 +54,7 @@ const SingleProductPage = () => {
                     <ProductImages images={images} />
                     <div className='single-product-info-container'>
                         <h4 className='single-product-name'>{name}</h4>
-                        {/* <Stars /> */}
+                        <Stars stars={stars} reviews={reviews} />
                         <h6 className='single-product-price'>{formatPrice(price)}</h6>
                         <p className='single-product-desc'>{description}</p>
                         <p className='single-product-info'>
