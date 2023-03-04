@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from 'react';
-import { Link, useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { ProductsContext } from '../context/ProductsContext';
-import { PageHero, Loader, Error, ProductImages, Stars } from '../components';
+import { PageHero, Loader, Error, ProductImages, Stars, AddToCart } from '../components';
 import { formatPrice } from '../utils/formatPrice';
 
 const single_product_url = `https://course-api.com/react-store-single-product?id=`;
@@ -21,7 +21,7 @@ const SingleProductPage = () => {
                 navigate('/');
             }, 2000);
         }
-    });
+    }, [error]);
 
     if (loading) {
         return (
@@ -47,9 +47,6 @@ const SingleProductPage = () => {
         <section className='single-product-page'>
             <PageHero product={product.name} />
             <div className='single-product-container'>
-                <Link to={'/products'} className='btn products-link'>
-                    back to products
-                </Link>
                 <div className='single-product'>
                     <ProductImages images={images} />
                     <div className='single-product-info-container'>
@@ -59,7 +56,7 @@ const SingleProductPage = () => {
                         <p className='single-product-desc'>{description}</p>
                         <p className='single-product-info'>
                             <span>Available: </span>
-                            {stock > 0 ? 'In stock' : 'out of stock'}
+                            {stock > 0 ? `In stock (${stock})` : 'out of stock'}
                         </p>
                         <p className='single-product-info'>
                             <span>SKU: </span>
@@ -70,10 +67,7 @@ const SingleProductPage = () => {
                             {company}
                         </p>
                         <hr />
-                        {/* {stock > 0 && <AddToCart />} */}
-                        <button type='button' className='btn addtocart-btn'>
-                            AddToCart
-                        </button>
+                        {stock > 0 && <AddToCart product={product} />}
                     </div>
                 </div>
             </div>

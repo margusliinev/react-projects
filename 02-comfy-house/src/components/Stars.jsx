@@ -2,7 +2,6 @@ import React from 'react';
 import { BsStarFill, BsStarHalf, BsStar } from 'react-icons/bs';
 
 const Stars = ({ stars, reviews }) => {
-    console.log(stars, reviews);
     return (
         <div className='stars-reviews'>
             <div className='stars'>

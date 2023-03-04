@@ -871,7 +871,7 @@ section {
 
 .single-product-container {
     max-width: $width-lg;
-    margin: 2rem auto;
+    margin: 3rem auto;
     width: 85vw;
     min-height: calc(100vh - 25rem);
     .products-link {
@@ -909,6 +909,7 @@ section {
 
 .product-main-img {
     border-radius: $radius-sm;
+    max-height: 450px;
 }
 
 .product-alt-img {
@@ -936,13 +937,11 @@ section {
 .single-product-info {
     display: grid;
     grid-template-columns: 125px 1fr;
+    color: $colorDark;
+    font-weight: 500;
     span {
-        font-weight: 700;
+        font-weight: 600;
     }
-}
-
-.addtocart-btn {
-    width: 150px;
 }
 
 hr {
@@ -956,6 +955,12 @@ hr {
     }
     .product-main-img {
         max-height: 325px;
+    }
+    .single-product-img-container {
+        display: block;
+    }
+    .product-main-img {
+        margin-bottom: 1.5rem;
     }
 }
 
@@ -975,6 +980,71 @@ hr {
 
 .reviews {
     font-size: 14px;
+}
+
+/* ADD TO CART  */
+/* ==================================================================================================== */
+
+.add-to-cart {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 1rem;
+}
+
+.colors {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    span {
+        text-transform: capitalize;
+        font-weight: 700;
+        font-size: 18px;
+    }
+    div {
+        display: flex;
+        gap: 0.3rem;
+    }
+}
+
+.color-btn {
+    width: 20px;
+    height: 20px;
+    border-radius: 9999px;
+    border: none;
+    background-color: $colorDark;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    opacity: 0.5;
+    svg {
+        font-size: 10px;
+        color: $colorWhite;
+    }
+}
+
+.active-btn {
+    opacity: 1;
+}
+
+.btn-container {
+    .btn {
+        padding: 0.5rem 1rem;
+    }
+}
+
+.amount-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 100px;
+    margin-bottom: 1rem;
+}
+
+.amount-btn {
+    background-color: transparent;
+    border: transparent;
+    font-size: 14px;
+    cursor: pointer;
 }
 
 /* END */
