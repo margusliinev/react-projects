@@ -836,11 +836,19 @@ section {
     }
 }
 
+@media screen and (min-width: $width-md) {
+    .featured-products-container {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        column-gap: 1.5rem;
+        width: 90vw;
+    }
+}
+
 @media screen and (min-width: $width-lg) {
     .featured-products-container {
         grid-template-columns: 1fr 1fr 1fr;
-        column-gap: 1.5rem;
-        width: 90vw;
+        grid-template-rows: 1fr;
     }
     .featured-product-info h6 {
         font-size: 18px;
@@ -868,6 +876,10 @@ section {
 
 /* SINGLE PRODUCT PAGE */
 /* ==================================================================================================== */
+
+.single-product-page {
+    min-height: calc(100vh - 6rem);
+}
 
 .single-product-container {
     max-width: $width-lg;

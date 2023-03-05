@@ -1,4 +1,4 @@
-import { GET_PRODUCTS_BEGIN, GET_PRODUCTS_SUCCESS, GET_PRODUCTS_ERROR, GET_SINGLE_PRODUCT_BEGIN, GET_SINGLE_PRODUCT_SUCCESS, GET_SINGLE_PRODUCT_ERROR } from '../utils/actions';
+import { GET_PRODUCTS_BEGIN, GET_PRODUCTS_SUCCESS, GET_PRODUCTS_ERROR, GET_SINGLE_PRODUCT_BEGIN, GET_SINGLE_PRODUCT_SUCCESS, GET_SINGLE_PRODUCT_ERROR, REMOVE_SINGLE_PRODUCT_ERROR } from '../utils/actions';
 
 const reducer = (state, action) => {
     if (action.type === GET_PRODUCTS_BEGIN) {
@@ -21,6 +21,9 @@ const reducer = (state, action) => {
     }
     if (action.type === GET_SINGLE_PRODUCT_ERROR) {
         return { ...state, single_product_loading: false, single_product_error: true };
+    }
+    if (action.type === REMOVE_SINGLE_PRODUCT_ERROR) {
+        return { ...state, single_product_error: false };
     }
     throw new Error(`No matching "${action.type}" - action type`);
 };

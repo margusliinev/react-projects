@@ -21,16 +21,7 @@ const HomePage = () => {
                     <img src={heroImg2} alt='furniture image small' className='hero-img-secondary' />
                 </div>
             </div>
-            <div className='featured-products'>
-                <h4>Featured Products</h4>
-                <div className='title-underline'></div>
-                <div className='featured-products-container'>
-                    <FeaturedProducts />
-                </div>
-                <Link to={'/products'} className='btn'>
-                    all products
-                </Link>
-            </div>
+            <FeaturedProducts />
             <div className='home-page-services'>
                 <div className='home-page-services-container'>
                     <article className='home-page-service'>

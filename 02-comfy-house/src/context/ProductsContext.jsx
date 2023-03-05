@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, createContext, useReducer } from 'react';
 import reducer from '../reducers/ProductsReducer';
-import { GET_PRODUCTS_BEGIN, GET_PRODUCTS_SUCCESS, GET_PRODUCTS_ERROR, GET_SINGLE_PRODUCT_BEGIN, GET_SINGLE_PRODUCT_SUCCESS, GET_SINGLE_PRODUCT_ERROR } from '../utils/actions';
+import { GET_PRODUCTS_BEGIN, GET_PRODUCTS_SUCCESS, GET_PRODUCTS_ERROR, GET_SINGLE_PRODUCT_BEGIN, GET_SINGLE_PRODUCT_SUCCESS, GET_SINGLE_PRODUCT_ERROR, REMOVE_SINGLE_PRODUCT_ERROR } from '../utils/actions';
 
 const ProductsContext = createContext();
 
@@ -42,11 +42,15 @@ const ProductsProvider = ({ children }) => {
         }
     };
 
+    const removeSingleProductError = () => {
+        dispatch({ type: REMOVE_SINGLE_PRODUCT_ERROR });
+    };
+
     useEffect(() => {
         fetchProducts(products_url);
     }, []);
 
-    return <ProductsContext.Provider value={{ ...state, fetchSingleProduct }}>{children}</ProductsContext.Provider>;
+    return <ProductsContext.Provider value={{ ...state, fetchSingleProduct, removeSingleProductError }}>{children}</ProductsContext.Provider>;
 };
 
 export { ProductsContext, ProductsProvider };

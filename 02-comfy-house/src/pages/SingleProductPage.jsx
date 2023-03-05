@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { ProductsContext } from '../context/ProductsContext';
-import { PageHero, Loader, Error, ProductImages, Stars, AddToCart } from '../components';
+import { PageHero, Loader, ProductImages, Stars, AddToCart } from '../components';
 import { formatPrice } from '../utils/formatPrice';
 
 const single_product_url = `https://course-api.com/react-store-single-product?id=`;
@@ -9,7 +9,7 @@ const single_product_url = `https://course-api.com/react-store-single-product?id
 const SingleProductPage = () => {
     const { id } = useParams();
     const navigate = useNavigate();
-    const { single_product_loading: loading, single_product_error: error, single_product: product, fetchSingleProduct } = useContext(ProductsContext);
+    const { single_product_loading: loading, single_product_error: error, single_product: product, fetchSingleProduct, removeSingleProductError } = useContext(ProductsContext);
 
     useEffect(() => {
         fetchSingleProduct(`${single_product_url}${id}`);
@@ -17,9 +17,8 @@ const SingleProductPage = () => {
 
     useEffect(() => {
         if (error) {
-            setTimeout(() => {
-                navigate('/');
-            }, 2000);
+            navigate('/error');
+            removeSingleProductError();
         }
     }, [error]);
 
@@ -28,15 +27,6 @@ const SingleProductPage = () => {
             <section className='single-product-page'>
                 <PageHero />
                 <Loader />
-            </section>
-        );
-    }
-
-    if (error) {
-        return (
-            <section className='single-product-page'>
-                <PageHero />
-                <Error />
             </section>
         );
     }
