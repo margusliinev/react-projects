@@ -1213,5 +1213,81 @@ hr {
     }
 }
 
+/* SORT */
+/* ==================================================================================================== */
+
+.sort {
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 1rem auto;
+    label {
+        font-size: 1rem;
+    }
+    select {
+        border-color: transparent;
+        font-size: 1rem;
+        padding: 0.25rem 0.5rem;
+    }
+    select:focus {
+        outline: none;
+        box-shadow: 0 0 4px 1px rgb(173, 216, 230);
+    }
+}
+.sort-buttons-container {
+    display: flex;
+    gap: 0.25rem;
+    margin-bottom: 0.5rem;
+    button {
+        border: 1px solid $colorDark;
+        display: grid;
+        place-items: center;
+        border-radius: $radius-sm;
+        padding: 0.2rem;
+        cursor: pointer;
+        svg {
+            font-size: 1rem;
+        }
+    }
+}
+
+.grid-button,
+.list-button {
+    background-color: $colorWhite;
+}
+
+.grid-button-active,
+.list-button-active {
+    background: $colorDark;
+    color: $colorWhite;
+    svg {
+        color: $colorWhite;
+    }
+}
+
+.products-count {
+    font-size: 14px;
+}
+
+.connector {
+    width: 100%;
+    height: 1px;
+    background-color: lightgray;
+    border-radius: 9999px;
+}
+
+@media screen and (min-width: $width-md) {
+    .sort {
+        grid-template-columns: auto auto 1fr auto;
+        grid-template-rows: 1fr;
+        align-items: center;
+        column-gap: 1rem;
+    }
+    .sort-buttons-container {
+        margin: 0;
+    }
+}
+
 /* END */
 /* ==================================================================================================== */
