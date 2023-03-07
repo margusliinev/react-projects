@@ -3,7 +3,7 @@ import { FilterContext } from '../context/FilterContext';
 import { BsFillGridFill, BsList } from 'react-icons/bs';
 
 const Sort = () => {
-    const { filtered_products, all_products, grid_view, setGridView, setListView } = useContext(FilterContext);
+    const { filtered_products, grid_view, setGridView, setListView, sort, updateSort } = useContext(FilterContext);
     return (
         <div className='sort'>
             <div className='sort-buttons-container'>
@@ -18,11 +18,11 @@ const Sort = () => {
             <div className='connector'></div>
             <div>
                 <label htmlFor='sort'>Sort By </label>
-                <select name='sort' id='sort'>
+                <select name='sort' id='sort' value={sort} onChange={updateSort}>
                     <option value='price-lowest'>Price (Lowest)</option>
                     <option value='price-highest'>Price (Highest)</option>
-                    <option value='name-a-z'>Name (A - Z)</option>
-                    <option value='name-z-a'>Name (Z - A)</option>
+                    <option value='name-az'>Name (A - Z)</option>
+                    <option value='name-za'>Name (Z - A)</option>
                 </select>
             </div>
         </div>
