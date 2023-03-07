@@ -1068,6 +1068,7 @@ hr {
     width: 90vw;
     display: grid;
     gap: 3rem 1.5rem;
+    min-height: calc(100vh - 27rem);
 }
 
 .grid-products-container {
@@ -1076,61 +1077,110 @@ hr {
     img {
         height: 220px;
     }
-}
-
-.product {
-    display: grid;
-    grid-template-rows: 1fr auto;
-    .product-img-container {
-        position: relative;
+    .product {
         display: grid;
-        place-items: center;
-        background-color: #222;
-        border-radius: $radius-lg;
-        height: 220px;
-        transition: $transition;
-        .product-img {
-            border-radius: $radius-md;
-            transition: $transition;
-        }
-        .product-link {
-            color: $colorWhite;
-            position: absolute;
-            opacity: 0;
-            background-color: $colorPrimary4;
-            width: 35px;
-            height: 35px;
-            border-radius: 9999px;
+        grid-template-rows: 1fr auto;
+        .product-img-container {
+            position: relative;
             display: grid;
             place-items: center;
+            background-color: #222;
+            border-radius: $radius-lg;
+            height: 220px;
             transition: $transition;
-            .product-icon {
-                font-size: 1.1rem;
+            .product-img {
+                border-radius: $radius-md;
+                transition: $transition;
+            }
+            .product-link {
+                color: $colorWhite;
+                position: absolute;
+                opacity: 0;
+                background-color: $colorPrimary4;
+                width: 35px;
+                height: 35px;
+                border-radius: 9999px;
+                display: grid;
+                place-items: center;
+                transition: $transition;
+                .product-icon {
+                    font-size: 1.1rem;
+                }
+            }
+            .product-link:hover {
+                background-color: $colorPrimary3;
             }
         }
-        .product-link:hover {
-            background-color: $colorPrimary3;
+        .product-img-container:hover .product-img {
+            opacity: 0.8;
+        }
+        .product-img-container:hover .product-link {
+            opacity: 1;
+        }
+        .product-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 0.5rem;
+            margin-bottom: 0.25rem;
+            h6 {
+                text-transform: capitalize;
+                font-size: 18px;
+            }
+            p {
+                color: darken($colorPrimary5, 5%);
+                font-weight: 600;
+            }
         }
     }
-    .product-img-container:hover .product-img {
-        opacity: 0.8;
+}
+
+.list-products-container {
+    display: grid;
+    row-gap: 3rem;
+    img {
+        width: 100%;
+        display: block;
+        width: 300px;
+        height: 200px;
+        object-fit: cover;
+        border-radius: $radius-sm;
+        margin-bottom: 1rem;
     }
-    .product-img-container:hover .product-link {
-        opacity: 1;
-    }
-    .product-info {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: 0.5rem;
+    h6 {
+        font-size: 22px;
         margin-bottom: 0.25rem;
-        h6 {
-            text-transform: capitalize;
-            font-size: 18px;
-        }
-        p {
-            color: darken($colorPrimary5, 5%);
-            font-weight: 600;
+        text-transform: capitalize;
+    }
+    .price {
+        font-size: 18px;
+        color: $colorPrimary5;
+        margin-bottom: 0.5rem;
+    }
+    p {
+        max-width: 37em;
+        margin-bottom: 0.75rem;
+    }
+    .btn {
+        font-size: 1rem;
+        padding: 0.3rem 0.6rem;
+    }
+    @media screen and (min-width: $width-lg) {
+        article {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            column-gap: 2rem;
+            div {
+                display: grid;
+                height: 200px;
+                .btn {
+                    justify-self: start;
+                }
+                p {
+                    max-height: 4.8rem;
+                    overflow: hidden;
+                }
+            }
         }
     }
 }
@@ -1148,14 +1198,14 @@ hr {
 }
 
 @media screen and (min-width: $width-sm) {
-    .product {
-        .product-img-container {
-            height: 175px;
-        }
-    }
     .grid-products-container {
         img {
             height: 175px;
+        }
+        .product {
+            .product-img-container {
+                height: 175px;
+            }
         }
     }
     .products-page-container {
