@@ -1289,5 +1289,20 @@ hr {
     }
 }
 
+/* FILTERS */
+/* ==================================================================================================== */
+
+.clear-btn {
+    background-color: darken($colorDanger, 15%);
+    transition: $transition;
+    width: 115px;
+    max-height: 28px;
+    padding: 0.3rem;
+}
+
+.clear-btn:hover {
+    background-color: darken($colorDanger, 5%);
+}
+
 /* END */
 /* ==================================================================================================== */
