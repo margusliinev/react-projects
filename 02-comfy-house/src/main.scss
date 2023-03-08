@@ -1067,7 +1067,7 @@ hr {
     margin: 3rem auto;
     width: 90vw;
     display: grid;
-    gap: 3rem 1.5rem;
+    gap: 3rem 2rem;
     min-height: calc(100vh - 27rem);
 }
 
@@ -1292,12 +1292,113 @@ hr {
 /* FILTERS */
 /* ==================================================================================================== */
 
+.filters {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 1rem;
+    max-height: 700px;
+    margin-top: 1rem;
+}
+
+.form-control {
+    h6 {
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 0.3rem;
+    }
+}
+
+.search-input {
+    font-size: 1rem;
+    width: 200px;
+    padding: 0.625rem;
+    border: 1px solid rgb(209, 213, 219);
+    background-color: lighten(#f1f5f8, 1%);
+    border-radius: $radius-lg;
+}
+
+.search-input:focus {
+    outline: 1px solid rgba(63, 131, 248, 0.5);
+}
+
+.category-buttons {
+    display: grid;
+    place-items: start;
+    row-gap: 0.5rem;
+}
+
+.category-btn {
+    background-color: transparent;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    text-transform: capitalize;
+    color: $colorGray;
+}
+
+#company {
+    border: none;
+    background-color: #f1f5f8;
+    font-size: 1rem;
+    padding: 0.6rem;
+    border-radius: $radius-sm;
+    text-transform: capitalize;
+    option {
+        text-transform: capitalize;
+    }
+}
+
+#company:focus {
+    outline: 2px solid rgba(63, 131, 248, 0.5);
+}
+
+.color-buttons {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.color-btn-all {
+    background-color: transparent;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.color-btn-all-active {
+    border-bottom: 1px solid $colorDark;
+}
+
 .clear-btn {
     background-color: darken($colorDanger, 15%);
     transition: $transition;
     width: 115px;
     max-height: 28px;
     padding: 0.3rem;
+}
+
+#price {
+    margin-top: 0.25rem;
+}
+
+#shipping {
+    background-color: #f9fafb;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 0.25rem;
+    border-width: 1px;
+    border-color: #d1d5db;
+}
+
+.filters {
+    .form-control:last-of-type {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        label {
+            font-weight: 500;
+        }
+    }
 }
 
 .clear-btn:hover {

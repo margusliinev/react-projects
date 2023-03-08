@@ -40,14 +40,14 @@ const Filters = () => {
             <form className='filters'>
                 <div className='form-control'>
                     <h6>Search</h6>
-                    <input type='text' name='search' className='search-input' />
+                    <input type='text' name='search' className='search-input' placeholder='Chair' />
                 </div>
                 <div className='form-control'>
                     <h6>Category</h6>
-                    <div>
+                    <div className='category-buttons'>
                         {categories.map((category) => {
                             return (
-                                <button key={category} type='button' name={category}>
+                                <button key={category} type='button' name={category} className='category-btn'>
                                     {category}
                                 </button>
                             );
@@ -64,16 +64,18 @@ const Filters = () => {
                 </div>
                 <div className='form-control'>
                     <h6>Colors</h6>
-                    <button type='button' name='all' onClick={() => setColorBtn('all')}>
-                        All
-                    </button>
-                    {colors.map((color) => {
-                        return (
-                            <button key={color} type='button' name={color} className='color-btn' style={{ backgroundColor: color }} onClick={() => setColorBtn(color)}>
-                                {color === colorBtn ? <FaCheck /> : ''}
-                            </button>
-                        );
-                    })}
+                    <div className='color-buttons'>
+                        <button type='button' name='all' className={colorBtn === 'all' ? 'color-btn-all color-btn-all-active' : 'color-btn-all'} onClick={() => setColorBtn('all')}>
+                            All
+                        </button>
+                        {colors.map((color) => {
+                            return (
+                                <button key={color} type='button' name={color} className='color-btn' style={{ backgroundColor: color }} onClick={() => setColorBtn(color)}>
+                                    {color === colorBtn ? <FaCheck /> : ''}
+                                </button>
+                            );
+                        })}
+                    </div>
                 </div>
                 <div className='form-control'>
                     <h6>Price</h6>
@@ -82,12 +84,12 @@ const Filters = () => {
                 </div>
                 <div className='form-control'>
                     <label htmlFor='shipping'>Free Shipping</label>
-                    <input type='checkbox' />
+                    <input type='checkbox' id='shipping' />
                 </div>
+                <button type='button' className='btn clear-btn'>
+                    Clear Filters
+                </button>
             </form>
-            <button type='button' className='btn clear-btn'>
-                Clear Filters
-            </button>
         </>
     );
 };
