@@ -379,6 +379,14 @@ nav {
     }
 }
 
+@media screen and (max-width: $width-sm) {
+    .info-container {
+        article {
+            padding: 0.5rem 1rem;
+        }
+    }
+}
+
 @media screen and (min-width: $width-md) {
     .info-container {
         grid-template-columns: 1fr 1fr 1fr;
@@ -469,6 +477,13 @@ nav {
         a:hover {
             background-color: $colorPrimary5;
             color: $colorWhite;
+        }
+    }
+    @media screen and (max-width: $width-sm) {
+        header {
+            a {
+                display: none;
+            }
         }
     }
     .bio {
