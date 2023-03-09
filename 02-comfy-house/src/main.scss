@@ -1334,6 +1334,9 @@ hr {
     cursor: pointer;
     text-transform: capitalize;
     color: $colorGray;
+    text-align: left;
+    transition: $transition;
+    height: 20px;
 }
 
 #company {
@@ -1360,12 +1363,17 @@ hr {
 
 .color-btn-all {
     background-color: transparent;
-    border: none;
+    border: transparent;
     font-size: 1rem;
     cursor: pointer;
 }
 
 .color-btn-all-active {
+    border-bottom: 1px solid $colorDark;
+    margin-top: 1px;
+}
+
+.category-btn-active {
     border-bottom: 1px solid $colorDark;
 }
 

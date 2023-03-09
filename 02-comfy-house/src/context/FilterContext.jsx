@@ -47,7 +47,25 @@ const FilterProvider = ({ children }) => {
     };
 
     const updateFilters = (e) => {
-        dispatch({ type: UPDATE_FILTERS });
+        let name = e.target.name;
+        let value = e.target.value;
+        if (name === 'category') {
+            value = e.target.textContent;
+        }
+        if (name === 'colors') {
+            value = e.target.dataset.color;
+        }
+        if (name === 'price') {
+            value = Number(e.target.value);
+        }
+        if (name === 'shipping') {
+            if (e.target.checked === true) {
+                value = true;
+            } else {
+                value = false;
+            }
+        }
+        dispatch({ type: UPDATE_FILTERS, payload: { name, value } });
     };
 
     return <FilterContext.Provider value={{ ...state, setGridView, setListView, updateSort, updateFilters }}>{children}</FilterContext.Provider>;

@@ -4,9 +4,8 @@ import { FaCheck } from 'react-icons/fa';
 import { formatPrice } from '../utils/formatPrice';
 
 const Filters = () => {
-    const { all_products, filters } = useContext(FilterContext);
-    const { min_price, max_price, price } = filters;
-    const [colorBtn, setColorBtn] = useState('all');
+    const { all_products, filters, updateFilters } = useContext(FilterContext);
+    const { search, category, company, colors, min_price, max_price, price, shipping } = filters;
 
     let categories = all_products.reduce(
         (acc, cur) => {
@@ -26,7 +25,7 @@ const Filters = () => {
         },
         ['all']
     );
-    let colors = all_products.reduce((acc, cur) => {
+    let productColors = all_products.reduce((acc, cur) => {
         cur.colors.forEach((color) => {
             if (!acc.includes(color)) {
                 acc.push(color);
@@ -37,18 +36,18 @@ const Filters = () => {
 
     return (
         <>
-            <form className='filters'>
+            <form className='filters' onSubmit={(e) => e.preventDefault()}>
                 <div className='form-control'>
                     <h6>Search</h6>
-                    <input type='text' name='search' className='search-input' placeholder='Chair' />
+                    <input type='text' className='search-input' placeholder='Chair' name='search' value={search} onChange={updateFilters} />
                 </div>
                 <div className='form-control'>
                     <h6>Category</h6>
                     <div className='category-buttons'>
-                        {categories.map((category) => {
+                        {categories.map((productCategory) => {
                             return (
-                                <button key={category} type='button' name={category} className='category-btn'>
-                                    {category}
+                                <button key={productCategory} type='button' name='category' className={category === productCategory ? 'category-btn category-btn-active' : 'category-btn'} value={category} onClick={updateFilters}>
+                                    {productCategory}
                                 </button>
                             );
                         })}
@@ -56,7 +55,7 @@ const Filters = () => {
                 </div>
                 <div className='form-control'>
                     <h6>Company</h6>
-                    <select name='company' id='company'>
+                    <select name='company' id='company' value={company} onChange={updateFilters}>
                         {companies.map((company) => {
                             return <option key={company}>{company}</option>;
                         })}
@@ -65,13 +64,13 @@ const Filters = () => {
                 <div className='form-control'>
                     <h6>Colors</h6>
                     <div className='color-buttons'>
-                        <button type='button' name='all' className={colorBtn === 'all' ? 'color-btn-all color-btn-all-active' : 'color-btn-all'} onClick={() => setColorBtn('all')}>
+                        <button type='button' name='colors' data-color='all' className={colors === 'all' ? 'color-btn-all color-btn-all-active' : 'color-btn-all'} value={colors} onClick={updateFilters}>
                             All
                         </button>
-                        {colors.map((color) => {
+                        {productColors.map((color) => {
                             return (
-                                <button key={color} type='button' name={color} className='color-btn' style={{ backgroundColor: color }} onClick={() => setColorBtn(color)}>
-                                    {color === colorBtn ? <FaCheck /> : ''}
+                                <button key={color} type='button' name='colors' data-color={color} className='color-btn' style={{ backgroundColor: color }} value={colors} onClick={updateFilters}>
+                                    {color === colors ? <FaCheck /> : null}
                                 </button>
                             );
                         })}
@@ -80,11 +79,11 @@ const Filters = () => {
                 <div className='form-control'>
                     <h6>Price</h6>
                     <p>{formatPrice(price)}</p>
-                    <input type='range' id='price' name='price' min={min_price} max={max_price} />
+                    <input type='range' id='price' name='price' min={min_price} max={max_price} value={price} onChange={updateFilters} />
                 </div>
                 <div className='form-control'>
                     <label htmlFor='shipping'>Free Shipping</label>
-                    <input type='checkbox' id='shipping' />
+                    <input type='checkbox' name='shipping' id='shipping' checked={shipping} onChange={updateFilters} />
                 </div>
                 <button type='button' className='btn clear-btn'>
                     Clear Filters
