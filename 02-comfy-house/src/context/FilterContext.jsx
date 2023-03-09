@@ -68,7 +68,11 @@ const FilterProvider = ({ children }) => {
         dispatch({ type: UPDATE_FILTERS, payload: { name, value } });
     };
 
-    return <FilterContext.Provider value={{ ...state, setGridView, setListView, updateSort, updateFilters }}>{children}</FilterContext.Provider>;
+    const clearFilters = () => {
+        dispatch({ type: CLEAR_FILTERS });
+    };
+
+    return <FilterContext.Provider value={{ ...state, setGridView, setListView, updateSort, updateFilters, clearFilters }}>{children}</FilterContext.Provider>;
 };
 
 export { FilterContext, FilterProvider };

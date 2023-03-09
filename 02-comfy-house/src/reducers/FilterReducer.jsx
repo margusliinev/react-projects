@@ -36,6 +36,12 @@ const reducer = (state, action) => {
         const { name, value } = action.payload;
         return { ...state, filters: { ...state.filters, [name]: value } };
     }
+    if (action.type === CLEAR_FILTERS) {
+        return {
+            ...state,
+            filters: { ...state.filters, search: '', category: 'all', company: 'all', colors: 'all', price: state.filters.max_price, shipping: false },
+        };
+    }
     throw new Error(`No Matching "${action.type}" - action type`);
 };
 export { reducer };

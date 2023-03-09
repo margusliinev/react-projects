@@ -1125,7 +1125,7 @@ hr {
             margin-bottom: 0.25rem;
             h6 {
                 text-transform: capitalize;
-                font-size: 18px;
+                font-size: 16px;
             }
             p {
                 color: darken($colorPrimary5, 5%);
@@ -1370,7 +1370,10 @@ hr {
 
 .color-btn-all-active {
     border-bottom: 1px solid $colorDark;
-    margin-top: 1px;
+}
+
+.color-btn-active {
+    opacity: 1;
 }
 
 .category-btn-active {

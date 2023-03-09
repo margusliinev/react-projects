@@ -1,10 +1,10 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { FilterContext } from '../context/FilterContext';
 import { FaCheck } from 'react-icons/fa';
 import { formatPrice } from '../utils/formatPrice';
 
 const Filters = () => {
-    const { all_products, filters, updateFilters } = useContext(FilterContext);
+    const { all_products, filters, updateFilters, clearFilters } = useContext(FilterContext);
     const { search, category, company, colors, min_price, max_price, price, shipping } = filters;
 
     let categories = all_products.reduce(
@@ -69,7 +69,7 @@ const Filters = () => {
                         </button>
                         {productColors.map((color) => {
                             return (
-                                <button key={color} type='button' name='colors' data-color={color} className='color-btn' style={{ backgroundColor: color }} value={colors} onClick={updateFilters}>
+                                <button key={color} type='button' name='colors' data-color={color} className={colors === color ? 'color-btn color-btn-active' : 'color-btn'} style={{ backgroundColor: color }} value={colors} onClick={updateFilters}>
                                     {color === colors ? <FaCheck /> : null}
                                 </button>
                             );
@@ -85,7 +85,7 @@ const Filters = () => {
                     <label htmlFor='shipping'>Free Shipping</label>
                     <input type='checkbox' name='shipping' id='shipping' checked={shipping} onChange={updateFilters} />
                 </div>
-                <button type='button' className='btn clear-btn'>
+                <button type='button' className='btn clear-btn' onClick={clearFilters}>
                     Clear Filters
                 </button>
             </form>
