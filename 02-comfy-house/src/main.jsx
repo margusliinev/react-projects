@@ -4,13 +4,16 @@ import App from './App';
 import { SidebarProvider } from './context/SidebarContext';
 import { ProductsProvider } from './context/ProductsContext';
 import { FilterProvider } from './context/FilterContext';
+import { CartProvider } from './context/CartContext';
 import './main.scss';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <SidebarProvider>
         <ProductsProvider>
             <FilterProvider>
-                <App />
+                <CartProvider>
+                    <App />
+                </CartProvider>
             </FilterProvider>
         </ProductsProvider>
     </SidebarProvider>

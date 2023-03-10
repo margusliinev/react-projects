@@ -38,7 +38,7 @@ const reducer = (state, action) => {
     }
     if (action.type === FILTER_PRODUCTS) {
         const { all_products } = state;
-        const { search, category, company, colors, min_price, max_price, price, shipping } = state.filters;
+        const { search, category, company, colors, price, shipping } = state.filters;
         let newProducts = [...all_products];
         if (search) {
             newProducts = newProducts.filter((product) => {
