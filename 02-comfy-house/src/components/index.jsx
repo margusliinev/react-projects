@@ -14,5 +14,6 @@ import GridView from './GridView';
 import ListView from './ListView';
 import Product from './Product';
 import CartItems from './CartItems';
+import CartItem from './CartItem';
 
-export { Navbar, Footer, Sidebar, PageHero, Loader, FeaturedProducts, ProductImages, Stars, AddToCart, ProductsList, Filters, Sort, GridView, ListView, Product, CartItems };
+export { Navbar, Footer, Sidebar, PageHero, Loader, FeaturedProducts, ProductImages, Stars, AddToCart, ProductsList, Filters, Sort, GridView, ListView, Product, CartItems, CartItem };

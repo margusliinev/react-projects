@@ -1533,5 +1533,24 @@ hr {
     }
 }
 
+.cart-items {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 1rem;
+    width: 90vw;
+    margin: 2rem auto;
+    max-width: $width-lg;
+}
+
+.cart-item {
+    width: 100%;
+    display: flex;
+    gap: 0.5rem;
+    img {
+        width: 100px;
+        height: 100px;
+    }
+}
+
 /* END */
 /* ==================================================================================================== */
