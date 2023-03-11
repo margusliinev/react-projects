@@ -13,5 +13,6 @@ import Sort from './Sort';
 import GridView from './GridView';
 import ListView from './ListView';
 import Product from './Product';
+import CartItems from './CartItems';
 
-export { Navbar, Footer, Sidebar, PageHero, Loader, FeaturedProducts, ProductImages, Stars, AddToCart, ProductsList, Filters, Sort, GridView, ListView, Product };
+export { Navbar, Footer, Sidebar, PageHero, Loader, FeaturedProducts, ProductImages, Stars, AddToCart, ProductsList, Filters, Sort, GridView, ListView, Product, CartItems };
