@@ -7,8 +7,9 @@ const CartContext = createContext();
 const initialState = {
     cart: [],
     cart_item_count: 0,
+    cart_subtotal_price: 0,
+    cart_shipping_price: 499,
     cart_total_price: 0,
-    shipping_fee: 499,
 };
 
 const CartProvider = ({ children }) => {
