@@ -4,7 +4,7 @@ import { formatPrice } from '../utils/formatPrice';
 import { CartContext } from '../context/CartContext';
 
 const CartItem = ({ id, name, color, amount, image, price, stock }) => {
-    const { changeCartItemCount } = useContext(CartContext);
+    const { changeCartItemCount, removeFromCart } = useContext(CartContext);
 
     const decrease = () => {
         changeCartItemCount(id, 'dec');
@@ -37,7 +37,7 @@ const CartItem = ({ id, name, color, amount, image, price, stock }) => {
                 </button>
             </div>
             <h6 className='cart-subtotal'>{formatPrice(price * amount)}</h6>
-            <button type='button' className='trash-btn'>
+            <button type='button' className='trash-btn' onClick={() => removeFromCart(id)}>
                 <FaTrash />
             </button>
         </article>

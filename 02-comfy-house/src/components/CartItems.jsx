@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { CartItem } from '../components';
 import { CartContext } from '../context/CartContext';
 
 const CartItems = () => {
-    const { cart } = useContext(CartContext);
+    const { cart, clearCart } = useContext(CartContext);
     return (
         <div className='cart-container'>
             <div className='cart-items'>
@@ -21,10 +22,10 @@ const CartItems = () => {
             </div>
             <hr />
             <div className='cart-buttons'>
-                <button type='button' className='btn continue-shopping-btn'>
+                <Link to={'/products'} className='btn continue-shopping-btn'>
                     Continue Shopping
-                </button>
-                <button type='button' className='btn clear-shopping-btn'>
+                </Link>
+                <button type='button' className='btn clear-shopping-btn' onClick={clearCart}>
                     Clear Shopping Cart
                 </button>
             </div>

@@ -24,11 +24,19 @@ const CartProvider = ({ children }) => {
         dispatch({ type: ADD_TO_CART, payload: { id, color, amount, product } });
     };
 
+    const removeFromCart = (id) => {
+        dispatch({ type: REMOVE_FROM_CART, payload: id });
+    };
+
+    const clearCart = () => {
+        dispatch({ type: CLEAR_CART });
+    };
+
     const changeCartItemCount = (id, value) => {
         dispatch({ type: CHANGE_CART_ITEM_COUNT, payload: { id, value } });
     };
 
-    return <CartContext.Provider value={{ ...state, addToCart, changeCartItemCount }}>{children}</CartContext.Provider>;
+    return <CartContext.Provider value={{ ...state, addToCart, removeFromCart, changeCartItemCount, clearCart }}>{children}</CartContext.Provider>;
 };
 
 export { CartContext, CartProvider };
