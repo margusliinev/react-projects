@@ -30,6 +30,37 @@ const reducer = (state, action) => {
             return { ...state, cart: [...state.cart, newItem] };
         }
     }
+    if (action.type === CHANGE_CART_ITEM_COUNT) {
+        const { id, value } = action.payload;
+        if (value === 'inc') {
+            const tempCart = state.cart.map((cartItem) => {
+                if (cartItem.id === id) {
+                    let newAmount = cartItem.amount + 1;
+                    if (newAmount > cartItem.stock) {
+                        newAmount = cartItem.stock;
+                    }
+                    return { ...cartItem, amount: newAmount };
+                } else {
+                    return cartItem;
+                }
+            });
+            return { ...state, cart: tempCart };
+        }
+        if (value === 'dec') {
+            const tempCart = state.cart.map((cartItem) => {
+                if (cartItem.id === id) {
+                    let newAmount = cartItem.amount - 1;
+                    if (newAmount < 1) {
+                        newAmount = 1;
+                    }
+                    return { ...cartItem, amount: newAmount };
+                } else {
+                    return cartItem;
+                }
+            });
+            return { ...state, cart: tempCart };
+        }
+    }
     throw new Error(`No Matching "${action.type}" - action type`);
 };
 

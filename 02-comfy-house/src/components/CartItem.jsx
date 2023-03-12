@@ -1,28 +1,17 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import { FaPlus, FaMinus, FaTrash } from 'react-icons/fa';
 import { formatPrice } from '../utils/formatPrice';
+import { CartContext } from '../context/CartContext';
 
 const CartItem = ({ id, name, color, amount, image, price, stock }) => {
-    const [itemCount, setItemCount] = useState(amount);
-
-    const increase = () => {
-        setItemCount((oldAmount) => {
-            let newAmount = oldAmount + 1;
-            if (newAmount > stock) {
-                newAmount = stock;
-            }
-            return newAmount;
-        });
-    };
+    const { changeCartItemCount } = useContext(CartContext);
 
     const decrease = () => {
-        setItemCount((oldAmount) => {
-            let newAmount = oldAmount - 1;
-            if (newAmount < 1) {
-                newAmount = 1;
-            }
-            return newAmount;
-        });
+        changeCartItemCount(id, 'dec');
+    };
+
+    const increase = () => {
+        changeCartItemCount(id, 'inc');
     };
 
     return (
@@ -42,12 +31,12 @@ const CartItem = ({ id, name, color, amount, image, price, stock }) => {
                 <button type='button' className='amount-btn' onClick={decrease}>
                     <FaMinus />
                 </button>
-                <h6 className='amount'>{itemCount}</h6>
+                <h6 className='amount'>{amount}</h6>
                 <button type='button' className='amount-btn' onClick={increase}>
                     <FaPlus />
                 </button>
             </div>
-            <h6 className='cart-subtotal'>{formatPrice(price * itemCount)}</h6>
+            <h6 className='cart-subtotal'>{formatPrice(price * amount)}</h6>
             <button type='button' className='trash-btn'>
                 <FaTrash />
             </button>

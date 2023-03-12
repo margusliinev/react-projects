@@ -171,7 +171,7 @@ section {
             position: relative;
             display: grid;
             place-items: center;
-            color: $colorPrimary1;
+            color: $colorPrimary2;
             .nav-cart-icon {
                 font-size: 2.1rem;
                 transition: $transition;
@@ -193,7 +193,7 @@ section {
         }
     }
     .nav-cart-btn:hover .nav-cart-icon {
-        color: $colorPrimary2;
+        color: $colorPrimary3;
     }
     .button-divider {
         height: 2.4rem;
@@ -203,17 +203,18 @@ section {
     }
     .nav-login-btn {
         display: block;
-        background-color: $colorPrimary3;
+        background-color: $colorPrimary2;
         padding: 0.5rem 1rem;
-        border-radius: $radius-md;
+        border-radius: $radius-2xl;
         color: $colorWhite;
         border: transparent;
         font-size: 1rem;
+        letter-spacing: $spacingWide;
         cursor: pointer;
         transition: $transition;
     }
     .nav-login-btn:hover {
-        background-color: $colorPrimary4;
+        background-color: $colorPrimary3;
     }
 }
 
@@ -366,7 +367,7 @@ section {
             position: relative;
             display: grid;
             place-items: center;
-            color: $colorPrimary1;
+            color: $colorPrimary2;
             .sidebar-cart-icon {
                 font-size: 2.1rem;
                 transition: $transition;
@@ -388,7 +389,7 @@ section {
         }
     }
     .sidebar-cart-btn:hover .sidebar-cart-icon {
-        color: $colorPrimary2;
+        color: $colorPrimary3;
     }
     .button-divider {
         height: 2.4rem;
@@ -398,9 +399,9 @@ section {
     }
     .sidebar-login-btn {
         display: block;
-        background-color: $colorPrimary3;
+        background-color: $colorPrimary2;
         padding: 0.5rem 1rem;
-        border-radius: $radius-md;
+        border-radius: $radius-2xl;
         color: $colorWhite;
         border: transparent;
         font-size: 1rem;
@@ -408,7 +409,7 @@ section {
         transition: $transition;
     }
     .sidebar-login-btn:hover {
-        background-color: $colorPrimary4;
+        background-color: $colorPrimary3;
     }
 }
 
@@ -1684,6 +1685,27 @@ hr {
     }
     .cart-item {
         grid-template-columns: 270px auto auto 170px 100px;
+    }
+}
+
+.empty-cart-page {
+    max-width: $width-lg;
+    margin: 0 auto;
+    width: 90vw;
+    min-height: calc(100vh - 6rem);
+    display: grid;
+    justify-self: center;
+    text-align: center;
+    div {
+        margin-top: 5rem;
+        h3 {
+            letter-spacing: $spacingWide;
+            margin-bottom: 1rem;
+        }
+        .btn {
+            padding: 0.4rem 0.8rem;
+            letter-spacing: $spacingWide;
+        }
     }
 }
 
