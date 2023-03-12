@@ -2,9 +2,11 @@ import React, { useContext } from 'react';
 import { FaBars, FaShoppingCart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { SidebarContext } from '../context/SidebarContext';
+import { CartContext } from '../context/CartContext';
 
 const Navbar = () => {
     const { openSidebar } = useContext(SidebarContext);
+    const { cart_total_item_count } = useContext(CartContext);
     return (
         <nav className='nav'>
             <div className='nav-container'>
@@ -42,7 +44,7 @@ const Navbar = () => {
                     <Link to={'/cart'} className='nav-cart-btn'>
                         <div className='cart-icon-container'>
                             <FaShoppingCart className='nav-cart-icon' />
-                            <span className='cart-value'>0</span>
+                            <span className='cart-value'>{cart_total_item_count}</span>
                         </div>
                     </Link>
                     <div className='button-divider'></div>

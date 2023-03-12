@@ -1,4 +1,4 @@
-import { ADD_TO_CART, REMOVE_FROM_CART, CHANGE_CART_ITEM_COUNT, CLEAR_CART, COUNT_CART_TOTALS } from '../utils/actions';
+import { ADD_TO_CART, REMOVE_FROM_CART, CHANGE_CART_ITEM_COUNT, CLEAR_CART, COUNT_CART_TOTALS, CART_TOTAL_ITEM_COUNT } from '../utils/actions';
 
 const reducer = (state, action) => {
     if (action.type === ADD_TO_CART) {
@@ -60,6 +60,13 @@ const reducer = (state, action) => {
             });
             return { ...state, cart: tempCart };
         }
+    }
+    if (action.type === CART_TOTAL_ITEM_COUNT) {
+        const count = state.cart.reduce((acc, cur) => {
+            acc = acc + cur.amount;
+            return acc;
+        }, 0);
+        return { ...state, cart_total_item_count: count };
     }
     throw new Error(`No Matching "${action.type}" - action type`);
 };
