@@ -11,7 +11,7 @@ const HomePage = () => {
             <div className='home-page-container'>
                 <div className='home-page-header'>
                     <h3>Design Your Comfort Zone</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam fugiat sit voluptates, cupiditate temporibus quasi accusamus debitis reiciendis nobis maxime culpa, labore nam pariatur voluptatum error eos nostrum placeat at.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam fugiat sit voluptates, cupiditate temporibus quasi accusamus debitis reiciendis nobis maxime culpa, labore nam pariatur voluptatum error eos nostrum placeat.</p>
                     <Link to={'/products'} className='btn'>
                         SHOP NOW
                     </Link>
@@ -49,7 +49,7 @@ const HomePage = () => {
                     </div>
                     <form className='contact-form'>
                         <input type='email' placeholder='Enter Email' className='contact-form-input' />
-                        <button type='submit' className='btn submit-btn'>
+                        <button type='button' className='btn submit-btn'>
                             Subscribe
                         </button>
                     </form>

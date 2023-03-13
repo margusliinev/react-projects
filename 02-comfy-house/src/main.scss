@@ -141,16 +141,12 @@ section {
     width: 90vw;
 }
 
-.nav-links,
-.nav-buttons {
-    display: none;
-}
-
 .nav-links {
-    gap: 1rem;
+    display: none;
+    gap: 1.5rem;
     .nav-link {
         color: $colorDark;
-        font-size: 1.1rem;
+        font-size: 1.2rem;
         transition: $transition;
     }
     .nav-link:hover {
@@ -158,63 +154,35 @@ section {
     }
 }
 
-.nav-buttons {
-    gap: 1.1rem;
+.nav-cart-btn {
+    display: none;
+    color: $colorDark;
+    justify-content: space-between;
     align-items: center;
-    .nav-cart-btn {
-        display: flex;
-        color: $colorDark;
-        justify-content: space-between;
-        align-items: center;
-        font-size: 1rem;
-        .cart-icon-container {
-            position: relative;
+    font-size: 1rem;
+    .cart-icon-container {
+        position: relative;
+        display: grid;
+        place-items: center;
+        color: $colorPrimary2;
+        .nav-cart-icon {
+            font-size: 2.1rem;
+            transition: $transition;
+        }
+        .cart-value {
+            position: absolute;
+            top: -0.7rem;
+            right: -0.7rem;
+            background: $colorPrimary5;
+            width: 1.5rem;
+            height: 1.5rem;
             display: grid;
             place-items: center;
-            color: $colorPrimary2;
-            .nav-cart-icon {
-                font-size: 2.1rem;
-                transition: $transition;
-            }
-            .cart-value {
-                position: absolute;
-                top: -0.7rem;
-                right: -0.7rem;
-                background: $colorPrimary5;
-                width: 1.5rem;
-                height: 1.5rem;
-                display: grid;
-                place-items: center;
-                border-radius: 50%;
-                color: white;
-                font-weight: bold;
-                font-size: 0.9rem;
-            }
+            border-radius: 50%;
+            color: white;
+            font-weight: bold;
+            font-size: 0.9rem;
         }
-    }
-    .nav-cart-btn:hover .nav-cart-icon {
-        color: $colorPrimary3;
-    }
-    .button-divider {
-        height: 2.4rem;
-        width: 0.45rem;
-        background-color: $colorPrimary5;
-        border-radius: 10rem;
-    }
-    .nav-login-btn {
-        display: block;
-        background-color: $colorPrimary2;
-        padding: 0.5rem 1rem;
-        border-radius: $radius-2xl;
-        color: $colorWhite;
-        border: transparent;
-        font-size: 1rem;
-        letter-spacing: $spacingWide;
-        cursor: pointer;
-        transition: $transition;
-    }
-    .nav-login-btn:hover {
-        background-color: $colorPrimary3;
     }
 }
 
@@ -250,7 +218,7 @@ section {
         display: none;
     }
     .nav-links,
-    .nav-buttons {
+    .nav-cart-btn {
         display: flex;
     }
 }
@@ -290,8 +258,6 @@ section {
     inset: 0;
     width: 100%;
     height: 100vh;
-    display: grid;
-    grid-template-rows: auto 1fr auto;
     transition: all 0.3s ease-in-out;
     transform: translateX(100%);
     z-index: 10;
@@ -351,65 +317,32 @@ section {
     background-color: $colorPrimary9;
 }
 
-.sidebar-buttons {
+.sidebar-cart-btn {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 1.5rem;
-    gap: 1.1rem;
-    .sidebar-cart-btn {
-        display: flex;
-        color: $colorDark;
-        justify-content: space-between;
-        align-items: center;
-        font-size: 1rem;
-        .cart-icon-container {
-            position: relative;
+    color: $colorDark;
+    font-size: 1rem;
+    margin-top: 1rem;
+    .cart-icon-container {
+        position: relative;
+        color: $colorPrimary2;
+        .sidebar-cart-icon {
+            font-size: 2.1rem;
+            transition: $transition;
+        }
+        .cart-value {
+            position: absolute;
+            top: -0.7rem;
+            right: -0.7rem;
+            background: $colorPrimary5;
+            width: 1.5rem;
+            height: 1.5rem;
             display: grid;
             place-items: center;
-            color: $colorPrimary2;
-            .sidebar-cart-icon {
-                font-size: 2.1rem;
-                transition: $transition;
-            }
-            .cart-value {
-                position: absolute;
-                top: -0.7rem;
-                right: -0.7rem;
-                background: $colorPrimary5;
-                width: 1.5rem;
-                height: 1.5rem;
-                display: grid;
-                place-items: center;
-                border-radius: 50%;
-                color: white;
-                font-weight: bold;
-                font-size: 0.9rem;
-            }
+            border-radius: 50%;
+            color: white;
+            font-weight: bold;
+            font-size: 0.9rem;
         }
-    }
-    .sidebar-cart-btn:hover .sidebar-cart-icon {
-        color: $colorPrimary3;
-    }
-    .button-divider {
-        height: 2.4rem;
-        width: 0.45rem;
-        background-color: $colorPrimary5;
-        border-radius: 10rem;
-    }
-    .sidebar-login-btn {
-        display: block;
-        background-color: $colorPrimary2;
-        padding: 0.5rem 1rem;
-        border-radius: $radius-2xl;
-        color: $colorWhite;
-        border: transparent;
-        font-size: 1rem;
-        cursor: pointer;
-        transition: $transition;
-    }
-    .sidebar-login-btn:hover {
-        background-color: $colorPrimary3;
     }
 }
 
@@ -597,12 +530,14 @@ section {
     border-radius: $radius-md;
 }
 
-@media screen and (min-width: $width-lg) {
+@media screen and (min-width: $width-md) {
     .home-page-image-container {
-        width: unset;
+        width: 40vw;
         margin: 2rem auto 2rem auto;
+        .hero-img-main {
+            height: 450px;
+        }
     }
-
     .home-page-container {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -614,12 +549,29 @@ section {
         h3 {
             margin: 0;
             margin-bottom: 1rem;
-            font-size: 2.5rem;
+            font-size: 2rem;
         }
         p {
             line-height: 2;
             max-width: 500px;
             margin-bottom: 1.5rem;
+        }
+    }
+}
+
+@media screen and (min-width: $width-md) {
+    .home-page-image-container {
+        width: unset;
+        margin: 2rem auto 2rem auto;
+        .hero-img-main {
+            height: 500px;
+        }
+    }
+    .home-page-header {
+        align-self: center;
+        text-align: left;
+        h3 {
+            font-size: 2.5rem;
         }
     }
 }
@@ -925,6 +877,7 @@ section {
     img {
         cursor: pointer;
         min-height: 60px;
+        max-height: 90px;
     }
 }
 

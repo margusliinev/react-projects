@@ -34,24 +34,13 @@ const Navbar = () => {
                             Products
                         </Link>
                     </li>
-                    <li>
-                        <Link to={'/checkout'} className='nav-link'>
-                            Checkout
-                        </Link>
-                    </li>
                 </ul>
-                <div className='nav-buttons'>
-                    <Link to={'/cart'} className='nav-cart-btn'>
-                        <div className='cart-icon-container'>
-                            <FaShoppingCart className='nav-cart-icon' />
-                            <span className='cart-value'>{cart_total_item_count}</span>
-                        </div>
-                    </Link>
-                    <div className='button-divider'></div>
-                    <button type='button' className='nav-login-btn'>
-                        Login
-                    </button>
-                </div>
+                <Link to={'/cart'} className='nav-cart-btn'>
+                    <div className='cart-icon-container'>
+                        <FaShoppingCart className='nav-cart-icon' />
+                        <span className='cart-value'>{cart_total_item_count}</span>
+                    </div>
+                </Link>
             </div>
         </nav>
     );

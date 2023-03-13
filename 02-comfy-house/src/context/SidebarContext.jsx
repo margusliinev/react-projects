@@ -1,5 +1,5 @@
-import React, { createContext, useReducer } from 'react';
 import { SIDEBAR_OPEN, SIDEBAR_CLOSE } from '../utils/actions';
+import React, { createContext, useReducer } from 'react';
 import reducer from '../reducers/SidebarReducer';
 
 const initialState = {

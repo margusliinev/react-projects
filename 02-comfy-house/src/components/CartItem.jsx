@@ -3,7 +3,7 @@ import { FaPlus, FaMinus, FaTrash } from 'react-icons/fa';
 import { formatPrice } from '../utils/formatPrice';
 import { CartContext } from '../context/CartContext';
 
-const CartItem = ({ id, name, color, amount, image, price, stock }) => {
+const CartItem = ({ id, name, color, amount, image, price }) => {
     const { changeCartItemCount, removeFromCart } = useContext(CartContext);
 
     const decrease = () => {
