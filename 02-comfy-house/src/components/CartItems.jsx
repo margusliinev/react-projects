@@ -2,9 +2,10 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { CartItem } from '../components';
 import { CartContext } from '../context/CartContext';
+import { formatPrice } from '../utils/formatPrice';
 
 const CartItems = () => {
-    const { cart, clearCart } = useContext(CartContext);
+    const { cart, clearCart, cart_subtotal_price, cart_shipping_price, cart_total_price } = useContext(CartContext);
     return (
         <div className='cart-container'>
             <div className='cart-items'>
@@ -32,18 +33,18 @@ const CartItems = () => {
             <div className='cart-total'>
                 <div className='cart-total-container'>
                     <p>
-                        Subtotal: <span>€305.99</span>
+                        Subtotal: <span>{formatPrice(cart_subtotal_price)}</span>
                     </p>
                     <p>
-                        Shipping Fee: <span>€5.35</span>
+                        Shipping Fee: <span>{formatPrice(cart_shipping_price)}</span>
                     </p>
                     <hr />
                     <p>
-                        Order Total: <span>€315.33</span>
+                        Order Total: <span>{formatPrice(cart_total_price)}</span>
                     </p>
                 </div>
                 <button type='button' className='btn login-btn'>
-                    Login
+                    PROCEED TO CHECKOUT
                 </button>
             </div>
         </div>

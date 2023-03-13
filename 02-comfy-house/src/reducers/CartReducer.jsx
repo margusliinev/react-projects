@@ -75,6 +75,15 @@ const reducer = (state, action) => {
     if (action.type === CLEAR_CART) {
         return { ...state, cart: [] };
     }
+    if (action.type === COUNT_CART_TOTALS) {
+        const tempSubtotal = state.cart.reduce((acc, cur) => {
+            acc = acc + cur.price * cur.amount;
+            return acc;
+        }, 0);
+        const tempShippingPrice = tempSubtotal * 0.05;
+        const tempTotalPrice = tempSubtotal + tempShippingPrice;
+        return { ...state, cart_subtotal_price: tempSubtotal, cart_shipping_price: tempShippingPrice, cart_total_price: tempTotalPrice };
+    }
     throw new Error(`No Matching "${action.type}" - action type`);
 };
 

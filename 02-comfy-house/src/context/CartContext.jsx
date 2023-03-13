@@ -4,11 +4,21 @@ import reducer from '../reducers/CartReducer';
 
 const CartContext = createContext();
 
+function getLocalStorage(key) {
+    let storageItem = localStorage.getItem(key);
+    if (storageItem) {
+        storageItem = JSON.parse(localStorage.getItem(key));
+    } else {
+        storageItem = [];
+    }
+    return storageItem;
+}
+
 const initialState = {
-    cart: [],
+    cart: getLocalStorage('cart'),
     cart_total_item_count: 0,
     cart_subtotal_price: 0,
-    cart_shipping_price: 499,
+    cart_shipping_price: 0,
     cart_total_price: 0,
 };
 
@@ -18,6 +28,7 @@ const CartProvider = ({ children }) => {
     useEffect(() => {
         localStorage.setItem('cart', JSON.stringify(state.cart));
         dispatch({ type: CART_TOTAL_ITEM_COUNT });
+        dispatch({ type: COUNT_CART_TOTALS });
     }, [state.cart]);
 
     const addToCart = (id, color, amount, product) => {
