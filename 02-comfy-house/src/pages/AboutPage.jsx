@@ -11,7 +11,7 @@ const AboutPage = () => {
                 <div className='about-info'>
                     <h3>Our Story</h3>
                     <div className='title-underline'></div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis tempore eos cumque cupiditate quia facere labore. Fuga explicabo delectus expedita, ducimus, pariatur modi nisi rem veritatis, assumenda molestias libero facere obcaecati consequuntur temporibus eum soluta velit molestiae quam ipsa? Dolorem culpa at laboriosam aspernatur debitis! Suscipit voluptatum asperiores ab quasi!</p>
+                    <p>Comfy House is a furniture store that is dedicated to providing customers with comfortable, stylish, and high-quality furniture that transforms their house into a warm and inviting home. With a wide selection of sofas, armchairs, coffee tables, dining sets, and home decor products, Comfy House has everything you need to create a cozy and welcoming space that you will love coming home to.</p>
                 </div>
             </div>
         </section>
