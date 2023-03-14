@@ -317,35 +317,6 @@ section {
     background-color: $colorPrimary9;
 }
 
-.sidebar-cart-btn {
-    display: flex;
-    color: $colorDark;
-    font-size: 1rem;
-    margin-top: 1rem;
-    .cart-icon-container {
-        position: relative;
-        color: $colorPrimary2;
-        .sidebar-cart-icon {
-            font-size: 2.1rem;
-            transition: $transition;
-        }
-        .cart-value {
-            position: absolute;
-            top: -0.7rem;
-            right: -0.7rem;
-            background: $colorPrimary5;
-            width: 1.5rem;
-            height: 1.5rem;
-            display: grid;
-            place-items: center;
-            border-radius: 50%;
-            color: white;
-            font-weight: bold;
-            font-size: 0.9rem;
-        }
-    }
-}
-
 @media screen and (min-width: $width-md) {
     .sidebar {
         transform: translateX(100%);
@@ -1535,6 +1506,7 @@ hr {
             }
             p:nth-of-type(2) {
                 color: $colorGray;
+                display: flex;
             }
             p:nth-of-type(3) {
                 color: $colorPrimary5;
@@ -1579,6 +1551,19 @@ hr {
     }
     .trash-btn:hover {
         background-color: darken($colorDanger, 15%);
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .cart-item {
+        grid-template-columns: 180px auto auto;
+        .cart-title {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        .trash-btn {
+            margin-right: 0;
+        }
     }
 }
 

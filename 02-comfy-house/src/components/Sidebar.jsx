@@ -1,12 +1,10 @@
 import React, { useContext } from 'react';
-import { FaTimes, FaShoppingCart } from 'react-icons/fa';
+import { FaTimes } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { SidebarContext } from '../context/SidebarContext';
-import { CartContext } from '../context/CartContext';
 
 const Sidebar = () => {
     const { isSidebarOpen, closeSidebar } = useContext(SidebarContext);
-    const { cart_total_item_count } = useContext(CartContext);
     return (
         <aside className={isSidebarOpen ? 'sidebar sidebar-open' : 'sidebar'}>
             <div className='sidebar-container'>
@@ -34,13 +32,12 @@ const Sidebar = () => {
                             Products
                         </Link>
                     </li>
+                    <li>
+                        <Link to={'/cart'} className='sidebar-link' onClick={closeSidebar}>
+                            Cart
+                        </Link>
+                    </li>
                 </ul>
-                <Link to={'/cart'} className='sidebar-cart-btn' onClick={closeSidebar}>
-                    <div className='cart-icon-container'>
-                        <FaShoppingCart className='sidebar-cart-icon' />
-                        <span className='cart-value'>{cart_total_item_count}</span>
-                    </div>
-                </Link>
             </div>
         </aside>
     );
