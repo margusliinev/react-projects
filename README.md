@@ -15,3 +15,4 @@ This is a repository for projects built with React.
 
 1. Github Users
 2. Comfy House
+3. Crypto Tracker
