@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { HomePage, AboutPage, PortfolioPage, CoinsPage, SingleCoinPage, ErrorPage } from './pages';
+import { HomePage, AboutPage, PricingPage, CoinsPage, SingleCoinPage, ErrorPage } from './pages';
 import { Navbar, Sidebar, Footer } from './components';
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
             <Routes>
                 <Route path='/' element={<HomePage />} />
                 <Route path='about' element={<AboutPage />} />
-                <Route path='portfolio' element={<PortfolioPage />} />
+                <Route path='pricing' element={<PricingPage />} />
                 <Route path='coins' element={<CoinsPage />} />
                 <Route path='coins/:id' element={<SingleCoinPage />} />
                 <Route path='*' element={<ErrorPage />} />

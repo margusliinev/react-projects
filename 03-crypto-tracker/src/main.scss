@@ -106,7 +106,7 @@ h6 {
 
 .btn {
     font-size: 1rem;
-    padding: 0.75rem 1.25rem;
+    padding: 0.5rem 1.2rem;
     color: $colorDark;
     background-color: $colorPrimary;
     transition: $transition;
@@ -135,8 +135,9 @@ h6 {
     border-bottom: 1px solid #222;
 }
 
-.nav-border {
-    border: none;
+.nav-change {
+    border-color: #333;
+    background-color: #1a1a1a;
 }
 
 .nav-container {
@@ -170,7 +171,7 @@ h6 {
             }
         }
         .nav-open {
-            color: $colorGray;
+            color: #b2b2b2;
         }
         .nav-open:hover {
             color: $colorWhite;
@@ -179,11 +180,17 @@ h6 {
             color: $colorWhite;
         }
         .nav-close:hover {
-            color: $colorGray;
+            color: #b2b2b2;
         }
         .nav-open,
         .nav-close {
             display: unset;
+        }
+        @media screen and (min-width: $width-md) {
+            .nav-open,
+            .nav-close {
+                display: none;
+            }
         }
     }
 }
@@ -216,7 +223,6 @@ h6 {
     .get-started-btn {
         display: flex;
     }
-
     .nav-container {
         display: flex;
         align-items: center;
@@ -229,7 +235,7 @@ h6 {
 
 .sidebar {
     position: fixed;
-    background: $colorDark;
+    background: #1a1a1a;
     bottom: 0;
     width: 100%;
     height: calc(100vh - 4rem);
@@ -247,17 +253,20 @@ h6 {
     flex-direction: column;
 }
 
-.mobile-search {
-    background-color: $colorBlack;
-    border: 1px solid #222;
-    width: 90%;
-    border-radius: 9999px;
-    padding: 0.6rem 1rem;
-    margin: 0rem auto;
-    font-size: 1rem;
+.sidebar-tracker-btn {
+    padding: 0.5rem 0rem;
+    width: 160px;
+    background-color: #333333;
+    border: transparent;
+    outline: none;
+    box-shadow: none;
+    color: #cccccc;
+    margin: 1rem 0rem 0rem 2rem;
+    font-size: 18px;
 }
-.mobile-search::placeholder {
-    color: #999999;
+.sidebar-tracker-btn:hover {
+    color: $colorBlack;
+    background-color: $colorPrimary;
 }
 
 .sidebar-links {
@@ -271,11 +280,18 @@ h6 {
     transition: $transition;
     display: block;
     padding: 0.5rem 0.5rem 0.5rem 2.75rem;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .sidebar-link:hover {
-    background-color: #222;
+    background-color: #333;
+}
+
+.content-divider {
+    height: 1px;
+    width: 90vw;
+    background-color: #333;
+    margin: 1rem auto;
 }
 
 @media screen and (min-width: $width-md) {

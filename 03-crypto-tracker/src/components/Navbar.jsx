@@ -8,7 +8,7 @@ const Navbar = () => {
     const dispatch = useDispatch();
     const { isSidebarOpen } = useSelector((store) => store.navigation);
     return (
-        <nav className={isSidebarOpen ? 'nav nav-border' : 'nav'}>
+        <nav className={isSidebarOpen ? 'nav nav-change' : 'nav'}>
             <div className='nav-container'>
                 <div className='nav-header'>
                     <h5>
@@ -35,8 +35,8 @@ const Navbar = () => {
                         </Link>
                     </li>
                     <li>
-                        <Link to={'/portfolio'} className='nav-link'>
-                            Portfolio
+                        <Link to={'/pricing'} className='nav-link'>
+                            Pricing
                         </Link>
                     </li>
                     <li>
