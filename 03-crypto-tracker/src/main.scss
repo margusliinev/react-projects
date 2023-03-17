@@ -20,7 +20,7 @@ $colorDanger: #dc3545;
 $colorWarning: #ffc107;
 $colorBlack: #000000;
 $colorDark: #0d0d0d;
-$colorGray: #4b5563;
+$colorGray: #71717a;
 $colorLight: #f3f4f6;
 $colorWhite: #ffffff;
 $fontPrimary: 'Inter var', sans-serif;
@@ -128,10 +128,15 @@ h6 {
 /* ==================================================================================================== */
 
 .nav {
-    height: 5rem;
+    height: 4rem;
     background-color: $colorDark;
     display: grid;
     place-items: center;
+    border-bottom: 1px solid #222;
+}
+
+.nav-border {
+    border: none;
 }
 
 .nav-container {
@@ -153,22 +158,32 @@ h6 {
     div {
         display: grid;
         place-items: center;
-        position: relative;
         .nav-toggle {
             background-color: transparent;
             color: $colorWhite;
+            transition: all 0.3s linear;
             border: none;
-            visibility: hidden;
-            position: absolute;
-            right: 0;
+            display: none;
             cursor: pointer;
             svg {
                 font-size: 2rem;
             }
         }
+        .nav-open {
+            color: $colorGray;
+        }
+        .nav-open:hover {
+            color: $colorWhite;
+        }
+        .nav-close {
+            color: $colorWhite;
+        }
+        .nav-close:hover {
+            color: $colorGray;
+        }
         .nav-open,
         .nav-close {
-            visibility: visible;
+            display: unset;
         }
     }
 }
@@ -206,6 +221,66 @@ h6 {
         display: flex;
         align-items: center;
         justify-content: space-between;
+    }
+}
+
+/* SIDEBAR */
+/* ==================================================================================================== */
+
+.sidebar {
+    position: fixed;
+    background: $colorDark;
+    bottom: 0;
+    width: 100%;
+    height: calc(100vh - 4rem);
+    transform: translateX(100%);
+    z-index: 10;
+}
+
+.sidebar-open {
+    transform: translateX(0);
+}
+
+.sidebar-container {
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.mobile-search {
+    background-color: $colorBlack;
+    border: 1px solid #222;
+    width: 90%;
+    border-radius: 9999px;
+    padding: 0.6rem 1rem;
+    margin: 0rem auto;
+    font-size: 1rem;
+}
+.mobile-search::placeholder {
+    color: #999999;
+}
+
+.sidebar-links {
+    display: grid;
+    margin-top: 0.5rem;
+}
+
+.sidebar-link {
+    color: #cccccc;
+    font-size: 1.1rem;
+    transition: $transition;
+    display: block;
+    padding: 0.5rem 0.5rem 0.5rem 2.75rem;
+    font-weight: 500;
+}
+
+.sidebar-link:hover {
+    background-color: #222;
+}
+
+@media screen and (min-width: $width-md) {
+    .sidebar {
+        transform: translateX(100%);
     }
 }
 
