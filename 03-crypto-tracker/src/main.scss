@@ -326,5 +326,131 @@ h6 {
     }
 }
 
+/* LOADER */
+/* ==================================================================================================== */
+
+.lds-ring {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+.lds-ring div {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border: 8px solid $colorPrimary;
+    border-radius: 50%;
+    animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: $colorPrimary transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+    animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+    animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+    animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* COINS PAGE */
+/* ==================================================================================================== */
+
+.coins {
+    min-height: calc(100vh - 9rem);
+    padding: 2.5rem 0;
+}
+
+.coins-container {
+    max-width: $width-lg;
+    margin: 0 auto;
+    width: 90vw;
+}
+
+.coins-header {
+    text-align: center;
+    max-width: $width-sm;
+    margin: 0 auto;
+    h4 {
+        color: #e5e5e5;
+        margin-bottom: 1rem;
+    }
+    h6 {
+        color: #b3b3b3;
+        font-weight: 400;
+    }
+}
+
+.market-info {
+    display: grid;
+    row-gap: 1rem;
+    margin: 2rem auto;
+}
+
+.market-info-box {
+    background-color: rgba(52, 199, 89, 0.1);
+    padding: 0.5rem;
+    border-radius: $radius-xl;
+}
+
+.info-box-title {
+    color: #b3b3b3;
+    padding: 0.25rem 0.75rem;
+}
+
+.info-box-value {
+    padding: 0.25rem 0.75rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    color: $colorWhite;
+    span {
+        display: grid;
+    }
+}
+
+.value-green {
+    color: $colorSuccess;
+}
+
+.value-red {
+    color: $colorDanger;
+}
+
+.box-green {
+    background-color: rgba(52, 199, 89, 0.1);
+}
+
+.box-red {
+    background-color: #ff44441a;
+}
+
+@media screen and (min-width: $width-sm) {
+    .market-info {
+        grid-template-columns: 1fr 1fr;
+        column-gap: 1rem;
+    }
+}
+
+@media screen and (min-width: $width-lg) {
+    .market-info {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
 /* END */
 /* ==================================================================================================== */
