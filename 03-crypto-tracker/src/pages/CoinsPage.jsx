@@ -11,7 +11,7 @@ const CoinsPage = () => {
                 </div>
                 <MarketInfo />
                 <CoinsFilters />
-                <div>
+                <div className='coins-table'>
                     <CoinsSort />
                     <CoinsList />
                 </div>

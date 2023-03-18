@@ -452,5 +452,52 @@ h6 {
     }
 }
 
+.coins-table {
+    border: 1px solid #1a1a1a;
+    padding: 1rem;
+    border-radius: $radius-lg;
+}
+
+.coins-list {
+    display: grid;
+    row-gap: 1rem;
+    margin: 1rem 0.5rem;
+}
+
+.coin {
+    display: grid;
+    grid-template-columns: 20px 150px 1fr 1fr;
+    align-items: center;
+    column-gap: 1rem;
+}
+
+.coin-number {
+    justify-self: start;
+    margin-right: 0.5rem;
+}
+
+.coin-image {
+    width: 35px;
+    height: 35px;
+}
+
+.coin-name {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.coin-growth {
+    border-radius: $radius-md;
+    padding: 0.5rem;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+}
+
+.coin-price {
+    justify-self: end;
+}
+
 /* END */
 /* ==================================================================================================== */

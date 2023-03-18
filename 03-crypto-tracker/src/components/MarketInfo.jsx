@@ -18,8 +18,8 @@ const MarketInfo = () => {
         return acc;
     }, 0);
 
-    const totalMarketCapChange = coins.reduce((acc, cur) => {
-        acc = acc + cur.market_cap_change_24h;
+    const totalMarketCapVolume = coins.reduce((acc, cur) => {
+        acc = acc + cur.total_volume;
         return acc;
     }, 0);
 
@@ -46,12 +46,12 @@ const MarketInfo = () => {
             </div>
             <div className='market-info-box'>
                 <p className='info-box-title'>Volume 24h</p>
-                <p className='info-box-value'>{formatPrice(totalMarketCapChange)}</p>
+                <p className='info-box-value'>{formatPrice(totalMarketCapVolume)}</p>
             </div>
             <div className={totalMarketCapChangePercentage > 0 ? 'market-info-box box-green' : 'market-info-box box-red'}>
                 <p className='info-box-title'>Market Change 24h</p>
                 <p className='info-box-value'>
-                    {`${totalMarketCapChangePercentage}%`} <span className={totalMarketCapChangePercentage > 0 ? 'value-green' : 'value-red'}>{totalMarketCapChangePercentage > 0 ? <RxTriangleUp /> : <RxTriangleDown />}</span>
+                    {`${Math.abs(totalMarketCapChangePercentage)}%`} <span className={totalMarketCapChangePercentage > 0 ? 'value-green' : 'value-red'}>{totalMarketCapChangePercentage > 0 ? <RxTriangleUp /> : <RxTriangleDown />}</span>
                 </p>
             </div>
         </div>
