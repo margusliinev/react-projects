@@ -462,14 +462,11 @@ main {
 .coins-table {
     display: grid;
     border: 1px solid #1a1a1a;
-    padding: 1rem;
     border-radius: $radius-lg;
 }
 
 .coins-list {
     display: grid;
-    row-gap: 1.25rem;
-    margin: 1rem 0rem;
 }
 
 .coin {
@@ -477,6 +474,13 @@ main {
     grid-template-columns: 15px 140px 1fr 1fr 15px;
     align-items: center;
     column-gap: 1rem;
+    cursor: pointer;
+    transition: $transition;
+    padding: 0.6rem 1rem;
+}
+
+.coin:hover {
+    background-color: #0d0d0d;
 }
 
 .coin-number {
@@ -511,12 +515,13 @@ main {
     justify-self: center;
 }
 
-.add-to-tracker {
+.coin-track {
     justify-self: end;
     background-color: transparent;
-    color: #b3b3b3;
+    color: $colorSuccess;
     border: none;
     display: grid;
+    place-items: center;
     transition: $transition;
     cursor: pointer;
     svg {
@@ -524,8 +529,9 @@ main {
     }
 }
 
-.add-to-tracker:hover {
-    color: $colorWhite;
+.coin-track:hover {
+    color: lighten($colorSuccess, 10%);
+    box-shadow: 0 0 2px 1px #198754;
 }
 
 .coin-price-btc,
@@ -590,7 +596,7 @@ main {
     display: grid;
     grid-template-columns: 15px 125px 1fr 1fr 25px;
     gap: 1rem;
-    margin-bottom: 0.5rem;
+    padding: 0.6rem 1rem;
 }
 
 .coins-sort-btn {

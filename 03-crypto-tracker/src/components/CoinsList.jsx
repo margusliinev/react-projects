@@ -37,7 +37,7 @@ const CoinsList = () => {
                         <p className='coin-market-cap'>{formatPriceBillion(coin.market_cap)}</p>
                         <p className='coin-price-low'>{formatPrice(coin.low_24h)}</p>
                         <p className='coin-price-high'>{formatPrice(coin.high_24h)}</p>
-                        <button type='button' className='add-to-tracker'>
+                        <button type='button' className='coin-track'>
                             <HiPlus />
                         </button>
                     </article>

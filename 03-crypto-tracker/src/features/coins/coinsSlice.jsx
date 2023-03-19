@@ -17,7 +17,6 @@ const fetchCoins = createAsyncThunk('coins/fetchCoins', async () => {
 const coinsSlice = createSlice({
     name: 'coins',
     initialState,
-    reducers: {},
     extraReducers: (builder) => {
         builder
             .addCase(fetchCoins.pending, (state) => {
