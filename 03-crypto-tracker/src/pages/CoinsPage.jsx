@@ -3,7 +3,7 @@ import { MarketInfo, CoinsFilters, CoinsSort, CoinsList, CoinsPagination } from 
 
 const CoinsPage = () => {
     return (
-        <section className='coins'>
+        <main className='coins'>
             <div className='coins-container'>
                 <div className='coins-header'>
                     <h4>Best Coin Price Tracker in the Market</h4>
@@ -17,7 +17,7 @@ const CoinsPage = () => {
                 </div>
                 <CoinsPagination />
             </div>
-        </section>
+        </main>
     );
 };
 

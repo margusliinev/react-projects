@@ -1,7 +1,7 @@
 import React from 'react';
 
 const SingleCoinPage = () => {
-    return <div>SingleCoinPage</div>;
+    return <main>SingleCoinPage</main>;
 };
 
 export default SingleCoinPage;
