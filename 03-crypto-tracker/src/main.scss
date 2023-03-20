@@ -384,7 +384,7 @@ main {
 .coins-container {
     display: flex;
     flex-direction: column;
-    max-width: $width-lg;
+    max-width: $width-xl;
     margin: 0 auto;
     width: 90vw;
 }
@@ -480,7 +480,7 @@ main {
 }
 
 .coin:hover {
-    background-color: #0d0d0d;
+    background-color: #0f0f0f;
 }
 
 .coin-number {
