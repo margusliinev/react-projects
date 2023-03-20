@@ -139,6 +139,7 @@ main {
     display: grid;
     place-items: center;
     border-bottom: 1px solid #222;
+    z-index: 15;
 }
 
 .nav-change {
@@ -243,6 +244,8 @@ main {
     position: fixed;
     background: #1a1a1a;
     bottom: 0;
+    left: 0;
+    margin-top: 4rem;
     width: 100%;
     height: calc(100vh - 4rem);
     transform: translateX(100%);
@@ -543,7 +546,7 @@ main {
 
 @media screen and (max-width: 490px) {
     .coin {
-        grid-template-columns: 30px 1fr 1fr 15px;
+        grid-template-columns: 20px 1fr 1fr 15px;
     }
     .coin-growth {
         display: none;
@@ -640,13 +643,23 @@ main {
     }
     .coins-sort-name {
         justify-self: start;
-        margin-left: 0.5rem;
+        margin-left: 1rem;
     }
     .coins-sort {
-        grid-template-columns: 30px 1fr 1fr 25px;
+        grid-template-columns: 25px 1fr 1fr 25px;
     }
     .coins-sort-growth {
         display: none;
+    }
+}
+
+@media screen and (max-width: 370px) {
+    .coins-sort {
+        padding: 0.25rem 0.75rem;
+    }
+    .coin {
+        grid-template-columns: 15px 100px 1fr 15px;
+        padding: 0.25rem 0.5rem;
     }
 }
 
