@@ -623,6 +623,9 @@ main {
         color: #4d4d4d;
         transition: $transition;
     }
+    .active-sort {
+        color: $colorPrimary;
+    }
     svg:nth-of-type(1) {
         top: 0;
     }

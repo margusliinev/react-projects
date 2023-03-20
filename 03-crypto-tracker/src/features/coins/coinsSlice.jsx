@@ -57,6 +57,8 @@ const coinsSlice = createSlice({
                 state.sorted_coins = state.sorted_coins.sort((a, b) => a.high_24h - b.high_24h);
             } else if (state.sort === 'priceHigh-high') {
                 state.sorted_coins = state.sorted_coins.sort((a, b) => b.high_24h - a.high_24h);
+            } else {
+                return { ...state };
             }
         },
     },
