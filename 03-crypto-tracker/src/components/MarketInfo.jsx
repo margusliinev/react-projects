@@ -11,7 +11,8 @@ const MarketInfo = () => {
         dispatch(fetchCoins());
     }, []);
 
-    const { coins_loading, coins_error, coins } = useSelector((store) => store.coins);
+    const { coins_loading, coins_error, coins, btc } = useSelector((store) => store.coins);
+    const { market_cap_change_percentage_24h } = btc;
 
     const totalMarketCap = coins.reduce((acc, cur) => {
         acc = acc + cur.market_cap;
@@ -22,13 +23,6 @@ const MarketInfo = () => {
         acc = acc + cur.total_volume;
         return acc;
     }, 0);
-
-    const totalMarketCapChangePercentage = coins
-        .reduce((acc, cur) => {
-            acc = acc + cur.market_cap_change_percentage_24h;
-            return acc / 100;
-        }, 0)
-        .toFixed(2);
 
     if (coins_loading) {
         return <Loader />;
@@ -48,10 +42,10 @@ const MarketInfo = () => {
                 <p className='info-box-title'>Volume 24h</p>
                 <p className='info-box-value'>{formatPrice(totalMarketCapVolume)}</p>
             </div>
-            <div className={totalMarketCapChangePercentage > 0 ? 'market-info-box box-green' : 'market-info-box box-red'}>
-                <p className='info-box-title'>Market Change 24h</p>
+            <div className={market_cap_change_percentage_24h > 0 ? 'market-info-box box-green' : 'market-info-box box-red'}>
+                <p className='info-box-title'>Bitcoin Price 24h</p>
                 <p className='info-box-value'>
-                    {`${Math.abs(totalMarketCapChangePercentage)}%`} <span className={totalMarketCapChangePercentage > 0 ? 'value-green' : 'value-red'}>{totalMarketCapChangePercentage > 0 ? <RxTriangleUp /> : <RxTriangleDown />}</span>
+                    {`${Math.abs(market_cap_change_percentage_24h)}%`} <span className={market_cap_change_percentage_24h > 0 ? 'value-green' : 'value-red'}>{market_cap_change_percentage_24h > 0 ? <RxTriangleUp /> : <RxTriangleDown />}</span>
                 </p>
             </div>
         </div>

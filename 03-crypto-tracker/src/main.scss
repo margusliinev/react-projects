@@ -377,7 +377,7 @@ main {
     }
 }
 
-/* COINS PAGE */
+/* MARKET INFO */
 /* ==================================================================================================== */
 
 .coins {
@@ -461,6 +461,9 @@ main {
         max-width: $width-lg;
     }
 }
+
+/* COINS LIST */
+/* ==================================================================================================== */
 
 .coins-table {
     display: grid;
@@ -681,6 +684,63 @@ main {
     .coins-sort {
         grid-template-columns: 15px 140px 1fr 1fr 1fr 1fr 1fr 1fr 20px;
     }
+}
+
+/* COINS FILTERS */
+/* ==================================================================================================== */
+
+.coins-filters {
+    max-width: 590px;
+    margin: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.search-filter-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $colorBlack;
+    border: 1px solid #333333;
+    padding: 0.6rem 1rem;
+    border-radius: 9999px;
+    flex-grow: 1;
+    span {
+        display: grid;
+        color: #b3b3b3;
+        svg {
+            font-size: 1.25rem;
+        }
+    }
+}
+
+.search-filter {
+    width: 100%;
+    background-color: $colorBlack;
+    border: none;
+    font-size: 1rem;
+    color: #b3b3b3;
+    caret-color: $colorPrimary;
+}
+
+.search-filter:focus {
+    outline: none;
+}
+
+.add-filter-btn {
+    border-radius: 9999px;
+    font-weight: 500;
+    background-color: #222;
+    color: $colorWhite;
+    box-shadow: none;
+    padding: calc(0.6rem + 2px) 1.2rem;
+}
+
+.add-filter-btn:hover {
+    color: $colorBlack;
+    background-color: $colorPrimary;
 }
 
 /* END */

@@ -14,6 +14,7 @@ const initialState = {
 
 const fetchCoins = createAsyncThunk('coins/fetchCoins', async () => {
     const response = await axios(url);
+    console.log(response.data);
     return response.data;
 });
 
@@ -34,29 +35,29 @@ const coinsSlice = createSlice({
             } else if (state.sort === 'name-z-a') {
                 state.sorted_coins = state.sorted_coins.sort((a, b) => b.name.localeCompare(a.name));
             } else if (state.sort === 'growth-low') {
-                state.sorted_coins = state.sorted_coins.sort((a, b) => a.market_cap_change_percentage_24h - b.market_cap_change_percentage_24h);
-            } else if (state.sort === 'growth-high') {
                 state.sorted_coins = state.sorted_coins.sort((a, b) => b.market_cap_change_percentage_24h - a.market_cap_change_percentage_24h);
+            } else if (state.sort === 'growth-high') {
+                state.sorted_coins = state.sorted_coins.sort((a, b) => a.market_cap_change_percentage_24h - b.market_cap_change_percentage_24h);
             } else if (state.sort === 'price-low') {
-                state.sorted_coins = state.sorted_coins.sort((a, b) => a.current_price - b.current_price);
+                state.sorted_coins = state.sorted_coins.sort((a, b) => b.current_price - a.current_price);
             } else if (state.sort === 'price-high') {
-                state.sorted_coins = state.sorted_coins.sort((a, b) => b.current_price - a.current_price);
-            } else if (state.sort === 'price-btc-low') {
                 state.sorted_coins = state.sorted_coins.sort((a, b) => a.current_price - b.current_price);
-            } else if (state.sort === 'price-btc-high') {
+            } else if (state.sort === 'price-btc-low') {
                 state.sorted_coins = state.sorted_coins.sort((a, b) => b.current_price - a.current_price);
+            } else if (state.sort === 'price-btc-high') {
+                state.sorted_coins = state.sorted_coins.sort((a, b) => a.current_price - b.current_price);
             } else if (state.sort === 'marketCap-low') {
-                state.sorted_coins = state.sorted_coins.sort((a, b) => a.market_cap - b.market_cap);
-            } else if (state.sort === 'marketCap-high') {
                 state.sorted_coins = state.sorted_coins.sort((a, b) => b.market_cap - a.market_cap);
+            } else if (state.sort === 'marketCap-high') {
+                state.sorted_coins = state.sorted_coins.sort((a, b) => a.market_cap - b.market_cap);
             } else if (state.sort === 'priceLow-low') {
-                state.sorted_coins = state.sorted_coins.sort((a, b) => a.low_24h - b.low_24h);
-            } else if (state.sort === 'priceLow-high') {
                 state.sorted_coins = state.sorted_coins.sort((a, b) => b.low_24h - a.low_24h);
+            } else if (state.sort === 'priceLow-high') {
+                state.sorted_coins = state.sorted_coins.sort((a, b) => a.low_24h - b.low_24h);
             } else if (state.sort === 'priceHigh-low') {
-                state.sorted_coins = state.sorted_coins.sort((a, b) => a.high_24h - b.high_24h);
-            } else if (state.sort === 'priceHigh-high') {
                 state.sorted_coins = state.sorted_coins.sort((a, b) => b.high_24h - a.high_24h);
+            } else if (state.sort === 'priceHigh-high') {
+                state.sorted_coins = state.sorted_coins.sort((a, b) => a.high_24h - b.high_24h);
             } else {
                 return { ...state };
             }
