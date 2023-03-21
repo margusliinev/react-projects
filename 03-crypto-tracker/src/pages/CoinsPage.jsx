@@ -1,7 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { MarketInfo, CoinsFilters, CoinsSort, CoinsList, CoinsPagination } from '../components';
+import { useDispatch } from 'react-redux';
+import { fetchCoins } from '../features/coins/coinsSlice';
 
 const CoinsPage = () => {
+    const dispatch = useDispatch();
+
+    // PRODUCTION
+    // useEffect(() => {
+    //     dispatch(fetchCoins());
+    //     setInterval(() => {
+    //         dispatch(fetchCoins());
+    //     }, 120000);
+    // }, []);
+
+    // DEVELOPMENT
+    useEffect(() => {
+        dispatch(fetchCoins());
+    }, []);
+
     return (
         <main className='coins'>
             <div className='coins-container'>

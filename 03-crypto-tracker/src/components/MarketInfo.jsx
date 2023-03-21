@@ -1,17 +1,10 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchCoins } from '../features/coins/coinsSlice';
-import { Loader } from '../components';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import { formatPrice } from '../utils/formatPrice';
 import { RxTriangleDown, RxTriangleUp } from 'react-icons/rx';
 
 const MarketInfo = () => {
-    const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch(fetchCoins());
-    }, []);
-
-    const { coins_loading, coins_error, coins, btc } = useSelector((store) => store.coins);
+    const { coins, btc } = useSelector((store) => store.coins);
     const { market_cap_change_percentage_24h } = btc;
 
     const totalMarketCap = coins.reduce((acc, cur) => {
@@ -23,14 +16,6 @@ const MarketInfo = () => {
         acc = acc + cur.total_volume;
         return acc;
     }, 0);
-
-    if (coins_loading) {
-        return <Loader />;
-    }
-
-    if (coins_error) {
-        return;
-    }
 
     return (
         <div className='market-info'>

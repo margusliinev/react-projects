@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { RxTriangleDown, RxTriangleUp } from 'react-icons/rx';
 import { useSelector, useDispatch } from 'react-redux';
 import { updateSort } from '../features/coins/coinsSlice';
+import { sortCoins } from '../features/coins/coinsSlice';
 
 const CoinsSort = () => {
-    const { sort } = useSelector((store) => store.coins);
     const dispatch = useDispatch();
+    const { sort } = useSelector((store) => store.coins);
+
+    useEffect(() => {
+        dispatch(sortCoins());
+    }, [sort]);
+
     return (
         <div className='coins-sort'>
             <button type='button' className='coins-sort-btn coins-sort-number' value={sort === 'number-low' ? 'number-high' : 'number-low'} onClick={(e) => dispatch(updateSort(e.currentTarget.value))}>

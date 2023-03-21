@@ -1,27 +1,12 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { Loader } from '../components';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import { formatPrice } from '../utils/formatPrice';
 import { formatPriceBillion } from '../utils/formatPriceBillion';
 import { RxTriangleDown, RxTriangleUp } from 'react-icons/rx';
 import { HiPlus } from 'react-icons/hi';
-import { sortCoins } from '../features/coins/coinsSlice';
 
 const CoinsList = () => {
-    const dispatch = useDispatch();
-    const { btc, sort, coins_loading, coins_error, sorted_coins } = useSelector((store) => store.coins);
-
-    useEffect(() => {
-        dispatch(sortCoins());
-    }, [sort]);
-
-    if (coins_loading) {
-        return <Loader />;
-    }
-
-    if (coins_error) {
-        return;
-    }
+    const { btc, sorted_coins } = useSelector((store) => store.coins);
 
     return (
         <div className='coins-list'>

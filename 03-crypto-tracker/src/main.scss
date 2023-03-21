@@ -126,6 +126,7 @@ h6 {
 
 main {
     padding: 6.5rem 0 2.5rem 0;
+    min-height: calc(100vh - 5rem);
 }
 
 /* NAVBAR */
@@ -379,10 +380,6 @@ main {
 
 /* MARKET INFO */
 /* ==================================================================================================== */
-
-.coins {
-    min-height: calc(100vh - 9rem);
-}
 
 .coins-container {
     display: flex;
