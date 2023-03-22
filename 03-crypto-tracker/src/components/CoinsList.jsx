@@ -6,11 +6,15 @@ import { RxTriangleDown, RxTriangleUp } from 'react-icons/rx';
 import { HiPlus } from 'react-icons/hi';
 
 const CoinsList = () => {
-    const { btc, sorted_coins } = useSelector((store) => store.coins);
+    const { btc, filtered_coins } = useSelector((store) => store.coins);
+
+    if (filtered_coins.length < 1) {
+        return <h2 style={{ textAlign: 'center' }}>No coins matched your search</h2>;
+    }
 
     return (
         <div className='coins-list'>
-            {sorted_coins.map((coin, index) => {
+            {filtered_coins.map((coin, index) => {
                 return (
                     <article key={index} className='coin'>
                         <p className='coin-number'>{coin.number}</p>

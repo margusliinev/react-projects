@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
 import { MarketInfo, CoinsFilters, CoinsSort, CoinsList, CoinsPagination } from '../components';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { fetchCoins } from '../features/coins/coinsSlice';
+import { filterCoins, sortCoins } from '../features/coins/coinsSlice';
 
 const CoinsPage = () => {
     const dispatch = useDispatch();
+    const { sort, filters } = useSelector((store) => store.coins);
 
     // PRODUCTION
     // useEffect(() => {
@@ -18,6 +20,11 @@ const CoinsPage = () => {
     useEffect(() => {
         dispatch(fetchCoins());
     }, []);
+
+    useEffect(() => {
+        dispatch(filterCoins());
+        dispatch(sortCoins());
+    }, [sort, filters]);
 
     return (
         <main className='coins'>

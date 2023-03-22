@@ -1,11 +1,15 @@
 import React from 'react';
 import { TbSearch } from 'react-icons/tb';
+import { useDispatch } from 'react-redux';
+import { updateFilters } from '../features/coins/coinsSlice';
 
 const CoinsFilters = () => {
+    const dispatch = useDispatch();
+
     return (
         <div className='coins-filters'>
             <div className='search-filter-container'>
-                <input type='text' className='search-filter' placeholder='Search' />
+                <input type='text' className='search-filter' placeholder='Search' name='search' onChange={(e) => dispatch(updateFilters({ name: e.target.name, value: e.target.value }))} />
                 <span>
                     <TbSearch />
                 </span>
