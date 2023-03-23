@@ -1,8 +1,8 @@
 import HomePage from './HomePage';
 import AboutPage from './AboutPage';
+import ExchangesPage from './ExchangesPage';
 import PricingPage from './PricingPage';
-import CoinsPage from './CoinsPage';
 import SingleCoinPage from './SingleCoinPage';
 import ErrorPage from './ErrorPage';
 
-export { HomePage, AboutPage, PricingPage, CoinsPage, SingleCoinPage, ErrorPage };
+export { HomePage, AboutPage, ExchangesPage, PricingPage, SingleCoinPage, ErrorPage };

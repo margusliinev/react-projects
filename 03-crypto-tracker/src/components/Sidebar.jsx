@@ -24,13 +24,13 @@ const Sidebar = () => {
                         </Link>
                     </li>
                     <li>
-                        <Link to={'/pricing'} className='sidebar-link' onClick={() => dispatch(closeSidebar())}>
-                            Pricing
+                        <Link to={'/exchanges'} className='sidebar-link' onClick={() => dispatch(closeSidebar())}>
+                            Exchanges
                         </Link>
                     </li>
                     <li>
-                        <Link to={'/coins'} className='sidebar-link' onClick={() => dispatch(closeSidebar())}>
-                            Coins
+                        <Link to={'/pricing'} className='sidebar-link' onClick={() => dispatch(closeSidebar())}>
+                            Pricing
                         </Link>
                     </li>
                 </ul>

@@ -9,7 +9,7 @@ const CoinsList = () => {
     const { btc, filtered_coins } = useSelector((store) => store.coins);
 
     if (filtered_coins.length < 1) {
-        return <h2 style={{ textAlign: 'center' }}>No coins matched your search</h2>;
+        return <h3 className='filter-error'>No coins matched your search...</h3>;
     }
 
     return (

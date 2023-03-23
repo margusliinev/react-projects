@@ -35,18 +35,18 @@ const Navbar = () => {
                         </Link>
                     </li>
                     <li>
+                        <Link to={'/exchanges'} className='nav-link'>
+                            Exchanges
+                        </Link>
+                    </li>
+                    <li>
                         <Link to={'/pricing'} className='nav-link'>
                             Pricing
                         </Link>
                     </li>
-                    <li>
-                        <Link to={'/coins'} className='nav-link'>
-                            Coins
-                        </Link>
-                    </li>
                 </ul>
-                <button type='button' className='btn get-started-btn'>
-                    Get Started
+                <button type='button' className='btn navbar-tracker-btn'>
+                    Portfolio Tracker
                 </button>
             </div>
         </nav>

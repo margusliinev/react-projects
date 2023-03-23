@@ -218,7 +218,7 @@ main {
 }
 
 .nav-links,
-.get-started-btn {
+.navbar-tracker-btn {
     display: none;
 }
 
@@ -228,7 +228,7 @@ main {
         display: none;
     }
     .nav-links,
-    .get-started-btn {
+    .navbar-tracker-btn {
         display: flex;
     }
     .nav-container {
@@ -542,6 +542,13 @@ main {
 .coin-price-low,
 .coin-price-high {
     display: none;
+}
+
+.filter-error {
+    text-align: center;
+    margin: 3rem 0;
+    color: #b3b3b3;
+    font-weight: 500;
 }
 
 @media screen and (max-width: 490px) {
