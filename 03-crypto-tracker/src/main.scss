@@ -152,6 +152,14 @@ main {
     max-width: $width-lg;
     margin: 0 auto;
     width: 90vw;
+    div {
+        display: flex;
+        button:nth-of-type(1) {
+            background: #0d0d0d;
+            color: $colorWhite;
+            box-shadow: none;
+        }
+    }
 }
 
 .nav-header {
@@ -204,8 +212,9 @@ main {
 }
 
 .nav-links {
-    gap: 1.5rem;
+    gap: 1.25rem;
     font-size: 18px;
+    align-items: center;
 }
 
 .nav-link {
@@ -261,6 +270,17 @@ main {
     height: 50vh;
     display: flex;
     flex-direction: column;
+    div {
+        display: flex;
+        flex-direction: column;
+        button {
+            width: 120px;
+        }
+        button:nth-of-type(1) {
+            background-color: $colorPrimary;
+            color: $colorBlack;
+        }
+    }
 }
 
 .sidebar-tracker-btn {
@@ -302,6 +322,13 @@ main {
     width: 90vw;
     background-color: #333;
     margin: 1rem auto;
+}
+
+.content-divider-vertical {
+    height: 25px;
+    width: 2px;
+    background-color: $colorPrimary;
+    border-radius: 9999px;
 }
 
 @media screen and (min-width: $width-md) {

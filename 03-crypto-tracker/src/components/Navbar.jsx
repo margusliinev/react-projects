@@ -26,28 +26,30 @@ const Navbar = () => {
                 <ul className='nav-links'>
                     <li>
                         <Link to={'/'} className='nav-link'>
-                            Home
+                            Coins
                         </Link>
                     </li>
-                    <li>
-                        <Link to={'/about'} className='nav-link'>
-                            About
-                        </Link>
-                    </li>
+                    <div className='content-divider-vertical'></div>
                     <li>
                         <Link to={'/exchanges'} className='nav-link'>
                             Exchanges
                         </Link>
                     </li>
+                    <div className='content-divider-vertical'></div>
                     <li>
-                        <Link to={'/pricing'} className='nav-link'>
-                            Pricing
+                        <Link to={'/portfolio'} className='nav-link'>
+                            Portfolio
                         </Link>
                     </li>
                 </ul>
-                <button type='button' className='btn navbar-tracker-btn'>
-                    Portfolio Tracker
-                </button>
+                <div>
+                    <button type='button' className='btn navbar-tracker-btn'>
+                        Login
+                    </button>
+                    <button type='button' className='btn navbar-tracker-btn'>
+                        Register
+                    </button>
+                </div>
             </div>
         </nav>
     );

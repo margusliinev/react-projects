@@ -9,18 +9,18 @@ const Sidebar = () => {
     return (
         <aside className={isSidebarOpen ? 'sidebar sidebar-open' : 'sidebar'}>
             <div className='sidebar-container'>
-                <button type='button' className='btn sidebar-tracker-btn'>
-                    Portfolio Tracker
-                </button>
+                <div>
+                    <button type='button' className='btn sidebar-tracker-btn'>
+                        Register
+                    </button>
+                    <button type='button' className='btn sidebar-tracker-btn'>
+                        Login
+                    </button>
+                </div>
                 <ul className='sidebar-links'>
                     <li>
                         <Link to={'/'} className='sidebar-link' onClick={() => dispatch(closeSidebar())}>
-                            Home
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to={'/about'} className='sidebar-link' onClick={() => dispatch(closeSidebar())}>
-                            About
+                            Coins
                         </Link>
                     </li>
                     <li>
@@ -29,8 +29,8 @@ const Sidebar = () => {
                         </Link>
                     </li>
                     <li>
-                        <Link to={'/pricing'} className='sidebar-link' onClick={() => dispatch(closeSidebar())}>
-                            Pricing
+                        <Link to={'/portfolio'} className='sidebar-link' onClick={() => dispatch(closeSidebar())}>
+                            Portfolio
                         </Link>
                     </li>
                 </ul>
