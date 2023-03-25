@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { HomePage, AboutPage, ExchangesPage, PricingPage, SingleCoinPage, ErrorPage } from './pages';
+import { CoinsPage, ExchangesPage, PortfolioPage, SingleCoinPage, ErrorPage } from './pages';
 import { Navbar, Sidebar, Footer } from './components';
 
 function App() {
@@ -9,11 +9,10 @@ function App() {
             <Navbar />
             <Sidebar />
             <Routes>
-                <Route path='/' element={<HomePage />} />
+                <Route path='/' element={<CoinsPage />} />
                 <Route path='/:id' element={<SingleCoinPage />} />
-                <Route path='about' element={<AboutPage />} />
-                <Route path='Exchanges' element={<ExchangesPage />} />
-                <Route path='pricing' element={<PricingPage />} />
+                <Route path='exchanges' element={<ExchangesPage />} />
+                <Route path='portfolio' element={<PortfolioPage />} />
                 <Route path='*' element={<ErrorPage />} />
             </Routes>
             <Footer />

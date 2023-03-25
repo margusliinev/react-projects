@@ -154,11 +154,6 @@ main {
     width: 90vw;
     div {
         display: flex;
-        button:nth-of-type(1) {
-            background: #0d0d0d;
-            color: $colorWhite;
-            box-shadow: none;
-        }
     }
 }
 
@@ -226,8 +221,20 @@ main {
     color: lighten($colorPrimary, 10%);
 }
 
+.navbar-login-btn {
+    color: $colorWhite;
+    background: none;
+    box-shadow: none;
+}
+
+.navbar-login-btn:hover {
+    color: $colorPrimary;
+    background-color: transparent;
+}
+
 .nav-links,
-.navbar-tracker-btn {
+.navbar-login-btn,
+.navbar-register-btn {
     display: none;
 }
 
@@ -237,7 +244,8 @@ main {
         display: none;
     }
     .nav-links,
-    .navbar-tracker-btn {
+    .navbar-login-btn,
+    .navbar-register-btn {
         display: flex;
     }
     .nav-container {
@@ -273,19 +281,26 @@ main {
     div {
         display: flex;
         flex-direction: column;
-        button {
-            width: 120px;
-        }
-        button:nth-of-type(1) {
-            background-color: $colorPrimary;
-            color: $colorBlack;
-        }
+        margin-bottom: 0.25rem;
     }
 }
 
-.sidebar-tracker-btn {
-    padding: 0.5rem 0rem;
-    width: 160px;
+.sidebar-register-btn {
+    width: 120px;
+    background-color: $colorPrimary;
+    border: transparent;
+    outline: none;
+    box-shadow: none;
+    color: $colorBlack;
+    margin: 1rem 0rem 0rem 2rem;
+    font-size: 18px;
+}
+.sidebar-register-btn:hover {
+    background-color: lighten($colorPrimary, 10%);
+}
+
+.sidebar-login-btn {
+    width: 100px;
     background-color: #333333;
     border: transparent;
     outline: none;
@@ -294,9 +309,8 @@ main {
     margin: 1rem 0rem 0rem 2rem;
     font-size: 18px;
 }
-.sidebar-tracker-btn:hover {
-    color: $colorBlack;
-    background-color: $colorPrimary;
+.sidebar-login-btn:hover {
+    background-color: darken(#ccc, 50%);
 }
 
 .sidebar-links {

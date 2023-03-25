@@ -24,7 +24,7 @@ const CoinsList = () => {
                         </div>
                         <div className={coin.market_cap_change_percentage_24h > 0 ? 'coin-growth box-green value-green' : 'coin-growth box-red value-red'}>
                             {coin.market_cap_change_percentage_24h > 0 ? <RxTriangleUp /> : <RxTriangleDown />}
-                            <span>{`${Math.abs(coin.market_cap_change_percentage_24h.toFixed(2))}%`}</span>
+                            <span>{`${Math.abs(coin.market_cap_change_percentage_24h).toFixed(2)}%`}</span>
                         </div>
                         <p className='coin-price'>{formatPrice(coin.current_price)}</p>
                         <p className='coin-price-btc'>{(coin.current_price / btc.current_price).toFixed(8)}</p>

@@ -43,10 +43,10 @@ const Navbar = () => {
                     </li>
                 </ul>
                 <div>
-                    <button type='button' className='btn navbar-tracker-btn'>
+                    <button type='button' className='btn navbar-login-btn'>
                         Login
                     </button>
-                    <button type='button' className='btn navbar-tracker-btn'>
+                    <button type='button' className='btn navbar-register-btn'>
                         Register
                     </button>
                 </div>

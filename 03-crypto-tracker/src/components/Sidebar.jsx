@@ -10,10 +10,10 @@ const Sidebar = () => {
         <aside className={isSidebarOpen ? 'sidebar sidebar-open' : 'sidebar'}>
             <div className='sidebar-container'>
                 <div>
-                    <button type='button' className='btn sidebar-tracker-btn'>
+                    <button type='button' className='btn sidebar-register-btn'>
                         Register
                     </button>
-                    <button type='button' className='btn sidebar-tracker-btn'>
+                    <button type='button' className='btn sidebar-login-btn'>
                         Login
                     </button>
                 </div>

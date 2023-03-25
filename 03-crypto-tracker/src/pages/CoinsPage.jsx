@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchCoins } from '../features/coins/coinsSlice';
 import { filterCoins, sortCoins } from '../features/coins/coinsSlice';
 
-const HomePage = () => {
+const CoinsPage = () => {
     const dispatch = useDispatch();
     const { sort, filters } = useSelector((store) => store.coins);
 
@@ -45,4 +45,4 @@ const HomePage = () => {
     );
 };
 
-export default HomePage;
+export default CoinsPage;
