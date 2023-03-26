@@ -7,5 +7,7 @@ import CoinsSort from './CoinsSort';
 import CoinsList from './CoinsList';
 import CoinsPagination from './CoinsPagination';
 import Loader from './Loader';
+import PageHero from './PageHero';
+import CoinsTable from './CoinsTable';
 
-export { Navbar, Sidebar, Footer, MarketInfo, CoinsFilters, CoinsSort, CoinsList, CoinsPagination, Loader };
+export { Navbar, Sidebar, Footer, MarketInfo, CoinsFilters, CoinsSort, CoinsList, CoinsPagination, Loader, PageHero, CoinsTable };

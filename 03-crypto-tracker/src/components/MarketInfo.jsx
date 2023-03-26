@@ -1,11 +1,11 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { formatPrice } from '../utils/formatPrice';
-import { RxTriangleDown, RxTriangleUp } from 'react-icons/rx';
 
 const MarketInfo = () => {
-    const { coins, btc } = useSelector((store) => store.coins);
-    const { market_cap_change_percentage_24h } = btc;
+    const { coins } = useSelector((store) => store.coins);
+    const { global } = useSelector((store) => store.global);
+    const { market_cap_percentage } = global;
 
     const totalMarketCap = coins.reduce((acc, cur) => {
         acc = acc + cur.market_cap;
@@ -27,11 +27,9 @@ const MarketInfo = () => {
                 <p className='info-box-title'>Volume 24h</p>
                 <p className='info-box-value'>{formatPrice(totalMarketCapVolume)}</p>
             </div>
-            <div className={market_cap_change_percentage_24h > 0 ? 'market-info-box box-green' : 'market-info-box box-red'}>
-                <p className='info-box-title'>Bitcoin Price 24h</p>
-                <p className='info-box-value'>
-                    {`${Math.abs(market_cap_change_percentage_24h)}%`} <span className={market_cap_change_percentage_24h > 0 ? 'value-green' : 'value-red'}>{market_cap_change_percentage_24h > 0 ? <RxTriangleUp /> : <RxTriangleDown />}</span>
-                </p>
+            <div className='market-info-box'>
+                <p className='info-box-title'>Bitcoin Dominance</p>
+                <p className='info-box-value'>{market_cap_percentage && market_cap_percentage.btc.toFixed(2) + '%'}</p>
             </div>
         </div>
     );

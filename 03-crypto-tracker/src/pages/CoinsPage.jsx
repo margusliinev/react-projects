@@ -1,24 +1,17 @@
 import React, { useEffect } from 'react';
-import { MarketInfo, CoinsFilters, CoinsSort, CoinsList, CoinsPagination } from '../components';
+import { PageHero, MarketInfo, CoinsTable, Loader } from '../components';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCoins } from '../features/coins/coinsSlice';
+import { fetchGlobal } from '../features/global/globalSlice';
 import { filterCoins, sortCoins } from '../features/coins/coinsSlice';
 
 const CoinsPage = () => {
     const dispatch = useDispatch();
-    const { sort, filters } = useSelector((store) => store.coins);
+    const { coins_loading, global_loading, filters, sort } = useSelector((store) => store.coins);
 
-    // PRODUCTION
-    // useEffect(() => {
-    //     dispatch(fetchCoins());
-    //     setInterval(() => {
-    //         dispatch(fetchCoins());
-    //     }, 120000);
-    // }, []);
-
-    // DEVELOPMENT
     useEffect(() => {
         dispatch(fetchCoins());
+        dispatch(fetchGlobal());
     }, []);
 
     useEffect(() => {
@@ -26,20 +19,23 @@ const CoinsPage = () => {
         dispatch(sortCoins());
     }, [sort, filters]);
 
+    if (coins_loading || global_loading) {
+        return (
+            <main className='coins'>
+                <div className='coins-container'>
+                    <PageHero />
+                    <Loader />
+                </div>
+            </main>
+        );
+    }
+
     return (
         <main className='coins'>
             <div className='coins-container'>
-                <div className='coins-header'>
-                    <h4>Best Coin Price Tracker in the Market</h4>
-                    <h6>Crypto Tracker is an application designed to help users track the real-time value and performance of their cryptocurrency investments.</h6>
-                </div>
+                <PageHero />
                 <MarketInfo />
-                <CoinsFilters />
-                <div className='coins-table'>
-                    <CoinsSort />
-                    <CoinsList />
-                </div>
-                <CoinsPagination />
+                <CoinsTable />
             </div>
         </main>
     );

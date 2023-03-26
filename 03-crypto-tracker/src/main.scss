@@ -238,6 +238,13 @@ main {
     display: none;
 }
 
+.content-divider-vertical {
+    height: 25px;
+    width: 2px;
+    background-color: $colorPrimary;
+    border-radius: 9999px;
+}
+
 @media screen and (min-width: $width-md) {
     .nav-toggle-container,
     .nav-toggle {
@@ -338,13 +345,6 @@ main {
     margin: 1rem auto;
 }
 
-.content-divider-vertical {
-    height: 25px;
-    width: 2px;
-    background-color: $colorPrimary;
-    border-radius: 9999px;
-}
-
 @media screen and (min-width: $width-md) {
     .sidebar {
         transform: translateX(100%);
@@ -419,18 +419,10 @@ main {
     }
 }
 
-/* MARKET INFO */
+/* PAGE HERO */
 /* ==================================================================================================== */
 
-.coins-container {
-    display: flex;
-    flex-direction: column;
-    max-width: $width-xl;
-    margin: 0 auto;
-    width: 90vw;
-}
-
-.coins-header {
+.page-hero {
     text-align: center;
     max-width: $width-sm;
     margin: 0 auto;
@@ -442,6 +434,17 @@ main {
         color: #b3b3b3;
         font-weight: 400;
     }
+}
+
+/* MARKET INFO */
+/* ==================================================================================================== */
+
+.coins-container {
+    display: flex;
+    flex-direction: column;
+    max-width: $width-xl;
+    margin: 0 auto;
+    width: 90vw;
 }
 
 .market-info {
@@ -476,22 +479,6 @@ main {
     }
 }
 
-.value-green {
-    color: $colorSuccess;
-}
-
-.value-red {
-    color: $colorDanger;
-}
-
-.box-green {
-    background-color: rgba(52, 199, 89, 0.1);
-}
-
-.box-red {
-    background-color: #ff44441a;
-}
-
 @media screen and (min-width: $width-lg) {
     .market-info {
         grid-template-columns: 1fr 1fr 1fr;
@@ -500,14 +487,17 @@ main {
     }
 }
 
-/* COINS LIST */
+/* COINS TABLE */
 /* ==================================================================================================== */
 
-.coins-table {
+.coins-box {
     display: grid;
     border: 1px solid #1a1a1a;
     border-radius: $radius-lg;
 }
+
+/* COINS LIST */
+/* ==================================================================================================== */
 
 .coins-list {
     display: grid;
@@ -583,6 +573,22 @@ main {
 .coin-price-low,
 .coin-price-high {
     display: none;
+}
+
+.value-green {
+    color: $colorSuccess;
+}
+
+.value-red {
+    color: $colorDanger;
+}
+
+.box-green {
+    background-color: rgba(52, 199, 89, 0.1);
+}
+
+.box-red {
+    background-color: #ff44441a;
 }
 
 .filter-error {
