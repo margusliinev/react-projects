@@ -1,10 +1,11 @@
 import React from 'react';
-import { CoinsFilters, CoinsSort, CoinsList, CoinsPagination } from '../components';
+import { CoinsFilters, ExtraFilters, CoinsSort, CoinsList, CoinsPagination } from '../components';
 
 const CoinsTable = () => {
     return (
         <section className='coins-table'>
             <CoinsFilters />
+            <ExtraFilters />
             <div className='coins-box'>
                 <CoinsSort />
                 <CoinsList />

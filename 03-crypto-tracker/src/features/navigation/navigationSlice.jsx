@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
     isSidebarOpen: false,
+    isModalOpen: false,
 };
 
 const navigationSlice = createSlice({
@@ -14,8 +15,14 @@ const navigationSlice = createSlice({
         closeSidebar: (state) => {
             state.isSidebarOpen = false;
         },
+        openModal: (state) => {
+            state.isModalOpen = true;
+        },
+        closeModal: (state) => {
+            state.isModalOpen = false;
+        },
     },
 });
 
-export const { openSidebar, closeSidebar } = navigationSlice.actions;
+export const { openSidebar, closeSidebar, openModal, closeModal } = navigationSlice.actions;
 export default navigationSlice.reducer;

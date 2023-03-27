@@ -29,7 +29,7 @@ const MarketInfo = () => {
             </div>
             <div className='market-info-box'>
                 <p className='info-box-title'>Bitcoin Dominance</p>
-                <p className='info-box-value'>{market_cap_percentage && market_cap_percentage.btc.toFixed(2) + '%'}</p>
+                <p className='info-box-value'>{market_cap_percentage ? market_cap_percentage.btc.toFixed(2) + '%' : 0 + '%'}</p>
             </div>
         </div>
     );

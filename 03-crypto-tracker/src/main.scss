@@ -794,5 +794,130 @@ main {
     background-color: $colorPrimary;
 }
 
+.extra-filters {
+    position: fixed;
+    background: rgba(35, 41, 48, 0.5);
+    inset: 0;
+    display: grid;
+    place-items: center;
+    z-index: 30;
+    backdrop-filter: blur(5px);
+}
+
+.extra-filters-container {
+    background: $colorDark;
+    padding: 1rem;
+    border-radius: $radius-sm;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 700px;
+    .content-divider {
+        width: auto;
+    }
+}
+
+.modal-open {
+    display: grid;
+}
+
+.modal-close {
+    display: none;
+}
+
+.extra-filters-header {
+    text-align: center;
+    margin-bottom: 1rem;
+    h6 {
+        font-weight: 500;
+    }
+}
+
+.extra-filters-toggle {
+    background-color: transparent;
+    border: none;
+    color: rgb(100, 107, 128);
+    cursor: pointer;
+    svg {
+        font-size: 1.75rem;
+    }
+    :hover {
+        color: $colorWhite;
+    }
+}
+
+.extra-filters-inputs {
+    display: grid;
+    row-gap: 1rem;
+    .content-divider {
+        height: 1px;
+        width: 100%;
+        background-color: #333;
+        margin: 1rem auto;
+    }
+}
+
+.extra-filters-input-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.extra-filters-input {
+    background-color: transparent;
+    border: 1px solid #333333;
+    font-size: 1rem;
+    border-radius: $radius-lg;
+    color: $colorWhite;
+    padding: 0.5rem 1rem;
+    letter-spacing: $spacingWide;
+}
+
+.extra-filters-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.cancel-button {
+    background-color: #333333;
+    color: $colorWhite;
+    font-size: 1rem;
+    border: none;
+    padding: 0.75rem 1.25rem;
+    border-radius: $radius-lg;
+    box-shadow: 0 0 1px 1px #333333;
+    cursor: pointer;
+    transition: $transition;
+}
+
+.cancel-button:hover {
+    background-color: lighten(#333, 5%);
+}
+
+.apply-filter-button {
+    background-color: $colorPrimary;
+    color: $colorBlack;
+    font-size: 1rem;
+    border: none;
+    padding: 0.75rem 1.25rem;
+    border-radius: $radius-lg;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+    .extra-filters-input-container {
+        flex-direction: column;
+    }
+    .extra-filters-input-container p {
+        align-self: baseline;
+        margin-left: 0.25rem;
+        color: gray;
+    }
+    .extra-filters-input {
+        min-width: 300px;
+    }
+}
+
 /* END */
 /* ==================================================================================================== */
