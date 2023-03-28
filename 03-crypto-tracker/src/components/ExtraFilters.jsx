@@ -5,7 +5,6 @@ import { updateExtraFilters } from '../features/coins/coinsSlice';
 
 const ExtraFilters = () => {
     const { isModalOpen } = useSelector((store) => store.navigation);
-    const { filters } = useSelector((store) => store.coins);
     const dispatch = useDispatch();
 
     return (
@@ -24,7 +23,6 @@ const ExtraFilters = () => {
                     })
                 );
                 dispatch(closeModal());
-                e.currentTarget.reset();
             }}
         >
             <div className='extra-filters-container'>

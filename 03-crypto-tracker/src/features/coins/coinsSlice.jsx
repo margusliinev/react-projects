@@ -49,12 +49,35 @@ const coinsSlice = createSlice({
         },
         filterCoins: (state) => {
             let tempCoins = [...state.coins];
-            tempCoins = tempCoins.filter((coin) => {
-                let name = coin.name.toLowerCase();
-                if (name.includes(state.filters.search)) {
-                    return coin;
-                }
-            });
+            if (state.filters.search) {
+                tempCoins = tempCoins.filter((coin) => {
+                    let name = coin.name.toLowerCase();
+                    if (name.includes(state.filters.search)) {
+                        return coin;
+                    }
+                });
+            }
+            if (state.filters.marketMin && state.filters.marketMax) {
+                tempCoins = tempCoins.filter((coin) => {
+                    if (coin.market_cap >= state.filters.marketMin && coin.market_cap <= state.filters.marketMax) {
+                        return coin;
+                    }
+                });
+            }
+            if (state.filters.priceMin && state.filters.priceMax) {
+                tempCoins = tempCoins.filter((coin) => {
+                    if (coin.current_price >= state.filters.priceMin && coin.current_price <= state.filters.priceMax) {
+                        return coin;
+                    }
+                });
+            }
+            if (state.filters.changeMin && state.filters.changeMax) {
+                tempCoins = tempCoins.filter((coin) => {
+                    if (coin.market_cap_change_percentage_24h >= state.filters.changeMin && coin.market_cap_change_percentage_24h <= state.filters.changeMax) {
+                        return coin;
+                    }
+                });
+            }
             state.filtered_coins = tempCoins;
         },
         updateSort: (state, { payload }) => {
