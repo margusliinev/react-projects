@@ -14,19 +14,19 @@ const ExtraFilters = () => {
                 </div>
                 <div className='content-divider'></div>
                 <div className='extra-filters-inputs'>
-                    <p>Market Cap Range</p>
+                    <p className='input-header'>Market Cap Range</p>
                     <div className='extra-filters-input-container'>
                         <input type='text' className='extra-filters-input' placeholder='€0' />
                         <p>to</p>
                         <input type='text' className='extra-filters-input' placeholder='€999,999,999,999' />
                     </div>
-                    <p>Price Range</p>
+                    <p className='input-header'>Price Range</p>
                     <div className='extra-filters-input-container'>
                         <input type='text' className='extra-filters-input' placeholder='€0' />
                         <p>to</p>
                         <input type='text' className='extra-filters-input' placeholder='€99,999' />
                     </div>
-                    <p>Change Range</p>
+                    <p className='input-header'>Change Range</p>
                     <div className='extra-filters-input-container'>
                         <input type='text' className='extra-filters-input' placeholder='-100%' />
                         <p>to</p>
