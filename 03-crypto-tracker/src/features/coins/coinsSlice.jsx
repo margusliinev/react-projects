@@ -11,6 +11,12 @@ const initialState = {
     sort: 'number-low',
     filters: {
         search: '',
+        marketMin: 0,
+        marketMax: 0,
+        priceMin: 0,
+        priceMax: 0,
+        changeMin: 0,
+        changeMax: 0,
     },
     btc: {},
 };
@@ -26,6 +32,20 @@ const coinsSlice = createSlice({
     reducers: {
         updateFilters: (state, { payload: { name, value } }) => {
             state.filters[name] = value;
+        },
+        updateExtraFilters: (state, { payload: { marketMin, marketMax, priceMin, priceMax, changeMin, changeMax } }) => {
+            if (marketMin && marketMax) {
+                state.filters.marketMin = parseInt(marketMin);
+                state.filters.marketMax = parseInt(marketMax);
+            }
+            if (priceMin && priceMax) {
+                state.filters.priceMin = parseInt(priceMin);
+                state.filters.priceMax = parseInt(priceMax);
+            }
+            if (changeMin && changeMax) {
+                state.filters.changeMin = parseInt(changeMin);
+                state.filters.changeMax = parseInt(changeMax);
+            }
         },
         filterCoins: (state) => {
             let tempCoins = [...state.coins];
@@ -100,5 +120,5 @@ const coinsSlice = createSlice({
 });
 
 export { fetchCoins };
-export const { updateSort, sortCoins, updateFilters, filterCoins } = coinsSlice.actions;
+export const { updateSort, sortCoins, updateFilters, filterCoins, updateExtraFilters } = coinsSlice.actions;
 export default coinsSlice.reducer;
