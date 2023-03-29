@@ -18,6 +18,10 @@ const initialState = {
         changeMin: 0,
         changeMax: 0,
     },
+    extraFiltersAmount: 0,
+    marketFilter: false,
+    priceFilter: false,
+    changeFilter: false,
     btc: {},
 };
 
@@ -34,18 +38,57 @@ const coinsSlice = createSlice({
             state.filters[name] = value;
         },
         updateExtraFilters: (state, { payload: { marketMin, marketMax, priceMin, priceMax, changeMin, changeMax } }) => {
-            if (marketMin && marketMax) {
+            if (marketMin === '' && marketMax === '') {
+                if (state.marketFilter) {
+                    state.extraFiltersAmount = state.extraFiltersAmount - 1;
+                    state.filters.marketMin = 0;
+                    state.filters.marketMax = 999999999999;
+                }
+                state.marketFilter = false;
+            } else if (marketMin && marketMax) {
                 state.filters.marketMin = parseInt(marketMin);
                 state.filters.marketMax = parseInt(marketMax);
+                if (!state.marketFilter) {
+                    state.extraFiltersAmount += 1;
+                }
+                state.marketFilter = true;
             }
-            if (priceMin && priceMax) {
+            if (priceMin === '' && priceMax === '') {
+                if (state.priceFilter) {
+                    state.extraFiltersAmount = state.extraFiltersAmount - 1;
+                    state.filters.priceMin = 0;
+                    state.filters.priceMax = 99999;
+                }
+                state.priceFilter = false;
+            } else if (priceMin && priceMax) {
                 state.filters.priceMin = parseInt(priceMin);
                 state.filters.priceMax = parseInt(priceMax);
+                if (!state.priceFilter) {
+                    state.extraFiltersAmount += 1;
+                }
+                state.priceFilter = true;
             }
-            if (changeMin && changeMax) {
+            if (changeMin === '' && changeMax === '') {
+                if (state.changeFilter) {
+                    state.extraFiltersAmount = state.extraFiltersAmount - 1;
+                    state.filters.changeMin = -100;
+                    state.filters.changeMax = 1000;
+                }
+                state.changeFilter = false;
+            } else if (changeMin && changeMax) {
                 state.filters.changeMin = parseInt(changeMin);
                 state.filters.changeMax = parseInt(changeMax);
+                if (!state.changeFilter) {
+                    state.extraFiltersAmount += 1;
+                }
+                state.changeFilter = true;
             }
+        },
+        removeFilters: (state) => {
+            state.marketFilter = false;
+            state.priceFilter = false;
+            state.changeFilter = false;
+            state.extraFiltersAmount = 0;
         },
         filterCoins: (state) => {
             let tempCoins = [...state.coins];
@@ -143,5 +186,5 @@ const coinsSlice = createSlice({
 });
 
 export { fetchCoins };
-export const { updateSort, sortCoins, updateFilters, filterCoins, updateExtraFilters } = coinsSlice.actions;
+export const { updateSort, sortCoins, updateFilters, filterCoins, updateExtraFilters, removeFilters, displayError } = coinsSlice.actions;
 export default coinsSlice.reducer;

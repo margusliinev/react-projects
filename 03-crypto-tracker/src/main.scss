@@ -589,6 +589,14 @@ main {
     background-color: #ff44441a;
 }
 
+.active-filters {
+    color: lighten($colorPrimary, 10%) !important;
+}
+
+.active-filters:hover {
+    background-color: #333333 !important;
+}
+
 .filter-error {
     text-align: center;
     margin: 3rem 0;
