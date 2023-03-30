@@ -589,6 +589,10 @@ main {
     background-color: #ff44441a;
 }
 
+.active {
+    color: $colorPrimary;
+}
+
 .active-filters {
     color: lighten($colorPrimary, 10%) !important;
 }

@@ -5,6 +5,7 @@ import { updateExtraFilters } from '../features/coins/coinsSlice';
 
 const ExtraFilters = () => {
     const { isModalOpen } = useSelector((store) => store.navigation);
+    const { marketFilter, priceFilter, changeFilter } = useSelector((store) => store.coins);
     const dispatch = useDispatch();
 
     return (
@@ -31,19 +32,40 @@ const ExtraFilters = () => {
                 </div>
                 <div className='content-divider'></div>
                 <div className='extra-filters-inputs'>
-                    <p className='input-header'>Market Cap Range</p>
+                    <p className='input-header'>
+                        Market Cap Range{' '}
+                        {marketFilter ? (
+                            <>
+                                -<span className='active'> Active</span>{' '}
+                            </>
+                        ) : null}
+                    </p>
                     <div className='extra-filters-input-container'>
                         <input type='number' min='0' max='999999999999' className='extra-filters-input' name='marketMin' placeholder='€0' />
                         <p>to</p>
                         <input type='number' min='0' max='999999999999' className='extra-filters-input' name='marketMax' placeholder='€999,999,999,999' />
                     </div>
-                    <p className='input-header'>Price Range</p>
+                    <p className='input-header'>
+                        Price Range{' '}
+                        {priceFilter ? (
+                            <>
+                                -<span className='active'> Active</span>{' '}
+                            </>
+                        ) : null}
+                    </p>
                     <div className='extra-filters-input-container'>
                         <input type='number' min='0' max='99999' className='extra-filters-input' name='priceMin' placeholder='€0' />
                         <p>to</p>
                         <input type='number' min='0' max='99999' className='extra-filters-input' name='priceMax' placeholder='€99,999' />
                     </div>
-                    <p className='input-header'>Change Range</p>
+                    <p className='input-header'>
+                        Change Range{' '}
+                        {changeFilter ? (
+                            <>
+                                -<span className='active'> Active</span>{' '}
+                            </>
+                        ) : null}
+                    </p>
                     <div className='extra-filters-input-container'>
                         <input type='number' min='-100' max='1000' className='extra-filters-input' name='changeMin' placeholder='-100%' />
                         <p>to</p>

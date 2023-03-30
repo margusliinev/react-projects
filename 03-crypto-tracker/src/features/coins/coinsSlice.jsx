@@ -100,21 +100,21 @@ const coinsSlice = createSlice({
                     }
                 });
             }
-            if (state.filters.marketMin && state.filters.marketMax) {
+            if ((state.filters.marketMin && state.filters.marketMax) || (state.filters.marketMin === 0 && state.filters.marketMax) || (state.filters.marketMin && state.filters.marketMax === 0)) {
                 tempCoins = tempCoins.filter((coin) => {
                     if (coin.market_cap >= state.filters.marketMin && coin.market_cap <= state.filters.marketMax) {
                         return coin;
                     }
                 });
             }
-            if (state.filters.priceMin && state.filters.priceMax) {
+            if ((state.filters.priceMin && state.filters.priceMax) || (state.filters.priceMin === 0 && state.filters.priceMax) || (state.filters.priceMin && state.filters.priceMax === 0)) {
                 tempCoins = tempCoins.filter((coin) => {
                     if (coin.current_price >= state.filters.priceMin && coin.current_price <= state.filters.priceMax) {
                         return coin;
                     }
                 });
             }
-            if (state.filters.changeMin && state.filters.changeMax) {
+            if ((state.filters.changeMin && state.filters.changeMax) || (state.filters.changeMin === 0 && state.filters.changeMax) || (state.filters.changeMin && state.filters.changeMax === 0)) {
                 tempCoins = tempCoins.filter((coin) => {
                     if (coin.market_cap_change_percentage_24h >= state.filters.changeMin && coin.market_cap_change_percentage_24h <= state.filters.changeMax) {
                         return coin;
