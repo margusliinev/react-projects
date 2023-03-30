@@ -84,11 +84,19 @@ const coinsSlice = createSlice({
                 state.changeFilter = true;
             }
         },
-        removeFilters: (state) => {
-            state.marketFilter = false;
-            state.priceFilter = false;
-            state.changeFilter = false;
-            state.extraFiltersAmount = 0;
+        removeFilter: (state, { payload }) => {
+            state[payload] = false;
+            state.extraFiltersAmount = state.extraFiltersAmount - 1;
+            if (payload === 'marketFilter') {
+                state.filters.marketMin = 0;
+                state.filters.marketMax = 999999999999;
+            } else if (payload === 'priceFilter') {
+                state.filters.priceMin = 0;
+                state.filters.priceMax = 99999;
+            } else if (payload === 'changeFilter') {
+                state.filters.changeMin = -100;
+                state.filters.changeMax = 1000;
+            }
         },
         filterCoins: (state) => {
             let tempCoins = [...state.coins];
@@ -186,5 +194,5 @@ const coinsSlice = createSlice({
 });
 
 export { fetchCoins };
-export const { updateSort, sortCoins, updateFilters, filterCoins, updateExtraFilters, removeFilters, displayError } = coinsSlice.actions;
+export const { updateSort, sortCoins, updateFilters, filterCoins, updateExtraFilters, removeFilter, displayError } = coinsSlice.actions;
 export default coinsSlice.reducer;

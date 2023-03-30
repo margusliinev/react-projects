@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { closeModal } from '../features/navigation/navigationSlice';
-import { updateExtraFilters } from '../features/coins/coinsSlice';
+import { updateExtraFilters, removeFilter } from '../features/coins/coinsSlice';
 import { CgClose } from 'react-icons/cg';
 
 const ExtraFilters = () => {
@@ -49,7 +49,15 @@ const ExtraFilters = () => {
                         </div>
                         <div className={marketFilter ? 'current-filter-container show-current-filter-container' : 'current-filter-container'}>
                             <span className='current-filter'>{`€${marketMin} - €${marketMax}`}</span>
-                            <button className='remove-filter-btn'>
+                            <button
+                                className='remove-filter-btn'
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    e.currentTarget.parentElement.previousElementSibling.firstElementChild.value = '';
+                                    e.currentTarget.parentElement.previousElementSibling.firstElementChild.nextElementSibling.nextElementSibling.value = '';
+                                    dispatch(removeFilter('marketFilter'));
+                                }}
+                            >
                                 <CgClose />
                             </button>
                         </div>
@@ -70,7 +78,15 @@ const ExtraFilters = () => {
                         </div>
                         <div className={priceFilter ? 'current-filter-container show-current-filter-container' : 'current-filter-container'}>
                             <span className='current-filter'>{`€${priceMin} - €${priceMax}`}</span>
-                            <button className='remove-filter-btn'>
+                            <button
+                                className='remove-filter-btn'
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    e.currentTarget.parentElement.previousElementSibling.firstElementChild.value = '';
+                                    e.currentTarget.parentElement.previousElementSibling.firstElementChild.nextElementSibling.nextElementSibling.value = '';
+                                    dispatch(removeFilter('priceFilter'));
+                                }}
+                            >
                                 <CgClose />
                             </button>
                         </div>
@@ -91,7 +107,15 @@ const ExtraFilters = () => {
                         </div>
                         <div className={changeFilter ? 'current-filter-container show-current-filter-container' : 'current-filter-container'}>
                             <span className='current-filter'>{`€${changeMin} - €${changeMax}`}</span>
-                            <button className='remove-filter-btn'>
+                            <button
+                                className='remove-filter-btn'
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    e.currentTarget.parentElement.previousElementSibling.firstElementChild.value = '';
+                                    e.currentTarget.parentElement.previousElementSibling.firstElementChild.nextElementSibling.nextElementSibling.value = '';
+                                    dispatch(removeFilter('changeFilter'));
+                                }}
+                            >
                                 <CgClose />
                             </button>
                         </div>
