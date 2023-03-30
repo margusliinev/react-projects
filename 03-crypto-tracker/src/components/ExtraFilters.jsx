@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { closeModal } from '../features/navigation/navigationSlice';
 import { updateExtraFilters } from '../features/coins/coinsSlice';
+import { CgClose } from 'react-icons/cg';
 
 const ExtraFilters = () => {
     const { isModalOpen } = useSelector((store) => store.navigation);
@@ -46,7 +47,12 @@ const ExtraFilters = () => {
                             <p>to</p>
                             <input type='number' min='0' max='999999999999' className='extra-filters-input' name='marketMax' placeholder='€999,999,999,999' disabled={marketFilter ? true : false} />
                         </div>
-                        <span className={marketFilter ? 'current-filter show-current-filter' : 'current-filter'}>{`€${marketMin} - €${marketMax}`}</span>
+                        <div className={marketFilter ? 'current-filter-container show-current-filter-container' : 'current-filter-container'}>
+                            <span className='current-filter'>{`€${marketMin} - €${marketMax}`}</span>
+                            <button className='remove-filter-btn'>
+                                <CgClose />
+                            </button>
+                        </div>
                     </div>
                     <p className='input-header'>
                         Price Range{' '}
@@ -62,7 +68,12 @@ const ExtraFilters = () => {
                             <p>to</p>
                             <input type='number' min='0' max='99999' className='extra-filters-input' name='priceMax' placeholder='€99,999' disabled={priceFilter ? true : false} />
                         </div>
-                        <span className={priceFilter ? 'current-filter show-current-filter' : 'current-filter'}>{`€${priceMin} - €${priceMax}`}</span>
+                        <div className={priceFilter ? 'current-filter-container show-current-filter-container' : 'current-filter-container'}>
+                            <span className='current-filter'>{`€${priceMin} - €${priceMax}`}</span>
+                            <button className='remove-filter-btn'>
+                                <CgClose />
+                            </button>
+                        </div>
                     </div>
                     <p className='input-header'>
                         Change Range{' '}
@@ -78,7 +89,12 @@ const ExtraFilters = () => {
                             <p>to</p>
                             <input type='number' min='-100' max='1000' className='extra-filters-input' name='changeMax' placeholder='1000%' disabled={changeFilter ? true : false} />
                         </div>
-                        <span className={changeFilter ? 'current-filter show-current-filter' : 'current-filter'}>{`${changeMin}% - ${changeMax}%`}</span>
+                        <div className={changeFilter ? 'current-filter-container show-current-filter-container' : 'current-filter-container'}>
+                            <span className='current-filter'>{`€${changeMin} - €${changeMax}`}</span>
+                            <button className='remove-filter-btn'>
+                                <CgClose />
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <div className='content-divider'></div>

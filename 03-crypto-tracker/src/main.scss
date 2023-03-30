@@ -863,7 +863,7 @@ main {
 }
 
 .extra-filters-input-container {
-    div {
+    div:nth-of-type(1) {
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -928,23 +928,45 @@ input[type='number']::-webkit-inner-spin-button {
     appearance: none;
 }
 
+.current-filter-container {
+    display: none;
+    align-items: center;
+    gap: 0.75rem;
+    .remove-filter-btn {
+        display: grid;
+        cursor: pointer;
+        background-color: transparent;
+        border: none;
+        border-top-right-radius: $radius-lg;
+        border-bottom-right-radius: $radius-lg;
+        color: $colorDanger;
+        transition: $transition;
+        svg {
+            font-size: 22px;
+            margin-top: 0.1rem;
+        }
+    }
+    .remove-filter-btn:hover {
+        color: lighten($colorDanger, 10%);
+    }
+}
+
 .current-filter {
     background-color: #333;
     padding: 0.5rem 0.75rem;
     border-radius: $radius-md;
     margin-top: 0.75rem;
     margin-bottom: 0.75rem;
-    display: none;
     font-size: 14px;
 }
 
-.show-current-filter {
-    display: inline-block;
+.show-current-filter-container {
+    display: flex;
 }
 
 @media screen and (max-width: 676px) {
     .extra-filters-input-container {
-        div {
+        div:nth-of-type(1) {
             flex-direction: column;
             gap: 0.5rem;
         }
