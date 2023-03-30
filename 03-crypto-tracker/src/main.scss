@@ -823,6 +823,9 @@ main {
     .content-divider {
         width: auto;
     }
+    .content-divider:nth-of-type(4) {
+        margin-top: 2rem !important;
+    }
 }
 
 .modal-open {
@@ -857,19 +860,15 @@ main {
 .extra-filters-inputs {
     display: grid;
     row-gap: 1rem;
-    .content-divider {
-        height: 1px;
-        width: 100%;
-        background-color: #333;
-        margin: 1rem auto;
-    }
 }
 
 .extra-filters-input-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
+    div {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+    }
 }
 
 .extra-filters-input {
@@ -898,7 +897,7 @@ main {
     margin-top: 2rem;
 }
 
-.cancel-button {
+.close-button {
     background-color: #333333;
     color: $colorWhite;
     font-size: 1rem;
@@ -910,7 +909,7 @@ main {
     transition: $transition;
 }
 
-.cancel-button:hover {
+.close-button:hover {
     background-color: lighten(#333, 5%);
 }
 
@@ -929,15 +928,34 @@ input[type='number']::-webkit-inner-spin-button {
     appearance: none;
 }
 
+.current-filter {
+    background-color: #333;
+    padding: 0.5rem 0.75rem;
+    border-radius: $radius-md;
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+    display: none;
+    font-size: 14px;
+}
+
+.show-current-filter {
+    display: inline-block;
+}
+
 @media screen and (max-width: 676px) {
     .extra-filters-input-container {
-        flex-direction: column;
-        gap: 0.75rem;
+        div {
+            flex-direction: column;
+            gap: 0.5rem;
+        }
     }
     .extra-filters-input-container p {
         align-self: baseline;
         margin-left: 0.25rem;
         color: gray;
+    }
+    .extra-filters-container {
+        padding: 1rem 2rem;
     }
     .input-header {
         margin-top: 1rem;
