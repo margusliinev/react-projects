@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-const url = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=250&page=1&sparkline=false&price_change_percentage=24h';
+const url = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=25&page=1&sparkline=false&price_change_percentage=24h';
 
 const initialState = {
     coins_loading: false,
@@ -23,6 +23,8 @@ const initialState = {
     priceFilter: false,
     changeFilter: false,
     btc: {},
+    numOfPages: 10,
+    page: 1,
 };
 
 const fetchCoins = createAsyncThunk('coins/fetchCoins', async () => {
