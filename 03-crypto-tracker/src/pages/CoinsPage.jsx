@@ -7,12 +7,15 @@ import { filterCoins, sortCoins } from '../features/coins/coinsSlice';
 
 const CoinsPage = () => {
     const dispatch = useDispatch();
-    const { coins_loading, global_loading, filters, sort } = useSelector((store) => store.coins);
+    const { coins_loading, global_loading, filters, sort, page } = useSelector((store) => store.coins);
 
     useEffect(() => {
-        dispatch(fetchCoins());
         dispatch(fetchGlobal());
     }, []);
+
+    useEffect(() => {
+        dispatch(fetchCoins(page));
+    }, [page]);
 
     useEffect(() => {
         dispatch(filterCoins());

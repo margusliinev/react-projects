@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-const url = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=25&page=1&sparkline=false&price_change_percentage=24h';
+const url = 'https://api.coingecko.com/api/v3/coins/';
 
 const initialState = {
     coins_loading: false,
@@ -22,13 +22,15 @@ const initialState = {
     marketFilter: false,
     priceFilter: false,
     changeFilter: false,
-    btc: {},
+    btc_price: 0,
     numOfPages: 10,
+    itemsPerPage: 25,
     page: 1,
 };
 
-const fetchCoins = createAsyncThunk('coins/fetchCoins', async () => {
-    const response = await axios(url);
+const fetchCoins = createAsyncThunk('coins/fetchCoins', async (page) => {
+    const response = await axios(`${url}markets?vs_currency=eur&order=market_cap_desc&per_page=25&page=${page}&sparkline=false&price_change_percentage=24h`);
+    console.log(response.data);
     return response.data;
 });
 
@@ -173,6 +175,9 @@ const coinsSlice = createSlice({
             }
             state.filtered_coins = sortedCoins;
         },
+        changePage: (state, { payload }) => {
+            state.page = payload;
+        },
     },
     extraReducers: (builder) => {
         builder
@@ -188,13 +193,16 @@ const coinsSlice = createSlice({
                 state.coins = [...action.payload];
                 state.filtered_coins = [...action.payload];
                 state.filtered_coins.map((item, index) => {
-                    item.number = index + 1;
+                    if (state.page > 1) {
+                        item.number = (state.page - 1) * state.itemsPerPage + index + 1;
+                    } else {
+                        item.number = index + 1;
+                    }
                 });
-                state.btc = state.filtered_coins.find((item) => (item.name = 'bitcoin'));
             });
     },
 });
 
 export { fetchCoins };
-export const { updateSort, sortCoins, updateFilters, filterCoins, updateExtraFilters, removeFilter, displayError } = coinsSlice.actions;
+export const { updateSort, sortCoins, updateFilters, filterCoins, updateExtraFilters, removeFilter, changePage, paginate } = coinsSlice.actions;
 export default coinsSlice.reducer;

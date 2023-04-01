@@ -1,6 +1,7 @@
 import { HiChevronDoubleLeft, HiChevronDoubleRight } from 'react-icons/hi';
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { changePage } from '../features/coins/coinsSlice';
 
 const CoinsPagination = () => {
     const { numOfPages, page } = useSelector((store) => store.coins);
@@ -26,7 +27,7 @@ const CoinsPagination = () => {
             </button>
             {pages.map((pageNumber) => {
                 return (
-                    <button type='button' className={pageNumber === page ? 'page-btn active-page' : 'page-btn'} key={pageNumber} onClick={() => console.log('change page')}>
+                    <button type='button' className={pageNumber === page ? 'page-btn active-page' : 'page-btn'} key={pageNumber} onClick={() => dispatch(changePage(pageNumber))}>
                         {pageNumber}
                     </button>
                 );
