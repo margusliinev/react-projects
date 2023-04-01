@@ -6,7 +6,7 @@ import { RxTriangleDown, RxTriangleUp } from 'react-icons/rx';
 import { HiPlus } from 'react-icons/hi';
 
 const CoinsList = () => {
-    const { btc_price, filtered_coins } = useSelector((store) => store.coins);
+    const { btc, filtered_coins } = useSelector((store) => store.coins);
 
     if (filtered_coins.length < 1) {
         return <h3 className='filter-error'>No coins matched your search...</h3>;
@@ -27,7 +27,7 @@ const CoinsList = () => {
                             <span>{`${Math.abs(coin.market_cap_change_percentage_24h).toFixed(2)}%`}</span>
                         </div>
                         <p className='coin-price'>{formatPrice(coin.current_price)}</p>
-                        <p className='coin-price-btc'>{(coin.current_price / btc_price).toFixed(8)}</p>
+                        <p className='coin-price-btc'>{(coin.current_price / btc.current_price).toFixed(8)}</p>
                         <p className='coin-market-cap'>{formatPriceBillion(coin.market_cap)}</p>
                         <p className='coin-price-low'>{formatPrice(coin.low_24h)}</p>
                         <p className='coin-price-high'>{formatPrice(coin.high_24h)}</p>

@@ -8,15 +8,15 @@ const MarketInfo = () => {
     return (
         <div className='market-info'>
             <div className='market-info-box'>
-                <p className='info-box-title'>1. Bitcoin</p>
+                <p className='info-box-title'>Bitcoin</p>
                 <p className='info-box-value'>{market_cap_percentage ? market_cap_percentage.btc.toFixed(2) + '%' : 0 + '%'}</p>
             </div>
             <div className='market-info-box'>
-                <p className='info-box-title'>2. Ethereum</p>
+                <p className='info-box-title'>Ethereum</p>
                 <p className='info-box-value'>{market_cap_percentage ? market_cap_percentage.eth.toFixed(2) + '%' : 0 + '%'}</p>
             </div>
             <div className='market-info-box'>
-                <p className='info-box-title'>3. Tether</p>
+                <p className='info-box-title'>Tether</p>
                 <p className='info-box-value'>{market_cap_percentage ? market_cap_percentage.usdt.toFixed(2) + '%' : 0 + '%'}</p>
             </div>
         </div>

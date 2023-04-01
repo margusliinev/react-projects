@@ -22,7 +22,7 @@ const initialState = {
     marketFilter: false,
     priceFilter: false,
     changeFilter: false,
-    btc_price: 0,
+    btc: {},
     numOfPages: 10,
     itemsPerPage: 25,
     page: 1,
@@ -30,7 +30,6 @@ const initialState = {
 
 const fetchCoins = createAsyncThunk('coins/fetchCoins', async (page) => {
     const response = await axios(`${url}markets?vs_currency=eur&order=market_cap_desc&per_page=25&page=${page}&sparkline=false&price_change_percentage=24h`);
-    console.log(response.data);
     return response.data;
 });
 
@@ -199,10 +198,13 @@ const coinsSlice = createSlice({
                         item.number = index + 1;
                     }
                 });
+                if (state.page === 1) {
+                    state.btc = state.coins.find((item) => (item.name = 'bitcoin'));
+                }
             });
     },
 });
 
 export { fetchCoins };
-export const { updateSort, sortCoins, updateFilters, filterCoins, updateExtraFilters, removeFilter, changePage, paginate } = coinsSlice.actions;
+export const { updateSort, sortCoins, updateFilters, filterCoins, updateExtraFilters, removeFilter, changePage } = coinsSlice.actions;
 export default coinsSlice.reducer;

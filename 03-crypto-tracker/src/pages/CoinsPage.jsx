@@ -7,7 +7,8 @@ import { filterCoins, sortCoins } from '../features/coins/coinsSlice';
 
 const CoinsPage = () => {
     const dispatch = useDispatch();
-    const { coins_loading, global_loading, filters, sort, page } = useSelector((store) => store.coins);
+    const { filters, sort, page } = useSelector((store) => store.coins);
+    const { global_loading } = useSelector((store) => store.global);
 
     useEffect(() => {
         dispatch(fetchGlobal());
@@ -22,7 +23,7 @@ const CoinsPage = () => {
         dispatch(sortCoins());
     }, [sort, filters]);
 
-    if (coins_loading || global_loading) {
+    if (global_loading) {
         return (
             <main className='coins'>
                 <div className='coins-container'>
