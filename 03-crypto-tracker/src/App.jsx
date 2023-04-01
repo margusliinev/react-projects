@@ -10,7 +10,8 @@ function App() {
             <Sidebar />
             <Routes>
                 <Route path='/' element={<CoinsPage />} />
-                <Route path='/:id' element={<SingleCoinPage />} />
+                <Route path='/coins' element={<CoinsPage />} />
+                <Route path='/coins/:id' element={<SingleCoinPage />} />
                 <Route path='exchanges' element={<ExchangesPage />} />
                 <Route path='portfolio' element={<PortfolioPage />} />
                 <Route path='*' element={<ErrorPage />} />

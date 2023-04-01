@@ -12,11 +12,19 @@ const CoinsPagination = () => {
     });
 
     const nextPage = () => {
-        console.log('next page');
+        let newPage = page + 1;
+        if (newPage > numOfPages) {
+            newPage = 1;
+        }
+        dispatch(changePage(newPage));
     };
 
     const prevPage = () => {
-        console.log('prev page');
+        let newPage = page - 1;
+        if (newPage < 1) {
+            newPage = numOfPages;
+        }
+        dispatch(changePage(newPage));
     };
 
     return (
