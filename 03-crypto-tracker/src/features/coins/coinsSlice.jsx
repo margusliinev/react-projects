@@ -1,13 +1,15 @@
 import axios from 'axios';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-const url = 'https://api.coingecko.com/api/v3/coins/';
+const url = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=250&page=1&sparkline=false&price_change_percentage=24h';
 
 const initialState = {
     coins_loading: false,
     coins_error: false,
     coins: [],
+    page_coins: [],
     filtered_coins: [],
+    displayed_coins: [],
     sort: 'number-low',
     filters: {
         search: '',
@@ -28,8 +30,8 @@ const initialState = {
     page: 1,
 };
 
-const fetchCoins = createAsyncThunk('coins/fetchCoins', async (page) => {
-    const response = await axios(`${url}markets?vs_currency=eur&order=market_cap_desc&per_page=25&page=${page}&sparkline=false&price_change_percentage=24h`);
+const fetchCoins = createAsyncThunk('coins/fetchCoins', async () => {
+    const response = await axios(url);
     return response.data;
 });
 
@@ -133,6 +135,12 @@ const coinsSlice = createSlice({
                 });
             }
             state.filtered_coins = tempCoins;
+            console.log(state.filtered_coins);
+            state.page_coins = Array.from({ length: Math.ceil(state.filtered_coins.length / state.itemsPerPage) }, (_, index) => {
+                const start = index * state.itemsPerPage;
+                return state.filtered_coins.slice(start, start + state.itemsPerPage);
+            });
+            state.displayed_coins = state.page_coins[state.page - 1];
         },
         updateSort: (state, { payload }) => {
             state.sort = payload;
@@ -173,9 +181,19 @@ const coinsSlice = createSlice({
                 sortedCoins = sortedCoins.sort((a, b) => a.high_24h - b.high_24h);
             }
             state.filtered_coins = sortedCoins;
+            state.page_coins = Array.from({ length: Math.ceil(state.filtered_coins.length / state.itemsPerPage) }, (_, index) => {
+                const start = index * state.itemsPerPage;
+                return state.filtered_coins.slice(start, start + state.itemsPerPage);
+            });
+            state.displayed_coins = state.page_coins[state.page - 1];
         },
         changePage: (state, { payload }) => {
             state.page = payload;
+            state.page_coins = Array.from({ length: Math.ceil(state.filtered_coins.length / state.itemsPerPage) }, (_, index) => {
+                const start = index * state.itemsPerPage;
+                return state.filtered_coins.slice(start, start + state.itemsPerPage);
+            });
+            state.displayed_coins = state.page_coins[state.page - 1];
         },
     },
     extraReducers: (builder) => {
@@ -190,17 +208,17 @@ const coinsSlice = createSlice({
             .addCase(fetchCoins.fulfilled, (state, action) => {
                 state.coins_loading = false;
                 state.coins = [...action.payload];
-                state.filtered_coins = [...action.payload];
-                state.filtered_coins.map((item, index) => {
-                    if (state.page > 1) {
-                        item.number = (state.page - 1) * state.itemsPerPage + index + 1;
-                    } else {
-                        item.number = index + 1;
-                    }
+                state.btc = state.coins.find((item) => (item.name = 'bitcoin'));
+                state.coins = state.coins.map((item, index) => {
+                    item.number = index + 1;
+                    return item;
                 });
-                if (state.page === 1) {
-                    state.btc = state.coins.find((item) => (item.name = 'bitcoin'));
-                }
+                state.filtered_coins = [...state.coins];
+                state.page_coins = Array.from({ length: Math.ceil(state.filtered_coins.length / state.itemsPerPage) }, (_, index) => {
+                    const start = index * state.itemsPerPage;
+                    return state.filtered_coins.slice(start, start + state.itemsPerPage);
+                });
+                state.displayed_coins = state.page_coins[state.page - 1];
             });
     },
 });
