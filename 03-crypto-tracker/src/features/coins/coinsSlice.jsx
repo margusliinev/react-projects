@@ -135,7 +135,6 @@ const coinsSlice = createSlice({
                 });
             }
             state.filtered_coins = tempCoins;
-            console.log(state.filtered_coins);
             state.page_coins = Array.from({ length: Math.ceil(state.filtered_coins.length / state.itemsPerPage) }, (_, index) => {
                 const start = index * state.itemsPerPage;
                 return state.filtered_coins.slice(start, start + state.itemsPerPage);

@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { changePage } from '../features/coins/coinsSlice';
 
 const CoinsPagination = () => {
-    const { numOfPages, page, filtered_coins, itemsPerPage } = useSelector((store) => store.coins);
+    const { page, filtered_coins, itemsPerPage } = useSelector((store) => store.coins);
     const dispatch = useDispatch();
 
     const pages = Array.from({ length: Math.ceil(filtered_coins.length / itemsPerPage) }, (_, index) => {
