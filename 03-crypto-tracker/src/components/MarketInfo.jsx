@@ -11,7 +11,7 @@ const MarketInfo = () => {
         <div className='market-info'>
             <div className={bitcoin && bitcoin.eur_24h_change > 0 ? 'market-info-box box-green' : 'market-info-box box-red'}>
                 <p className='info-box-title'>Bitcoin</p>
-                <div>
+                <div className='info-box-value-container'>
                     <p className='info-box-value'>{bitcoin && bitcoin ? formatPrice(bitcoin && bitcoin.eur_market_cap) : 0 + '€'}</p>
                     <div className={bitcoin && bitcoin.eur_24h_change > 0 ? 'info-box-change-value bright-box-green value-green' : 'info-box-change-value bright-box-red value-red'}>
                         {bitcoin && bitcoin.eur_24h_change > 0 ? <RxTriangleUp /> : <RxTriangleDown />}
@@ -21,7 +21,7 @@ const MarketInfo = () => {
             </div>
             <div className={ethereum && ethereum.eur_24h_change > 0 ? 'market-info-box box-green' : 'market-info-box box-red'}>
                 <p className='info-box-title'>Ethereum</p>
-                <div>
+                <div className='info-box-value-container'>
                     <p className='info-box-value'>{ethereum && ethereum ? formatPrice(ethereum && ethereum.eur_market_cap) : 0 + '€'}</p>
                     <div className={ethereum && ethereum.eur_24h_change > 0 ? 'info-box-change-value bright-box-green value-green' : 'info-box-change-value bright-box-red value-red'}>
                         {ethereum && ethereum.eur_24h_change > 0 ? <RxTriangleUp /> : <RxTriangleDown />}
@@ -31,7 +31,7 @@ const MarketInfo = () => {
             </div>
             <div className={tether && tether.eur_24h_change > 0 ? 'market-info-box box-green' : 'market-info-box box-red'}>
                 <p className='info-box-title'>Tether</p>
-                <div>
+                <div className='info-box-value-container'>
                     <p className='info-box-value'>{tether && tether ? formatPrice(tether && tether.eur_market_cap) : 0 + '€'}</p>
                     <div className={tether && tether.eur_24h_change > 0 ? 'info-box-change-value bright-box-green value-green' : 'info-box-change-value bright-box-red value-red'}>
                         {tether && tether.eur_24h_change > 0 ? <RxTriangleUp /> : <RxTriangleDown />}

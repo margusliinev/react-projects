@@ -483,6 +483,22 @@ main {
     border-radius: $radius-lg;
 }
 
+@media screen and (max-width: 420px) {
+    .market-info-box {
+        width: 300px;
+        .info-box-value-container {
+            display: grid;
+        }
+    }
+    .info-box-value {
+        margin-bottom: 0.5rem;
+    }
+    .info-box-change-value {
+        display: flex;
+        width: max-content;
+    }
+}
+
 @media screen and (min-width: 840px) {
     .market-info {
         grid-template-columns: 1fr 1fr;
@@ -823,6 +839,7 @@ main {
     color: $colorWhite;
     box-shadow: none;
     padding: calc(0.6rem + 2px) 1.2rem;
+    white-space: nowrap;
 }
 
 .add-filter-btn:hover {
