@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { formatPrice } from '../utils/formatPrice';
 import { RxTriangleDown, RxTriangleUp } from 'react-icons/rx';
 
-const MarketInfo = () => {
+const FeaturedCoins = () => {
     const { featured } = useSelector((store) => store.featured);
     const { bitcoin, ethereum, tether } = featured;
 
@@ -43,4 +43,4 @@ const MarketInfo = () => {
     );
 };
 
-export default MarketInfo;
+export default FeaturedCoins;

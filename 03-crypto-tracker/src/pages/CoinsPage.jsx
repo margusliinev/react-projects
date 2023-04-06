@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { PageHero, MarketInfo, CoinsTable, Loader } from '../components';
+import { PageHero, FeaturedCoins, CoinsTable, Loader } from '../components';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCoins } from '../features/coins/coinsSlice';
 import { fetchFeatured } from '../features/featured/featuredSlice';
@@ -35,7 +35,7 @@ const CoinsPage = () => {
         <main className='coins'>
             <div className='coins-container'>
                 <PageHero />
-                <MarketInfo />
+                <FeaturedCoins />
                 <CoinsTable />
             </div>
         </main>

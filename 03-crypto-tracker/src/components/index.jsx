@@ -1,7 +1,7 @@
 import Navbar from './Navbar';
 import Sidebar from './Sidebar';
 import Footer from './Footer';
-import MarketInfo from './MarketInfo';
+import FeaturedCoins from './FeaturedCoins';
 import CoinsFilters from './CoinsFilters';
 import ExtraFilters from './ExtraFilters';
 import CoinsSort from './CoinsSort';
@@ -10,5 +10,11 @@ import CoinsPagination from './CoinsPagination';
 import Loader from './Loader';
 import PageHero from './PageHero';
 import CoinsTable from './CoinsTable';
+import FeaturedExchanges from './FeaturedExchanges';
+import ExchangesTable from './ExchangesTable';
+import ExchangesFilters from './ExchangesFilters';
+import ExchangesSort from './ExchangesSort';
+import ExchangesList from './ExchangesList';
+import ExchangesPagination from './ExchangesPagination';
 
-export { Navbar, Sidebar, Footer, MarketInfo, CoinsFilters, ExtraFilters, CoinsSort, CoinsList, CoinsPagination, Loader, PageHero, CoinsTable };
+export { Navbar, Sidebar, Footer, FeaturedCoins, CoinsFilters, ExtraFilters, CoinsSort, CoinsList, CoinsPagination, Loader, PageHero, CoinsTable, ExchangesTable, FeaturedExchanges, ExchangesFilters, ExchangesSort, ExchangesList, ExchangesPagination };
