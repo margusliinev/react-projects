@@ -6,7 +6,7 @@ import { RxTriangleDown, RxTriangleUp } from 'react-icons/rx';
 import { HiPlus } from 'react-icons/hi';
 
 const CoinsList = () => {
-    const { btc, displayed_coins, filtered_coins } = useSelector((store) => store.coins);
+    const { btc, filtered_coins, displayed_coins } = useSelector((store) => store.coins);
 
     if (filtered_coins.length < 1) {
         return <h3 className='filter-error'>No coins matched your search...</h3>;

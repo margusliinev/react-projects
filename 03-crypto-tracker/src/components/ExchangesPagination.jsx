@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ExchangesPagination = () => {
-    return <div>ExchangesPagination</div>;
+    return <div></div>;
 };
 
 export default ExchangesPagination;

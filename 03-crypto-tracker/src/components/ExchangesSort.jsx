@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ExchangesSort = () => {
-    return <div>ExchangesSort</div>;
+    return <div></div>;
 };
 
 export default ExchangesSort;

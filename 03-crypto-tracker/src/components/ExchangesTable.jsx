@@ -3,9 +3,11 @@ import { ExchangesFilters, ExchangesSort, ExchangesList, ExchangesPagination } f
 
 const ExchangesTable = () => {
     return (
-        <section>
-            <ExchangesFilters />
-            <ExchangesSort />
+        <section className='exchanges-table'>
+            <div className='exchanges-sort-filter-container'>
+                <ExchangesFilters />
+                <ExchangesSort />
+            </div>
             <ExchangesList />
             <ExchangesPagination />
         </section>

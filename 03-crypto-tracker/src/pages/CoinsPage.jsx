@@ -7,8 +7,8 @@ import { filterCoins, sortCoins } from '../features/coins/coinsSlice';
 
 const CoinsPage = () => {
     const dispatch = useDispatch();
-    const { filters, sort } = useSelector((store) => store.coins);
-    const { featured_loading, coins_loading } = useSelector((store) => store.featured);
+    const { filters, sort, coins_loading } = useSelector((store) => store.coins);
+    const { featured_loading } = useSelector((store) => store.featured);
 
     useEffect(() => {
         dispatch(fetchFeatured());

@@ -1,17 +1,20 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchExchanges } from '../features/exchanges/exchangesSlice';
-import { Loader, PageHero, FeaturedExchanges, ExchangesTable } from '../components';
+import { fetchFeatured } from '../features/featured/featuredSlice';
+import { Loader, PageHero, FeaturedCoins, ExchangesTable } from '../components';
 
 const ExchangesPage = () => {
-    const { exchanges_loading } = useSelector((store) => store.exchanges);
     const dispatch = useDispatch();
+    const { filters, sort, exchanges_loading } = useSelector((store) => store.exchanges);
+    const { featured_loading } = useSelector((store) => store.featured);
 
     useEffect(() => {
+        dispatch(fetchFeatured());
         dispatch(fetchExchanges());
     }, []);
 
-    if (exchanges_loading) {
+    if (featured_loading || exchanges_loading) {
         return (
             <main className='exchanges'>
                 <div className='exchanges-container'>
@@ -26,7 +29,7 @@ const ExchangesPage = () => {
         <main className='exchanges'>
             <div className='exchanges-container'>
                 <PageHero />
-                <FeaturedExchanges />
+                <FeaturedCoins />
                 <ExchangesTable />
             </div>
         </main>
