@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 
 const ExchangesList = () => {
     const { exchanges } = useSelector((store) => store.exchanges);
-    console.log(exchanges);
 
     return (
         <div className='exchanges-list'>

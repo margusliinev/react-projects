@@ -1130,8 +1130,7 @@ input[type='number']::-webkit-inner-spin-button {
 .exchange {
     display: grid;
     padding: 1rem;
-    background-color: lighten(#070707, 1%);
-    border: 1px solid #1a1a1a;
+    background-color: lighten(#070707, 2%);
     width: 90vw;
     margin: 0 auto;
     border-radius: $radius-lg;
@@ -1236,7 +1235,10 @@ input[type='number']::-webkit-inner-spin-button {
         justify-self: center;
     }
     .exchange-header {
+        display: grid;
+        justify-items: center;
         justify-self: center;
+        text-align: center;
     }
     .exchange-data-container {
         justify-self: center;

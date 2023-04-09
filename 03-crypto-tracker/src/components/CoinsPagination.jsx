@@ -1,11 +1,11 @@
-import { HiChevronDoubleLeft, HiChevronDoubleRight } from 'react-icons/hi';
 import React from 'react';
+import { HiChevronDoubleLeft, HiChevronDoubleRight } from 'react-icons/hi';
 import { useSelector, useDispatch } from 'react-redux';
 import { changePage } from '../features/coins/coinsSlice';
 
 const CoinsPagination = () => {
-    const { page, filtered_coins, itemsPerPage } = useSelector((store) => store.coins);
     const dispatch = useDispatch();
+    const { page, filtered_coins, itemsPerPage } = useSelector((store) => store.coins);
 
     const pages = Array.from({ length: Math.ceil(filtered_coins.length / itemsPerPage) }, (_, index) => {
         return index + 1;

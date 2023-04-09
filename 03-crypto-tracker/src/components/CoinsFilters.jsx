@@ -5,8 +5,8 @@ import { updateFilters } from '../features/coins/coinsSlice';
 import { openModal } from '../features/navigation/navigationSlice';
 
 const CoinsFilters = () => {
-    const { extraFiltersAmount } = useSelector((store) => store.coins);
     const dispatch = useDispatch();
+    const { extraFiltersAmount } = useSelector((store) => store.coins);
 
     return (
         <div className='coins-filters'>
