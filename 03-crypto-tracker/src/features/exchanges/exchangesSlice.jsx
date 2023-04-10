@@ -7,6 +7,7 @@ const initialState = {
     exchanges_loading: false,
     exchanges_error: false,
     exchanges: [],
+    sort: '',
 };
 
 const fetchExchanges = createAsyncThunk('exchanges/fetchExchanges', async () => {
@@ -17,6 +18,11 @@ const fetchExchanges = createAsyncThunk('exchanges/fetchExchanges', async () => 
 const exchangesSlice = createSlice({
     name: 'exchanges',
     initialState,
+    reducers: {
+        updateSort: (state, { payload }) => {
+            state.sort = payload;
+        },
+    },
     extraReducers: (builder) => {
         builder
             .addCase(fetchExchanges.pending, (state) => {
@@ -34,4 +40,5 @@ const exchangesSlice = createSlice({
 });
 
 export { fetchExchanges };
+export const { updateSort } = exchangesSlice.actions;
 export default exchangesSlice.reducer;
