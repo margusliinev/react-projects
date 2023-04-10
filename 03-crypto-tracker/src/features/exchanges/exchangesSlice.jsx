@@ -7,7 +7,9 @@ const initialState = {
     exchanges_loading: false,
     exchanges_error: false,
     exchanges: [],
-    sort: '',
+    sort: 'trust-rank',
+    order: 'descending',
+    perPage: '10',
 };
 
 const fetchExchanges = createAsyncThunk('exchanges/fetchExchanges', async () => {
@@ -19,8 +21,8 @@ const exchangesSlice = createSlice({
     name: 'exchanges',
     initialState,
     reducers: {
-        updateSort: (state, { payload }) => {
-            state.sort = payload;
+        updateSort: (state, { payload: { name, value } }) => {
+            state[name] = value;
         },
     },
     extraReducers: (builder) => {
@@ -40,5 +42,5 @@ const exchangesSlice = createSlice({
 });
 
 export { fetchExchanges };
-export const { updateSort } = exchangesSlice.actions;
+export const { updateSort, updateOrder, updatePerPage } = exchangesSlice.actions;
 export default exchangesSlice.reducer;

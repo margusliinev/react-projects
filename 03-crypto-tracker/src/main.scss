@@ -1255,14 +1255,21 @@ input[type='number']::-webkit-inner-spin-button {
 /* ==================================================================================================== */
 
 .exchanges-sort {
-    display: grid;
-    row-gap: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    div {
+        display: grid;
+        row-gap: 1rem;
+    }
     select {
         border-color: transparent;
         font-size: 1rem;
         padding: 0.5rem 0.75rem;
         background-color: #0c0c0c;
         color: $colorWhite;
+        appearance: none;
+        vertical-align: middle;
     }
 }
 
