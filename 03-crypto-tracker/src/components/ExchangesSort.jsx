@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { updateSort, updateOrder, updatePerPage } from '../features/exchanges/exchangesSlice';
+import { updateSort } from '../features/exchanges/exchangesSlice';
 
 const ExchangesSort = () => {
     const dispatch = useDispatch();

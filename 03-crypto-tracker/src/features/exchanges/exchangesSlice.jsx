@@ -7,6 +7,7 @@ const initialState = {
     exchanges_loading: false,
     exchanges_error: false,
     exchanges: [],
+    sorted_exchanges: [],
     sort: 'trust-rank',
     order: 'descending',
     perPage: '10',
@@ -24,6 +25,19 @@ const exchangesSlice = createSlice({
         updateSort: (state, { payload: { name, value } }) => {
             state[name] = value;
         },
+        sortExchanges: (state) => {
+            let sortedExchanges = [...state.sorted_exchanges];
+            if (state.sort === 'trust-rank' && state.order === 'descending') {
+                sortedExchanges = state.sorted_exchanges.sort((a, b) => a.trust_score_rank - b.trust_score_rank);
+            } else if (state.sort === 'trust-rank' && state.order === 'ascending') {
+                sortedExchanges = state.sorted_exchanges.sort((a, b) => b.trust_score_rank - a.trust_score_rank);
+            } else if (state.sort === 'trade-volume' && state.order === 'descending') {
+                sortedExchanges = state.sorted_exchanges.sort((a, b) => b.trade_volume_24h_btc - a.trade_volume_24h_btc);
+            } else if (state.sort === 'trade-volume' && state.order === 'ascending') {
+                sortedExchanges = state.sorted_exchanges.sort((a, b) => a.trade_volume_24h_btc - b.trade_volume_24h_btc);
+            }
+            state.sorted_exchanges = sortedExchanges;
+        },
     },
     extraReducers: (builder) => {
         builder
@@ -36,11 +50,18 @@ const exchangesSlice = createSlice({
             })
             .addCase(fetchExchanges.fulfilled, (state, action) => {
                 state.exchanges_loading = false;
-                state.exchanges = action.payload;
+                state.exchanges = [...action.payload];
+                state.exchanges.map((exchange) => {
+                    if (!exchange.trust_score_rank) {
+                        exchange.trust_score_rank = 250;
+                    }
+                    return exchange;
+                });
+                state.sorted_exchanges = [...state.exchanges];
             });
     },
 });
 
 export { fetchExchanges };
-export const { updateSort, updateOrder, updatePerPage } = exchangesSlice.actions;
+export const { updateSort, sortExchanges } = exchangesSlice.actions;
 export default exchangesSlice.reducer;

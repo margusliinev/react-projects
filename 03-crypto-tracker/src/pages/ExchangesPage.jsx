@@ -1,17 +1,21 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchExchanges } from '../features/exchanges/exchangesSlice';
+import { fetchExchanges, sortExchanges } from '../features/exchanges/exchangesSlice';
 import { Loader, PageHero, FeaturedCoins, ExchangesTable } from '../components';
 import { fetchFeatured } from '../features/featured/featuredSlice';
 
 const ExchangesPage = () => {
     const dispatch = useDispatch();
-    const { exchanges_loading, filters, sort } = useSelector((store) => store.exchanges);
+    const { exchanges_loading, sort, order, perPage } = useSelector((store) => store.exchanges);
 
     useEffect(() => {
         dispatch(fetchFeatured());
         dispatch(fetchExchanges());
     }, []);
+
+    useEffect(() => {
+        dispatch(sortExchanges());
+    }, [sort, order, perPage]);
 
     if (exchanges_loading) {
         return (

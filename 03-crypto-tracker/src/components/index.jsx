@@ -11,9 +11,8 @@ import Loader from './Loader';
 import PageHero from './PageHero';
 import CoinsTable from './CoinsTable';
 import ExchangesTable from './ExchangesTable';
-import ExchangesFilters from './ExchangesFilters';
 import ExchangesSort from './ExchangesSort';
 import ExchangesList from './ExchangesList';
 import ExchangesPagination from './ExchangesPagination';
 
-export { Navbar, Sidebar, Footer, FeaturedCoins, CoinsFilters, ExtraFilters, CoinsSort, CoinsList, CoinsPagination, Loader, PageHero, CoinsTable, ExchangesTable, ExchangesFilters, ExchangesSort, ExchangesList, ExchangesPagination };
+export { Navbar, Sidebar, Footer, FeaturedCoins, CoinsFilters, ExtraFilters, CoinsSort, CoinsList, CoinsPagination, Loader, PageHero, CoinsTable, ExchangesTable, ExchangesSort, ExchangesList, ExchangesPagination };

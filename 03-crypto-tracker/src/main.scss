@@ -1107,12 +1107,6 @@ input[type='number']::-webkit-inner-spin-button {
 /* EXCHANGES PAGE */
 /* ==================================================================================================== */
 
-.exchanges-table {
-    background-color: #0d0d0d;
-    padding: 1.5rem 2rem;
-    margin-top: 1rem;
-}
-
 .exchanges-container {
     display: flex;
     flex-direction: column;
@@ -1121,6 +1115,12 @@ input[type='number']::-webkit-inner-spin-button {
     .page-hero {
         width: 90vw;
     }
+}
+
+.exchanges-table {
+    background-color: #0d0d0d;
+    padding: 1.5rem 2rem;
+    margin-top: 1rem;
 }
 
 /* EXCHANGES LIST */
@@ -1180,12 +1180,6 @@ input[type='number']::-webkit-inner-spin-button {
     max-width: 13rem;
     word-wrap: break-word;
     font-weight: 500;
-}
-
-@media screen and (min-width: $width-md) {
-    .exchange-data-value {
-        max-width: fit-content;
-    }
 }
 
 .data-container-column-two .exchange-data-title,
@@ -1274,13 +1268,11 @@ input[type='number']::-webkit-inner-spin-button {
         background-color: lighten(#0d0d0d, 3%);
         color: #d0d0d0;
         appearance: none;
-        vertical-align: middle;
         border-radius: $radius-md;
         font-weight: 500;
+        cursor: pointer;
     }
     select:focus {
-        border-bottom-right-radius: 0;
-        border-bottom-left-radius: 0;
         outline: none;
     }
 }
