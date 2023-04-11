@@ -8,6 +8,7 @@ const initialState = {
     exchanges_error: false,
     exchanges: [],
     sorted_exchanges: [],
+    displayed_exchanges: [],
     sort: 'trust-rank',
     order: 'descending',
     perPage: '10',
@@ -37,6 +38,7 @@ const exchangesSlice = createSlice({
                 sortedExchanges = state.sorted_exchanges.sort((a, b) => a.trade_volume_24h_btc - b.trade_volume_24h_btc);
             }
             state.sorted_exchanges = sortedExchanges;
+            state.displayed_exchanges = state.sorted_exchanges.slice(0, parseInt(state.perPage));
         },
     },
     extraReducers: (builder) => {
@@ -58,6 +60,7 @@ const exchangesSlice = createSlice({
                     return exchange;
                 });
                 state.sorted_exchanges = [...state.exchanges];
+                state.displayed_exchanges = state.sorted_exchanges.slice(0, parseInt(state.perPage));
             });
     },
 });

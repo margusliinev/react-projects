@@ -2,12 +2,12 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 const ExchangesList = () => {
-    const { sorted_exchanges } = useSelector((store) => store.exchanges);
+    const { displayed_exchanges } = useSelector((store) => store.exchanges);
 
     return (
         <div className='exchanges-list'>
-            {sorted_exchanges
-                ? sorted_exchanges.map((exchange, index) => {
+            {displayed_exchanges
+                ? displayed_exchanges.map((exchange, index) => {
                       return (
                           <article key={index} className='exchange'>
                               <div className='exchange-header'>
