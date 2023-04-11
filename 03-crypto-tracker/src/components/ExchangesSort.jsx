@@ -26,7 +26,7 @@ const ExchangesSort = () => {
             <div>
                 <label htmlFor='perPage'>Per Page</label>
                 <select name='perPage' id='perPage' value={perPage} onChange={(e) => dispatch(updateSort({ name: e.target.name, value: e.target.value }))}>
-                    <option value='10'>10 Entries</option>
+                    <option value='20'>20 Entries</option>
                     <option value='30'>30 Entries</option>
                     <option value='50'>50 Entries</option>
                 </select>

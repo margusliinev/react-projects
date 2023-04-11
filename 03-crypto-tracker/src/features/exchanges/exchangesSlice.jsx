@@ -9,9 +9,11 @@ const initialState = {
     exchanges: [],
     sorted_exchanges: [],
     displayed_exchanges: [],
+    page_exchanges: [],
     sort: 'trust-rank',
     order: 'descending',
-    perPage: '10',
+    perPage: '20',
+    page: 1,
 };
 
 const fetchExchanges = createAsyncThunk('exchanges/fetchExchanges', async () => {
@@ -39,6 +41,19 @@ const exchangesSlice = createSlice({
             }
             state.sorted_exchanges = sortedExchanges;
             state.displayed_exchanges = state.sorted_exchanges.slice(0, parseInt(state.perPage));
+            state.page_exchanges = Array.from({ length: Math.ceil(state.sorted_exchanges.length / parseInt(state.perPage)) }, (_, index) => {
+                const start = index * parseInt(state.perPage);
+                return state.sorted_exchanges.slice(start, start + parseInt(state.perPage));
+            });
+            state.displayed_exchanges = state.page_exchanges[state.page - 1];
+        },
+        changePage: (state, { payload }) => {
+            state.page = payload;
+            state.page_exchanges = Array.from({ length: Math.ceil(state.sorted_exchanges.length / parseInt(state.perPage)) }, (_, index) => {
+                const start = index * parseInt(state.perPage);
+                return state.sorted_exchanges.slice(start, start + parseInt(state.perPage));
+            });
+            state.displayed_exchanges = state.page_exchanges[state.page - 1];
         },
     },
     extraReducers: (builder) => {
@@ -66,5 +81,5 @@ const exchangesSlice = createSlice({
 });
 
 export { fetchExchanges };
-export const { updateSort, sortExchanges } = exchangesSlice.actions;
+export const { updateSort, sortExchanges, changePage } = exchangesSlice.actions;
 export default exchangesSlice.reducer;
