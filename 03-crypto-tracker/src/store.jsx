@@ -3,6 +3,7 @@ import navigationReducer from './features/navigation/navigationSlice';
 import coinsReducer from './features/coins/coinsSlice';
 import featuredReducer from './features/featured/featuredSlice';
 import exchangesReducer from './features/exchanges/exchangesSlice';
+import coinReducer from './features/coin/coinSlice';
 
 const store = configureStore({
     reducer: {
@@ -10,6 +11,7 @@ const store = configureStore({
         coins: coinsReducer,
         featured: featuredReducer,
         exchanges: exchangesReducer,
+        coin: coinReducer,
     },
 });
 

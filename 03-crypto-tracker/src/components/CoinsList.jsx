@@ -4,6 +4,7 @@ import { formatPrice } from '../utils/formatPrice';
 import { formatPriceBillion } from '../utils/formatPriceBillion';
 import { RxTriangleDown, RxTriangleUp } from 'react-icons/rx';
 import { HiPlus } from 'react-icons/hi';
+import { Link } from 'react-router-dom';
 
 const CoinsList = () => {
     const { btc, filtered_coins, displayed_coins } = useSelector((store) => store.coins);
@@ -17,7 +18,7 @@ const CoinsList = () => {
             {displayed_coins
                 ? displayed_coins.map((coin, index) => {
                       return (
-                          <article key={index} className='coin'>
+                          <Link to={`/coins/${coin.id}`} key={index} className='coin'>
                               <p className='coin-number'>{coin.number}</p>
                               <div className='coin-name'>
                                   <img className='coin-image' src={coin.image} alt={coin.name} />
@@ -35,7 +36,7 @@ const CoinsList = () => {
                               <button type='button' className='coin-track'>
                                   <HiPlus />
                               </button>
-                          </article>
+                          </Link>
                       );
                   })
                 : null}

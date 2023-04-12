@@ -543,6 +543,7 @@ main {
     cursor: pointer;
     transition: $transition;
     padding: 0.6rem 1rem;
+    color: $colorWhite;
 }
 
 .coin:hover {
@@ -1317,6 +1318,17 @@ input[type='number']::-webkit-inner-spin-button {
             max-width: $width-lg;
         }
     }
+}
+
+/* SINGLE COIN */
+/* ==================================================================================================== */
+
+.single-coin-container {
+    display: flex;
+    flex-direction: column;
+    max-width: $width-xl;
+    margin: 0 auto;
+    width: 90vw;
 }
 
 /* END */
