@@ -38,9 +38,12 @@ const exchangesSlice = createSlice({
                 sortedExchanges = state.sorted_exchanges.sort((a, b) => b.trade_volume_24h_btc - a.trade_volume_24h_btc);
             } else if (state.sort === 'trade-volume' && state.order === 'ascending') {
                 sortedExchanges = state.sorted_exchanges.sort((a, b) => a.trade_volume_24h_btc - b.trade_volume_24h_btc);
+            } else if (state.sort === 'year' && state.order === 'descending') {
+                sortedExchanges = state.sorted_exchanges.sort((a, b) => b.year_established - a.year_established);
+            } else if (state.sort === 'year' && state.order === 'ascending') {
+                sortedExchanges = state.sorted_exchanges.sort((a, b) => a.year_established - b.year_established);
             }
             state.sorted_exchanges = sortedExchanges;
-            state.displayed_exchanges = state.sorted_exchanges.slice(0, parseInt(state.perPage));
             state.page_exchanges = Array.from({ length: Math.ceil(state.sorted_exchanges.length / parseInt(state.perPage)) }, (_, index) => {
                 const start = index * parseInt(state.perPage);
                 return state.sorted_exchanges.slice(start, start + parseInt(state.perPage));

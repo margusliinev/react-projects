@@ -18,11 +18,11 @@ const ExchangesList = () => {
                                   <div className='data-container-column-one'>
                                       <div className='exchange-data'>
                                           <p className='exchange-data-title'>Trust Score Rank</p>
-                                          <p className='exchange-data-value'>{!exchange.trust_score_rank ? 250 : exchange.trust_score_rank}</p>
+                                          <p className='exchange-data-value'>{!exchange.trust_score_rank ? 'Not Ranked' : exchange.trust_score_rank}</p>
                                       </div>
                                       <div className='exchange-data'>
                                           <p className='exchange-data-title'>Trust Score</p>
-                                          <p className='exchange-data-value'>{!exchange.trust_score ? 10 : exchange.trust_score}</p>
+                                          <p className='exchange-data-value'>{!exchange.trust_score ? 0 : exchange.trust_score}</p>
                                       </div>
                                       <div className='exchange-data'>
                                           <p className='exchange-data-title'>Trade Volume 24h</p>
@@ -32,7 +32,7 @@ const ExchangesList = () => {
                                   <div className='data-container-column-two'>
                                       <div className='exchange-data'>
                                           <p className='exchange-data-title'>Year Established</p>
-                                          <p className='exchange-data-value'>{!exchange.year_established ? new Date().getFullYear() : exchange.year_established}</p>
+                                          <p className='exchange-data-value'>{!exchange.year_established ? 'Unknown' : exchange.year_established}</p>
                                       </div>
                                       <div className='exchange-data'>
                                           <p className='exchange-data-title'>Country</p>
