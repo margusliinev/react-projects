@@ -15,6 +15,11 @@ const fetchCoin = createAsyncThunk('coin/fetchCoin', async (url) => {
 const coinSlice = createSlice({
     name: 'coin',
     initialState,
+    reducers: {
+        removeCoinError: (state) => {
+            state.coin_error = false;
+        },
+    },
     extraReducers: (builder) => {
         builder
             .addCase(fetchCoin.pending, (state) => {
@@ -32,4 +37,5 @@ const coinSlice = createSlice({
 });
 
 export { fetchCoin };
+export const { removeCoinError } = coinSlice.actions;
 export default coinSlice.reducer;
