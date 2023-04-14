@@ -32,6 +32,7 @@ const PriceHistoryChart = () => {
 
     const options = {
         responsive: true,
+        maintainAspectRatio: false,
         plugins: {
             title: {
                 display: false,
@@ -47,7 +48,7 @@ const PriceHistoryChart = () => {
                 label: `${id.charAt(0).toUpperCase() + id.slice(1)} Price Chart`,
                 data: chartData.map((value) => value.y),
                 borderColor: '#ff9332',
-                backgroundColor: '#ff9332',
+                backgroundColor: '#111',
             },
         ],
     };

@@ -4,7 +4,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 const initialState = {
     chart_loading: false,
     chart_error: false,
-    chart_days: 7,
+    chart_days: 14,
     chart_prices: [],
 };
 

@@ -1406,5 +1406,16 @@ input[type='number']::-webkit-inner-spin-button {
     }
 }
 
+/* SINGLE COIN CHART */
+/* ==================================================================================================== */
+
+.single-coin-chart,
+.price-history-chart {
+    width: 100%;
+    min-height: 500px;
+    max-width: $width-xl;
+    margin: 0 auto;
+}
+
 /* END */
 /* ==================================================================================================== */
