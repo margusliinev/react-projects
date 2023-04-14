@@ -5,6 +5,7 @@ import { fetchCoin, removeCoinError } from '../features/coin/coinSlice';
 import { Loader } from '../components';
 import { formatPrice } from '../utils/formatPrice';
 import { RxTriangleDown, RxTriangleUp } from 'react-icons/rx';
+import { PriceHistoryChart } from '../components';
 
 const SingleCoinPage = () => {
     const dispatch = useDispatch();
@@ -22,8 +23,6 @@ const SingleCoinPage = () => {
         }
         dispatch(removeCoinError());
     }, [coin_error]);
-
-    console.log(coin);
 
     if (coin_loading) {
         return (
@@ -54,10 +53,13 @@ const SingleCoinPage = () => {
                             <p className='single-coin-price'>{`${formatPrice(coin && market_data && market_data.current_price.eur)}`}</p>
                             <div className={coin && market_data && market_data.price_change_percentage_24h > 0 ? 'single-coin-price-change bright-box-green value-green' : 'single-coin-price-change bright-box-red value-red'}>
                                 <span>{coin && market_data && market_data.price_change_percentage_24h > 0 ? <RxTriangleUp /> : <RxTriangleDown />}</span>
-                                <p className={coin && market_data && market_data.price_change_percentage_24h > 0 ? 'value-green' : 'value-red'}>{coin ? Math.abs(market_data.price_change_percentage_24h.toFixed(2)) + '%' : 0 + '%'}</p>
+                                <p className={coin && market_data && market_data.price_change_percentage_24h > 0 ? 'value-green' : 'value-red'}>{coin && market_data ? Math.abs(market_data.price_change_percentage_24h.toFixed(2)) + '%' : 0 + '%'}</p>
                             </div>
                         </div>
                     </div>
+                </div>
+                <div className='single-coin-chart'>
+                    <PriceHistoryChart />
                 </div>
             </div>
         </main>
