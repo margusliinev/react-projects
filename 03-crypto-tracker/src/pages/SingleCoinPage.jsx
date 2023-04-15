@@ -58,9 +58,9 @@ const SingleCoinPage = () => {
                         </div>
                     </div>
                 </div>
-            </div>
-            <div className='single-coin-chart'>
-                <PriceHistoryChart />
+                <div className='single-coin-chart'>
+                    <PriceHistoryChart />
+                </div>
             </div>
         </main>
     );

@@ -1409,12 +1409,20 @@ input[type='number']::-webkit-inner-spin-button {
 /* SINGLE COIN CHART */
 /* ==================================================================================================== */
 
-.single-coin-chart,
+.single-coin-chart {
+    border-radius: $radius-2xl;
+    max-width: $width-md;
+    background-color: #0d0d0d;
+    margin: 1rem 0;
+    padding: 1rem 0rem 1rem 1rem;
+    width: 100%;
+    height: 400px;
+}
+
 .price-history-chart {
     width: 100%;
-    min-height: 500px;
-    max-width: $width-xl;
-    margin: 0 auto;
+    height: 100%;
+    border-radius: $radius-2xl;
 }
 
 /* END */
