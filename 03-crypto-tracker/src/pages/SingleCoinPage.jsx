@@ -6,12 +6,14 @@ import { Loader } from '../components';
 import { formatPrice } from '../utils/formatPrice';
 import { RxTriangleDown, RxTriangleUp } from 'react-icons/rx';
 import { PriceHistoryChart } from '../components';
+import { changeChart } from '../features/chart/chartSlice';
 
 const SingleCoinPage = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const { id } = useParams();
     const { coin_loading, coin_error, coin } = useSelector((store) => store.coin);
+    const { chart_days } = useSelector((store) => store.chart);
 
     useEffect(() => {
         dispatch(fetchCoin(`https://api.coingecko.com/api/v3/coins/${id}?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false`));
@@ -60,6 +62,25 @@ const SingleCoinPage = () => {
                 </div>
                 <div className='single-coin-chart'>
                     <PriceHistoryChart />
+                    <div className='price-history-chart-buttons'>
+                        <div className='price-history-chart-buttons-container'>
+                            <button className={chart_days === 1 ? 'price-history-chart-button active-chart' : 'price-history-chart-button'} data-id='1' onClick={(e) => dispatch(changeChart(e.target.dataset.id))}>
+                                24H
+                            </button>
+                            <button className={chart_days === 7 ? 'price-history-chart-button active-chart' : 'price-history-chart-button'} data-id='7' onClick={(e) => dispatch(changeChart(e.target.dataset.id))}>
+                                1W
+                            </button>
+                            <button className={chart_days === 30 ? 'price-history-chart-button active-chart' : 'price-history-chart-button'} data-id='30' onClick={(e) => dispatch(changeChart(e.target.dataset.id))}>
+                                1M
+                            </button>
+                            <button className={chart_days === 30 ? 'price-history-chart-button active-chart' : 'price-history-chart-button'} data-id='90' onClick={(e) => dispatch(changeChart(e.target.dataset.id))}>
+                                3M
+                            </button>
+                            <button className={chart_days === 30 ? 'price-history-chart-button active-chart' : 'price-history-chart-button'} data-id='365' onClick={(e) => dispatch(changeChart(e.target.dataset.id))}>
+                                1Y
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </main>

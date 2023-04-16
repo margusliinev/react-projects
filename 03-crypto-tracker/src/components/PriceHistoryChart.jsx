@@ -18,7 +18,7 @@ const PriceHistoryChart = () => {
     useEffect(() => {
         dispatch(fetchChart(`https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=eur&days=${chart_days}`));
         dispatch(fetchChartXLabels(`https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=eur&days=${chart_days}&interval=daily`));
-    }, []);
+    }, [chart_days]);
 
     if (chart_loading) {
         return (
@@ -31,7 +31,9 @@ const PriceHistoryChart = () => {
     const chartData = chart_prices.map((value) => ({ x: value[0], y: value[1].toFixed(2) }));
     let chartLabelsX = chart_labels_x.map((value) => ({ x: value[0] }));
 
-    chartLabelsX.pop();
+    if (chart_days !== 1) {
+        chartLabelsX.pop();
+    }
 
     const options = {
         responsive: true,
@@ -69,7 +71,7 @@ const PriceHistoryChart = () => {
                     color: '#fff',
                     callback: (value) => '€' + formatNumber(value),
                     font: {
-                        size: 16,
+                        size: 14,
                     },
                 },
             },

@@ -22,6 +22,11 @@ const fetchChartXLabels = createAsyncThunk('chart/fetchChartXLabels', async (url
 const chartSlice = createSlice({
     name: 'chart',
     initialState,
+    reducers: {
+        changeChart: (state, { payload }) => {
+            state.chart_days = parseInt(payload);
+        },
+    },
     extraReducers: (builder) => {
         builder
             .addCase(fetchChart.pending, (state) => {
@@ -51,4 +56,5 @@ const chartSlice = createSlice({
 });
 
 export { fetchChart, fetchChartXLabels };
+export const { changeChart } = chartSlice.actions;
 export default chartSlice.reducer;
