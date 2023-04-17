@@ -73,10 +73,10 @@ const SingleCoinPage = () => {
                             <button className={chart_days === 30 ? 'price-history-chart-button active-chart' : 'price-history-chart-button'} data-id='30' onClick={(e) => dispatch(changeChart(e.target.dataset.id))}>
                                 1M
                             </button>
-                            <button className={chart_days === 30 ? 'price-history-chart-button active-chart' : 'price-history-chart-button'} data-id='90' onClick={(e) => dispatch(changeChart(e.target.dataset.id))}>
+                            <button className={chart_days === 90 ? 'price-history-chart-button active-chart' : 'price-history-chart-button'} data-id='90' onClick={(e) => dispatch(changeChart(e.target.dataset.id))}>
                                 3M
                             </button>
-                            <button className={chart_days === 30 ? 'price-history-chart-button active-chart' : 'price-history-chart-button'} data-id='365' onClick={(e) => dispatch(changeChart(e.target.dataset.id))}>
+                            <button className={chart_days === 365 ? 'price-history-chart-button active-chart' : 'price-history-chart-button'} data-id='365' onClick={(e) => dispatch(changeChart(e.target.dataset.id))}>
                                 1Y
                             </button>
                         </div>
