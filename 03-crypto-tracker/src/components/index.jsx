@@ -15,5 +15,6 @@ import ExchangesSort from './ExchangesSort';
 import ExchangesList from './ExchangesList';
 import ExchangesPagination from './ExchangesPagination';
 import PriceHistoryChart from './PriceHistoryChart';
+import PriceChangeBoxes from './PriceChangeBoxes';
 
-export { Navbar, Sidebar, Footer, FeaturedCoins, CoinsFilters, ExtraFilters, CoinsSort, CoinsList, CoinsPagination, Loader, PageHero, CoinsTable, ExchangesTable, ExchangesSort, ExchangesList, ExchangesPagination, PriceHistoryChart };
+export { Navbar, Sidebar, Footer, FeaturedCoins, CoinsFilters, ExtraFilters, CoinsSort, CoinsList, CoinsPagination, Loader, PageHero, CoinsTable, ExchangesTable, ExchangesSort, ExchangesList, ExchangesPagination, PriceHistoryChart, PriceChangeBoxes };

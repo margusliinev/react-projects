@@ -9,6 +9,7 @@ const initialState = {
 
 const fetchCoin = createAsyncThunk('coin/fetchCoin', async (url) => {
     const response = await axios(url);
+    console.log(response.data);
     return response.data;
 });
 

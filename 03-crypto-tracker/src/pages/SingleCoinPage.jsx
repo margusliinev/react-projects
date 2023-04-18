@@ -2,10 +2,9 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, useNavigate } from 'react-router-dom';
 import { fetchCoin, removeCoinError } from '../features/coin/coinSlice';
-import { Loader } from '../components';
 import { formatPrice } from '../utils/formatPrice';
 import { RxTriangleDown, RxTriangleUp } from 'react-icons/rx';
-import { PriceHistoryChart } from '../components';
+import { Loader, PriceHistoryChart, PriceChangeBoxes } from '../components';
 import { changeChart } from '../features/chart/chartSlice';
 
 const SingleCoinPage = () => {
@@ -81,6 +80,9 @@ const SingleCoinPage = () => {
                             </button>
                         </div>
                     </div>
+                </div>
+                <div className='single-coin-boxes'>
+                    <PriceChangeBoxes />
                 </div>
             </div>
         </main>

@@ -70,6 +70,7 @@ const PriceHistoryChart = () => {
                 ticks: {
                     color: '#fff',
                     callback: (value) => '€' + formatNumber(value),
+                    maxTicksLimit: 5,
                     font: {
                         size: 14,
                     },
@@ -92,9 +93,52 @@ const PriceHistoryChart = () => {
         ],
     };
 
+    const options2 = {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                display: false,
+            },
+            title: {
+                display: true,
+                text: `${id.charAt(0).toUpperCase() + id.slice(1)} Price Chart`,
+                color: '#fff',
+                font: {
+                    size: 20,
+                    weight: 'normal',
+                },
+                padding: {
+                    top: 20,
+                    bottom: 40,
+                },
+            },
+        },
+        scales: {
+            x: {
+                ticks: {
+                    color: 'gray',
+                    display: false,
+                },
+            },
+            xAxis: {
+                labels: chartLabelsX.map((value) => moment(value.x).format('MMM Do HH:mm')),
+            },
+            y: {
+                ticks: {
+                    color: '#fff',
+                    callback: (value) => '€' + formatNumber(value),
+                    font: {
+                        size: 14,
+                    },
+                },
+            },
+        },
+    };
+
     return (
         <div className='price-history-chart'>
-            <Line options={options} data={data} />
+            <Line options={chart_days === 1 ? options2 : options} data={data} />
         </div>
     );
 };
