@@ -4,7 +4,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { fetchCoin, removeCoinError } from '../features/coin/coinSlice';
 import { formatPrice } from '../utils/formatPrice';
 import { RxTriangleDown, RxTriangleUp } from 'react-icons/rx';
-import { Loader, PriceHistoryChart, PriceChangeBoxes } from '../components';
+import { Loader, PriceHistoryChart, PriceChangeBoxes, TrackCoinButton } from '../components';
 import { changeChart } from '../features/chart/chartSlice';
 
 const SingleCoinPage = () => {
@@ -58,6 +58,9 @@ const SingleCoinPage = () => {
                             </div>
                         </div>
                     </div>
+                    <div className='big-screen-cta'>
+                        <TrackCoinButton />
+                    </div>
                 </div>
                 <div className='single-coin-chart'>
                     <PriceHistoryChart />
@@ -83,6 +86,9 @@ const SingleCoinPage = () => {
                 </div>
                 <div className='single-coin-boxes'>
                     <PriceChangeBoxes />
+                </div>
+                <div className='small-screen-cta'>
+                    <TrackCoinButton />
                 </div>
             </div>
         </main>

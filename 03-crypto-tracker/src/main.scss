@@ -1334,6 +1334,23 @@ input[type='number']::-webkit-inner-spin-button {
 /* SINGLE COIN HEADER */
 /* ==================================================================================================== */
 
+.single-coin-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.big-screen-cta {
+    display: none;
+    align-self: end;
+}
+
+@media screen and (min-width: $width-xl) {
+    .big-screen-cta {
+        display: unset;
+    }
+}
+
 .single-coin-rank {
     background-color: $colorPrimary;
     color: $colorBlack;
@@ -1517,6 +1534,26 @@ input[type='number']::-webkit-inner-spin-button {
         max-width: 1200px;
         flex-wrap: nowrap;
     }
+}
+
+/* SINGLE COIN CTA BUTTON */
+/* ==================================================================================================== */
+
+.small-screen-cta {
+    margin: 2rem auto;
+}
+
+@media screen and (min-width: $width-xl) {
+    .small-screen-cta {
+        display: none;
+    }
+}
+
+.track-coin-button {
+    text-transform: capitalize;
+    font-size: 18px;
+    padding: 0.75rem 3.25rem;
+    border-radius: 20px;
 }
 
 /* END */
