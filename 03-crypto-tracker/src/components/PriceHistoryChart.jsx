@@ -17,7 +17,11 @@ const PriceHistoryChart = () => {
 
     useEffect(() => {
         dispatch(fetchChart(`https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=eur&days=${chart_days}`));
-        dispatch(fetchChartXLabels(`https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=eur&days=${chart_days}&interval=daily`));
+        if (chart_days === 1) {
+            dispatch(fetchChartXLabels(`https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=eur&days=${chart_days}&interval=hourly`));
+        } else {
+            dispatch(fetchChartXLabels(`https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=eur&days=${chart_days}&interval=daily`));
+        }
     }, [chart_days]);
 
     if (chart_loading) {
@@ -50,10 +54,6 @@ const PriceHistoryChart = () => {
                     size: 20,
                     weight: 'normal',
                 },
-                padding: {
-                    top: 20,
-                    bottom: 40,
-                },
             },
         },
         scales: {
@@ -64,13 +64,17 @@ const PriceHistoryChart = () => {
                 },
             },
             xAxis: {
-                labels: chartLabelsX.map((value) => moment(value.x).format('MMM D')),
+                labels: chartLabelsX.map((value) => {
+                    if (chart_days === 1) {
+                        return moment(value.x).format('HH:mm');
+                    }
+                    return moment(value.x).format('MMM D');
+                }),
             },
             y: {
                 ticks: {
                     color: '#fff',
                     callback: (value) => '€' + formatNumber(value),
-                    maxTicksLimit: 5,
                     font: {
                         size: 14,
                     },
@@ -93,52 +97,9 @@ const PriceHistoryChart = () => {
         ],
     };
 
-    const options2 = {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-            legend: {
-                display: false,
-            },
-            title: {
-                display: true,
-                text: `${id.charAt(0).toUpperCase() + id.slice(1)} Price Chart`,
-                color: '#fff',
-                font: {
-                    size: 20,
-                    weight: 'normal',
-                },
-                padding: {
-                    top: 20,
-                    bottom: 40,
-                },
-            },
-        },
-        scales: {
-            x: {
-                ticks: {
-                    color: 'gray',
-                    display: false,
-                },
-            },
-            xAxis: {
-                labels: chartLabelsX.map((value) => moment(value.x).format('MMM Do HH:mm')),
-            },
-            y: {
-                ticks: {
-                    color: '#fff',
-                    callback: (value) => '€' + formatNumber(value),
-                    font: {
-                        size: 14,
-                    },
-                },
-            },
-        },
-    };
-
     return (
         <div className='price-history-chart'>
-            <Line options={chart_days === 1 ? options2 : options} data={data} />
+            <Line options={options} data={data} />
         </div>
     );
 };
