@@ -34,8 +34,8 @@ const MarketStats = () => {
                 </div>
                 <div className='content-divider'></div>
                 <div className='market-stats-description'>
-                    <h6>Bitcoin Price Update</h6>
-                    <p>{coin && coin.description.en}</p>
+                    <h6>Bitcoin Description</h6>
+                    <p>{coin && coin.description && coin.description.en}</p>
                 </div>
             </div>
         </>
