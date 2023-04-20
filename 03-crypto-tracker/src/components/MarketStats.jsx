@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { formatPriceBillion } from '../utils/formatPriceBillion';
+import { formatPrice } from '../utils/formatPrice';
 import { formatNumber } from '../utils/formatNumber';
 
 const MarketStats = () => {
@@ -34,8 +35,8 @@ const MarketStats = () => {
                 </div>
                 <div className='content-divider'></div>
                 <div className='market-stats-description'>
-                    <h6>Bitcoin Description</h6>
-                    <p>{coin && coin.description && coin.description.en}</p>
+                    <h6>{coin.name} Price Update</h6>
+                    <p>{`${coin.name} price is ${coin && formatPrice(coin && coin.market_data && coin.market_data.current_price.eur)}, ${coin && coin.market_data && coin.market_data.price_change_percentage_24h < 0 ? `down ${coin && coin.market_data && coin.market_data.price_change_percentage_24h && coin.market_data.price_change_percentage_24h.toFixed(2)}%` : `up ${coin && coin.market_data && coin.market_data.price_change_percentage_24h && coin.market_data.price_change_percentage_24h.toFixed(2)}%`} in the last 24 hours, and the live market cap is ${formatPriceBillion(coin && coin.market_data && coin.market_data.market_cap.eur)}. It has circulating supply volume of ${formatNumber(coin && coin.market_data && coin.market_data.circulating_supply)} ${coin && coin.symbol && coin.symbol.toUpperCase()} coins and a max supply volume of ${formatNumber(coin && coin.market_data && coin.market_data.total_supply)} coins.`}</p>
                 </div>
             </div>
         </>
