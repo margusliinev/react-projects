@@ -5,11 +5,15 @@ const initialState = {
     coin_loading: false,
     coin_error: false,
     coin: {},
+    coin_price: 0,
+    coin_input_value: '',
+    currency_input_value: '',
+    coin_converted_value: '',
+    currency_converted_value: '',
 };
 
 const fetchCoin = createAsyncThunk('coin/fetchCoin', async (url) => {
     const response = await axios(url);
-    console.log(response.data);
     return response.data;
 });
 
@@ -19,6 +23,23 @@ const coinSlice = createSlice({
     reducers: {
         removeCoinError: (state) => {
             state.coin_error = false;
+        },
+        updateValue: (state, { payload: { name, value } }) => {
+            state[name] = value;
+        },
+        convertValue: (state) => {
+            if (!state.coin_input_value || !state.currency_converted_value) {
+                state.coin_converted_value = '';
+                state.currency_converted_value = '';
+            }
+            if (state.coin_input_value) {
+                state.coin_converted_value = state.coin_input_value;
+                state.currency_converted_value = state.coin_input_value * state.coin_price;
+            }
+            if (state.currency_input_value) {
+                state.currency_converted_value = state.currency_input_value;
+                state.coin_converted_value = state.currency_input_value / state.coin_price;
+            }
         },
     },
     extraReducers: (builder) => {
@@ -33,10 +54,11 @@ const coinSlice = createSlice({
             .addCase(fetchCoin.fulfilled, (state, action) => {
                 state.coin_loading = false;
                 state.coin = action.payload;
+                state.coin_price = state.coin.market_data.current_price.eur;
             });
     },
 });
 
 export { fetchCoin };
-export const { removeCoinError } = coinSlice.actions;
+export const { removeCoinError, updateValue, convertValue } = coinSlice.actions;
 export default coinSlice.reducer;

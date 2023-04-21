@@ -6,12 +6,13 @@ import { formatPrice } from '../utils/formatPrice';
 import { RxTriangleDown, RxTriangleUp } from 'react-icons/rx';
 import { Loader, PriceHistoryChart, PriceChangeBoxes, TrackCoinButton, MarketStats, CryptoConverter } from '../components';
 import { changeChart } from '../features/chart/chartSlice';
+import { convertValue } from '../features/coin/coinSlice';
 
 const SingleCoinPage = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const { id } = useParams();
-    const { coin_loading, coin_error, coin } = useSelector((store) => store.coin);
+    const { coin_loading, coin_error, coin, coin_input_value, currency_input_value } = useSelector((store) => store.coin);
     const { chart_days } = useSelector((store) => store.chart);
 
     useEffect(() => {
@@ -24,6 +25,10 @@ const SingleCoinPage = () => {
         }
         dispatch(removeCoinError());
     }, [coin_error]);
+
+    useEffect(() => {
+        dispatch(convertValue());
+    }, [coin_input_value, currency_input_value]);
 
     if (coin_loading) {
         return (
@@ -84,18 +89,12 @@ const SingleCoinPage = () => {
                         </div>
                     </div>
                 </div>
-                <div className='single-coin-boxes'>
-                    <PriceChangeBoxes />
-                </div>
+                <PriceChangeBoxes />
                 <div className='small-screen-cta'>
                     <TrackCoinButton />
                 </div>
-                <div className='single-coin-market-stats'>
-                    <MarketStats />
-                </div>
-                <div className='single-coin-crypto-converter'>
-                    <CryptoConverter />
-                </div>
+                <MarketStats />
+                <CryptoConverter />
             </div>
         </main>
     );
