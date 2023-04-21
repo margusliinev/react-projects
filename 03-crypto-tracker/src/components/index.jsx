@@ -18,5 +18,6 @@ import PriceHistoryChart from './PriceHistoryChart';
 import PriceChangeBoxes from './PriceChangeBoxes';
 import TrackCoinButton from './TrackCoinButton';
 import MarketStats from './MarketStats';
+import CryptoConverter from './CryptoConverter';
 
-export { Navbar, Sidebar, Footer, FeaturedCoins, CoinsFilters, ExtraFilters, CoinsSort, CoinsList, CoinsPagination, Loader, PageHero, CoinsTable, ExchangesTable, ExchangesSort, ExchangesList, ExchangesPagination, PriceHistoryChart, PriceChangeBoxes, TrackCoinButton, MarketStats };
+export { Navbar, Sidebar, Footer, FeaturedCoins, CoinsFilters, ExtraFilters, CoinsSort, CoinsList, CoinsPagination, Loader, PageHero, CoinsTable, ExchangesTable, ExchangesSort, ExchangesList, ExchangesPagination, PriceHistoryChart, PriceChangeBoxes, TrackCoinButton, MarketStats, CryptoConverter };
