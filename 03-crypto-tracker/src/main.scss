@@ -1552,8 +1552,8 @@ input[type='number']::-webkit-inner-spin-button {
 .track-coin-button {
     text-transform: capitalize;
     font-size: 18px;
-    padding: 0.75rem 3.25rem;
-    border-radius: 20px;
+    padding: 1rem 4rem;
+    border-radius: 22px;
 }
 
 /* SINGLE COIN MARKET STATS */
@@ -1607,6 +1607,7 @@ input[type='number']::-webkit-inner-spin-button {
 
 .market-stat-right-column {
     justify-self: end;
+    text-align: right;
 }
 
 .market-stats-description {
@@ -1627,6 +1628,7 @@ input[type='number']::-webkit-inner-spin-button {
     }
     .market-stat-right-column {
         justify-self: normal;
+        text-align: unset;
     }
     .market-stat {
         row-gap: 1rem;
