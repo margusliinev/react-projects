@@ -28,7 +28,7 @@ const coinSlice = createSlice({
             state[name] = value;
         },
         convertValue: (state) => {
-            if (!state.coin_input_value || !state.currency_converted_value) {
+            if (!state.coin_input_value || !state.currency_input_value) {
                 state.coin_converted_value = '';
                 state.currency_converted_value = '';
             }

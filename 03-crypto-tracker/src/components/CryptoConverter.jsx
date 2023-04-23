@@ -5,7 +5,7 @@ import { updateValue } from '../features/coin/coinSlice';
 
 const CryptoConverter = () => {
     const dispatch = useDispatch();
-    const { coin, coin_converted_value, currency_converted_value, coin_input_value, currency_input_value } = useSelector((store) => store.coin);
+    const { coin, coin_converted_value, currency_converted_value } = useSelector((store) => store.coin);
     return (
         <>
             <h5 className='crypto-converter-title'>Crypto Converter</h5>
