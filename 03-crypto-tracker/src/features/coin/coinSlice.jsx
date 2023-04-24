@@ -31,7 +31,7 @@ const coinSlice = createSlice({
                 state.currency_value = '';
             }
             if (state.coin_value) {
-                state.currency_value = (state.coin_value * state.coin_price).toFixed(4);
+                state.currency_value = (state.coin_value * state.coin_price).toFixed(2);
             }
         },
         resetConverter: (state) => {

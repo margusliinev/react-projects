@@ -14,23 +14,23 @@ const MarketStats = () => {
                 <div className='market-stats-numbers'>
                     <div className='market-stat'>
                         <p className='market-stat-title'>Market Cap</p>
-                        <p className='market-stat-value'>{coin && coin.market_data && formatPriceBillion(coin.market_data.market_cap.eur)}</p>
+                        <p className='market-stat-value'>{coin && coin.market_data && formatPriceBillion(coin.market_data.market_cap.eur) ? formatPriceBillion(coin.market_data.market_cap.eur) : 0}</p>
                     </div>
                     <div className='market-stat'>
                         <p className='market-stat-title market-stat-right-column'>Fully Diluted Valuation</p>
-                        <p className='market-stat-value market-stat-right-column'>{coin && coin.market_data && formatPriceBillion(coin.market_data.fully_diluted_valuation.eur)}</p>
+                        <p className='market-stat-value market-stat-right-column'>{coin && coin.market_data && formatPriceBillion(coin.market_data.fully_diluted_valuation.eur) ? formatPriceBillion(coin.market_data.fully_diluted_valuation.eur) : 0}</p>
                     </div>
                     <div className='market-stat'>
                         <p className='market-stat-title'>Circulating Supply</p>
-                        <p className='market-stat-value'>{coin && coin.market_data && formatNumber(coin.market_data.circulating_supply)}</p>
+                        <p className='market-stat-value'>{coin && coin.market_data && formatNumber(coin.market_data.circulating_supply) ? formatNumber(coin.market_data.circulating_supply) : 0}</p>
                     </div>
                     <div className='market-stat'>
                         <p className='market-stat-title market-stat-right-column'>Total Supply</p>
-                        <p className='market-stat-value market-stat-right-column'>{coin && coin.market_data && formatNumber(coin.market_data.total_supply)}</p>
+                        <p className='market-stat-value market-stat-right-column'>{coin && coin.market_data && formatNumber(coin.market_data.total_supply) ? formatNumber(coin.market_data.total_supply) : 0}</p>
                     </div>
                     <div className='market-stat'>
                         <p className='market-stat-title'>Total Volume</p>
-                        <p className='market-stat-value'>{coin && coin.market_data && formatPriceBillion(coin.market_data.total_volume.eur)}</p>
+                        <p className='market-stat-value'>{coin && coin.market_data && formatPriceBillion(coin.market_data.total_volume.eur) ? formatPriceBillion(coin.market_data.total_volume.eur) : 0}</p>
                     </div>
                 </div>
                 <div className='content-divider'></div>
