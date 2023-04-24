@@ -6,10 +6,8 @@ const initialState = {
     coin_error: false,
     coin: {},
     coin_price: 0,
-    coin_input_value: '',
-    currency_input_value: '',
-    coin_converted_value: '',
-    currency_converted_value: '',
+    coin_value: '',
+    currency_value: '',
 };
 
 const fetchCoin = createAsyncThunk('coin/fetchCoin', async (url) => {
@@ -24,22 +22,21 @@ const coinSlice = createSlice({
         removeCoinError: (state) => {
             state.coin_error = false;
         },
-        updateValue: (state, { payload: { name, value } }) => {
-            state[name] = value;
+        updateValue: (state, { payload }) => {
+            state.coin_value = parseInt(payload);
         },
         convertValue: (state) => {
-            if (!state.coin_input_value || !state.currency_input_value) {
-                state.coin_converted_value = '';
-                state.currency_converted_value = '';
+            if (!state.coin_value) {
+                state.coin_value = '';
+                state.currency_value = '';
             }
-            if (state.coin_input_value) {
-                state.coin_converted_value = state.coin_input_value;
-                state.currency_converted_value = state.coin_input_value * state.coin_price;
+            if (state.coin_value) {
+                state.currency_value = (state.coin_value * state.coin_price).toFixed(4);
             }
-            if (state.currency_input_value) {
-                state.currency_converted_value = state.currency_input_value;
-                state.coin_converted_value = state.currency_input_value / state.coin_price;
-            }
+        },
+        resetConverter: (state) => {
+            state.coin_value = '';
+            state.currency_value = '';
         },
     },
     extraReducers: (builder) => {
@@ -60,5 +57,5 @@ const coinSlice = createSlice({
 });
 
 export { fetchCoin };
-export const { removeCoinError, updateValue, convertValue } = coinSlice.actions;
+export const { removeCoinError, updateValue, convertValue, resetConverter } = coinSlice.actions;
 export default coinSlice.reducer;

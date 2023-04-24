@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, useNavigate } from 'react-router-dom';
-import { fetchCoin, removeCoinError } from '../features/coin/coinSlice';
+import { fetchCoin, removeCoinError, resetConverter } from '../features/coin/coinSlice';
 import { formatPrice } from '../utils/formatPrice';
 import { RxTriangleDown, RxTriangleUp } from 'react-icons/rx';
 import { Loader, PriceHistoryChart, PriceChangeBoxes, TrackCoinButton, MarketStats, CryptoConverter } from '../components';
@@ -12,7 +12,7 @@ const SingleCoinPage = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const { id } = useParams();
-    const { coin_loading, coin_error, coin, coin_input_value, currency_input_value } = useSelector((store) => store.coin);
+    const { coin_loading, coin_error, coin, coin_price, coin_value, currency_value } = useSelector((store) => store.coin);
     const { chart_days } = useSelector((store) => store.chart);
 
     useEffect(() => {
@@ -28,7 +28,11 @@ const SingleCoinPage = () => {
 
     useEffect(() => {
         dispatch(convertValue());
-    }, [coin_input_value, currency_input_value]);
+    }, [coin_value, currency_value]);
+
+    useEffect(() => {
+        dispatch(resetConverter());
+    }, [coin_price]);
 
     if (coin_loading) {
         return (
