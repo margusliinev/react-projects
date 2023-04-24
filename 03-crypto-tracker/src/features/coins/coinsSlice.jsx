@@ -43,50 +43,56 @@ const coinsSlice = createSlice({
             state.filters[name] = value.toLowerCase().trim();
         },
         updateExtraFilters: (state, { payload: { marketMin, marketMax, priceMin, priceMax, changeMin, changeMax } }) => {
-            if (marketMin === '' && marketMax === '') {
-                if (state.marketFilter) {
-                    state.extraFiltersAmount = state.extraFiltersAmount - 1;
-                    state.filters.marketMin = 0;
-                    state.filters.marketMax = 999999999999;
+            if (state.marketFilter === false) {
+                if (marketMin === '' && marketMax === '') {
+                    if (state.marketFilter) {
+                        state.extraFiltersAmount = state.extraFiltersAmount - 1;
+                        state.filters.marketMin = 0;
+                        state.filters.marketMax = 999999999999;
+                    }
+                    state.marketFilter = false;
+                } else if (marketMin && marketMax) {
+                    state.filters.marketMin = parseInt(marketMin);
+                    state.filters.marketMax = parseInt(marketMax);
+                    if (!state.marketFilter) {
+                        state.extraFiltersAmount += 1;
+                    }
+                    state.marketFilter = true;
                 }
-                state.marketFilter = false;
-            } else if (marketMin && marketMax) {
-                state.filters.marketMin = parseInt(marketMin);
-                state.filters.marketMax = parseInt(marketMax);
-                if (!state.marketFilter) {
-                    state.extraFiltersAmount += 1;
-                }
-                state.marketFilter = true;
             }
-            if (priceMin === '' && priceMax === '') {
-                if (state.priceFilter) {
-                    state.extraFiltersAmount = state.extraFiltersAmount - 1;
-                    state.filters.priceMin = 0;
-                    state.filters.priceMax = 99999;
+            if (state.priceFilter === false) {
+                if (priceMin === '' && priceMax === '') {
+                    if (state.priceFilter) {
+                        state.extraFiltersAmount = state.extraFiltersAmount - 1;
+                        state.filters.priceMin = 0;
+                        state.filters.priceMax = 99999;
+                    }
+                    state.priceFilter = false;
+                } else if (priceMin && priceMax) {
+                    state.filters.priceMin = parseInt(priceMin);
+                    state.filters.priceMax = parseInt(priceMax);
+                    if (!state.priceFilter) {
+                        state.extraFiltersAmount += 1;
+                    }
+                    state.priceFilter = true;
                 }
-                state.priceFilter = false;
-            } else if (priceMin && priceMax) {
-                state.filters.priceMin = parseInt(priceMin);
-                state.filters.priceMax = parseInt(priceMax);
-                if (!state.priceFilter) {
-                    state.extraFiltersAmount += 1;
-                }
-                state.priceFilter = true;
             }
-            if (changeMin === '' && changeMax === '') {
-                if (state.changeFilter) {
-                    state.extraFiltersAmount = state.extraFiltersAmount - 1;
-                    state.filters.changeMin = -100;
-                    state.filters.changeMax = 1000;
+            if (state.changeFilter === false) {
+                if (changeMin === '' && changeMax === '') {
+                    if (state.changeFilter) {
+                        state.extraFiltersAmount = state.extraFiltersAmount - 1;
+                        state.filters.changeMin = -100;
+                        state.filters.changeMax = 1000;
+                    }
+                    state.changeFilter = false;
+                } else if (changeMin && changeMax) {
+                    state.filters.changeMin = parseInt(changeMin);
+                    state.filters.changeMax = parseInt(changeMax);
+                    if (!state.changeFilter) {
+                        state.extraFiltersAmount += 1;
+                    }
+                    state.changeFilter = true;
                 }
-                state.changeFilter = false;
-            } else if (changeMin && changeMax) {
-                state.filters.changeMin = parseInt(changeMin);
-                state.filters.changeMax = parseInt(changeMax);
-                if (!state.changeFilter) {
-                    state.extraFiltersAmount += 1;
-                }
-                state.changeFilter = true;
             }
         },
         removeFilter: (state, { payload }) => {

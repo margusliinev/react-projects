@@ -7,7 +7,7 @@ import { fetchFeatured } from '../features/featured/featuredSlice';
 
 const CoinsPage = () => {
     const dispatch = useDispatch();
-    const { coins_loading, filters, sort } = useSelector((store) => store.coins);
+    const { coins, coins_loading, filters, sort } = useSelector((store) => store.coins);
 
     useEffect(() => {
         dispatch(fetchFeatured());
@@ -17,7 +17,7 @@ const CoinsPage = () => {
     useEffect(() => {
         dispatch(filterCoins());
         dispatch(sortCoins());
-    }, [sort, filters]);
+    }, [sort, filters, coins]);
 
     if (coins_loading) {
         return (
