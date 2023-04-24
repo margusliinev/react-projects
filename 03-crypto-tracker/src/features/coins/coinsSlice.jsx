@@ -40,7 +40,7 @@ const coinsSlice = createSlice({
     initialState,
     reducers: {
         updateFilters: (state, { payload: { name, value } }) => {
-            state.filters[name] = value;
+            state.filters[name] = value.toLowerCase().trim();
         },
         updateExtraFilters: (state, { payload: { marketMin, marketMax, priceMin, priceMax, changeMin, changeMax } }) => {
             if (marketMin === '' && marketMax === '') {
