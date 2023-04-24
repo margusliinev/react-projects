@@ -40,7 +40,7 @@ const coinsSlice = createSlice({
     initialState,
     reducers: {
         updateFilters: (state, { payload: { name, value } }) => {
-            state.filters[name] = value.toLowerCase().trim();
+            state.filters[name] = value;
         },
         updateExtraFilters: (state, { payload: { marketMin, marketMax, priceMin, priceMax, changeMin, changeMax } }) => {
             if (state.marketFilter === false) {
@@ -113,8 +113,8 @@ const coinsSlice = createSlice({
             let tempCoins = [...state.coins];
             if (state.filters.search) {
                 tempCoins = tempCoins.filter((coin) => {
-                    let name = coin.name.toLowerCase();
-                    if (name.includes(state.filters.search)) {
+                    let name = coin.name.toLowerCase().trim();
+                    if (name.includes(state.filters.search.toLowerCase().trim())) {
                         return coin;
                     }
                 });

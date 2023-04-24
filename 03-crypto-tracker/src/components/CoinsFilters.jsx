@@ -6,12 +6,12 @@ import { openModal } from '../features/navigation/navigationSlice';
 
 const CoinsFilters = () => {
     const dispatch = useDispatch();
-    const { extraFiltersAmount } = useSelector((store) => store.coins);
+    const { filters, extraFiltersAmount } = useSelector((store) => store.coins);
 
     return (
         <div className='coins-filters'>
             <div className='search-filter-container'>
-                <input type='text' className='search-filter' placeholder='Search' name='search' onChange={(e) => dispatch(updateFilters({ name: e.target.name, value: e.target.value }))} />
+                <input type='text' className='search-filter' placeholder='Search' name='search' value={filters.search} onChange={(e) => dispatch(updateFilters({ name: e.target.name, value: e.target.value }))} />
                 <span>
                     <TbSearch />
                 </span>
