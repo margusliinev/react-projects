@@ -1,12 +1,14 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { formatPrice } from '../utils/formatPrice';
 import { formatPriceBillion } from '../utils/formatPriceBillion';
 import { RxTriangleDown, RxTriangleUp } from 'react-icons/rx';
 import { HiPlus } from 'react-icons/hi';
 import { Link } from 'react-router-dom';
+import { addToPortfolio } from '../features/portfolio/portfolioSlice';
 
 const CoinsList = () => {
+    const dispatch = useDispatch();
     const { btc, filtered_coins, displayed_coins } = useSelector((store) => store.coins);
 
     if (filtered_coins.length < 1) {
@@ -33,7 +35,14 @@ const CoinsList = () => {
                               <p className='coin-market-cap'>{formatPriceBillion(coin.market_cap)}</p>
                               <p className='coin-price-low'>{formatPrice(coin.low_24h)}</p>
                               <p className='coin-price-high'>{formatPrice(coin.high_24h)}</p>
-                              <button type='button' className='coin-track'>
+                              <button
+                                  type='button'
+                                  className='coin-track'
+                                  onClick={(e) => {
+                                      e.preventDefault();
+                                      dispatch(addToPortfolio({ id: coin.id, coin: coin }));
+                                  }}
+                              >
                                   <HiPlus />
                               </button>
                           </Link>
