@@ -1,8 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { getLocalStorage } from '../../utils/getLocalStorage';
 import Swal from 'sweetalert2';
 
 const initialState = {
-    portfolio: [],
+    portfolio: getLocalStorage('portfolio'),
 };
 
 const displayMessage = (id) => {
@@ -29,6 +30,7 @@ const portfolioSlice = createSlice({
             } else {
                 displayMessage(id);
                 state.portfolio = [...state.portfolio, coin];
+                localStorage.setItem('portfolio', JSON.stringify(state.portfolio));
             }
         },
     },
