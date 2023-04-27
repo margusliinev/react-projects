@@ -1809,5 +1809,61 @@ input[type='number']::-webkit-inner-spin-button {
     }
 }
 
+/* PORTFOLIO PAGE */
+/* ==================================================================================================== */
+
+.portfolio-container {
+    display: flex;
+    flex-direction: column;
+    max-width: $width-xl;
+    margin: 0 auto;
+    width: 90vw;
+}
+
+.portfolio-list {
+    display: grid;
+    row-gap: 1rem;
+}
+
+.portfolio-item {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 1rem;
+}
+
+.portfolio-coin-stats {
+    display: grid;
+    row-gap: 1rem;
+}
+
+.portfolio-coin-header,
+.portfolio-coin-market,
+.portfolio-coin-user {
+    background-color: #1a1a1a;
+}
+
+.portfolio-coin-header {
+    grid-area: 'a';
+    display: grid;
+}
+
+.portfolio-coin-market {
+    grid-area: 'b';
+    display: grid;
+}
+
+.portfolio-coin-user {
+    grid-area: 'c';
+    display: grid;
+}
+
+.portfolio-coin-market-stats {
+    display: flex;
+}
+
+.portfolio-coin-user-stats {
+    display: flex;
+}
+
 /* END */
 /* ==================================================================================================== */
