@@ -1818,6 +1818,7 @@ input[type='number']::-webkit-inner-spin-button {
     max-width: $width-xl;
     margin: 0 auto;
     width: 90vw;
+    gap: 2rem;
     h5 {
         font-weight: 500;
         margin-bottom: 1rem;
@@ -1926,7 +1927,42 @@ input[type='number']::-webkit-inner-spin-button {
     display: none;
 }
 
+.portfolio-totals {
+    background-color: #141414;
+    width: 100%;
+    display: grid;
+    align-items: center;
+    gap: 1rem;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 2rem;
+    border-radius: $radius-xl;
+}
+
+.totals-stat {
+    display: grid;
+    row-gap: 0.5rem;
+    align-self: start;
+    height: 100%;
+    p {
+        font-size: 1.25rem;
+        text-align: center;
+        justify-self: center;
+    }
+    p:nth-of-type(1) {
+        color: #b3b3b3;
+        align-self: start;
+    }
+    p:nth-of-type(2) {
+        color: $colorWhite;
+        font-weight: 600;
+        align-self: end;
+    }
+}
+
 @media screen and (max-width: $width-xl) {
+    .portfolio-list {
+        row-gap: 1rem;
+    }
     .portfolio-item {
         display: grid;
         row-gap: 1rem;
@@ -1956,8 +1992,8 @@ input[type='number']::-webkit-inner-spin-button {
     .portfolio-coin-market-stats,
     .portfolio-coin-user-stats {
         padding: 2rem;
-        display: flex;
-        justify-content: space-between;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
     }
     .portfolio-coin-stat {
         justify-self: center;
@@ -1972,6 +2008,7 @@ input[type='number']::-webkit-inner-spin-button {
     }
     .portfolio-coin-stat-value {
         align-self: end;
+        font-size: 18px;
     }
     .portfolio-content-divider {
         display: unset;
@@ -1979,12 +2016,6 @@ input[type='number']::-webkit-inner-spin-button {
         width: 90vw;
         background-color: #333;
         margin: 1rem auto;
-    }
-    .portfolio-container {
-        h5 {
-            font-weight: 500;
-            margin-bottom: 0;
-        }
     }
     .remove-coin-btn {
         margin-top: 0.25rem;
@@ -2030,6 +2061,49 @@ input[type='number']::-webkit-inner-spin-button {
     .portfolio-coin-header {
         max-width: none;
         padding: 1.5rem 0rem 1.5rem 0rem;
+    }
+}
+
+@media screen and (max-width: $width-md) {
+    .portfolio-totals {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+    .totals-stat {
+        text-align: left;
+        justify-self: left;
+        p {
+            font-size: 18px;
+            text-align: left;
+            justify-self: left;
+        }
+    }
+}
+
+@media screen and (max-width: $width-sm) {
+    .portfolio-totals {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+    }
+    .totals-stat {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        width: 100%;
+        align-self: center;
+        height: unset;
+        p:nth-of-type(2) {
+            align-self: start;
+        }
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .totals-stat {
+        p:nth-of-type(1) {
+            max-width: 150px;
+        }
     }
 }
 
