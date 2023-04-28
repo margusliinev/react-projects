@@ -19,7 +19,7 @@ const PortfolioPage = () => {
         <main className='portfolio'>
             <div className='portfolio-container'>
                 <div className='totals'>
-                    <h5>Your Portfolio</h5>
+                    <h5>Portfolio Overview</h5>
                     <PortfolioTotals />
                 </div>
                 <div className='assets'>
