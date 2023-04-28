@@ -2027,9 +2027,13 @@ input[type='number']::-webkit-inner-spin-button {
     .portfolio-coin-market-stats,
     .portfolio-coin-user-stats {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr;
         row-gap: 1rem;
+    }
+    .portfolio-coin-stat {
+        display: flex;
+        justify-self: unset;
+        justify-content: space-between;
     }
     .portfolio-coin-header {
         p:nth-of-type(1) {
@@ -2050,16 +2054,14 @@ input[type='number']::-webkit-inner-spin-button {
     }
 }
 
-@media screen and (max-width: 375px) {
-    .portfolio-coin-market-stats,
-    .portfolio-coin-user-stats {
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr 1fr 1fr;
-        row-gap: 1rem;
-    }
+@media screen and (max-width: 380px) {
     .portfolio-coin-header {
         max-width: none;
         padding: 1.5rem 0rem 1.5rem 0rem;
+    }
+    .portfolio-coin-stat {
+        display: grid;
+        justify-self: center;
     }
 }
 
