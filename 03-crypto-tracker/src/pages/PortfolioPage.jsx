@@ -19,6 +19,7 @@ const PortfolioPage = () => {
         <main className='portfolio'>
             <div className='portfolio-container'>
                 <h5>Your Portfolio</h5>
+                <div className='portfolio-content-divider'></div>
                 <div className='portfolio-list'>
                     {portfolio.length > 0
                         ? portfolio.map((coin) => {
@@ -51,7 +52,7 @@ const PortfolioPage = () => {
                                                   </div>
                                                   <div className='portfolio-coin-stat'>
                                                       <p className='portfolio-coin-stat-title'>Circ/Total Sup:</p>
-                                                      <p className='portfolio-coin-stat-value'>progress bar</p>
+                                                      <p className='portfolio-coin-stat-value'>30%</p>
                                                   </div>
                                               </div>
                                           </div>
@@ -63,20 +64,21 @@ const PortfolioPage = () => {
                                                       <p className='portfolio-coin-stat-value'>1</p>
                                                   </div>
                                                   <div className='portfolio-coin-stat'>
-                                                      <p className='portfolio-coin-stat-title'>Value:</p>
+                                                      <p className='portfolio-coin-stat-title'>Purchase Price:</p>
                                                       <p className='portfolio-coin-stat-value'>€24,222</p>
                                                   </div>
                                                   <div className='portfolio-coin-stat'>
-                                                      <p className='portfolio-coin-stat-title'>Price since purchase:</p>
-                                                      <p className='portfolio-coin-stat-value'>-22.33%</p>
+                                                      <p className='portfolio-coin-stat-title'>Price Since Purchase:</p>
+                                                      <p className='portfolio-coin-stat-value'>9.04%</p>
                                                   </div>
                                                   <div className='portfolio-coin-stat'>
-                                                      <p className='portfolio-coin-stat-title'>Purchase Date:</p>
-                                                      <p className='portfolio-coin-stat-value'>12-09-2021</p>
+                                                      <p className='portfolio-coin-stat-title'>Gained Profit</p>
+                                                      <p className='portfolio-coin-stat-value'>€2410</p>
                                                   </div>
                                               </div>
                                           </div>
                                       </div>
+                                      <div className='portfolio-content-divider'></div>
                                   </article>
                               );
                           })

@@ -1826,7 +1826,7 @@ input[type='number']::-webkit-inner-spin-button {
 
 .portfolio-list {
     display: grid;
-    row-gap: 1rem;
+    row-gap: 3rem;
 }
 
 .portfolio-item {
@@ -1866,18 +1866,19 @@ input[type='number']::-webkit-inner-spin-button {
         font-weight: 500;
         font-size: 18px;
     }
-    button {
-        background-color: transparent;
-        border: transparent;
-        color: $colorDanger;
-        font-size: 1.5rem;
-        cursor: pointer;
-        display: grid;
-        place-items: center;
-        transition: $transition;
-        :hover {
-            color: lighten($colorDanger, 10%);
-        }
+}
+
+.remove-coin-btn {
+    background-color: transparent;
+    border: transparent;
+    color: $colorDanger;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    transition: $transition;
+    :hover {
+        color: lighten($colorDanger, 10%);
     }
 }
 
@@ -1921,12 +1922,14 @@ input[type='number']::-webkit-inner-spin-button {
     font-weight: 600;
 }
 
+.portfolio-content-divider {
+    display: none;
+}
+
 @media screen and (max-width: $width-xl) {
-    .portfolio-list {
-        row-gap: 3rem;
-    }
     .portfolio-item {
         display: grid;
+        row-gap: 1rem;
     }
     .portfolio-coin-header {
         display: flex;
@@ -1934,8 +1937,20 @@ input[type='number']::-webkit-inner-spin-button {
         text-align: left;
         gap: 1rem;
         max-width: max-content;
-        p {
-            font-size: 22px;
+        p:nth-of-type(1) {
+            font-size: 2rem;
+        }
+        p:nth-of-type(2) {
+            font-size: 1.25rem;
+            margin-top: 0.25rem;
+            color: #71717a;
+        }
+        img {
+            width: 75px;
+            height: 75px;
+            background-color: transparent;
+            padding: 0;
+            border-radius: $radius-sm;
         }
     }
     .portfolio-coin-market-stats,
@@ -1957,6 +1972,64 @@ input[type='number']::-webkit-inner-spin-button {
     }
     .portfolio-coin-stat-value {
         align-self: end;
+    }
+    .portfolio-content-divider {
+        display: unset;
+        height: 1px;
+        width: 90vw;
+        background-color: #333;
+        margin: 1rem auto;
+    }
+    .portfolio-container {
+        h5 {
+            font-weight: 500;
+            margin-bottom: 0;
+        }
+    }
+    .remove-coin-btn {
+        margin-top: 0.25rem;
+        margin-left: 0.5rem;
+        font-size: 1.75rem;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .portfolio-coin-market-stats,
+    .portfolio-coin-user-stats {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        row-gap: 1rem;
+    }
+    .portfolio-coin-header {
+        p:nth-of-type(1) {
+            font-size: 1.75rem;
+        }
+        p:nth-of-type(2) {
+            font-size: 1rem;
+            margin-top: 0.25rem;
+            color: #71717a;
+        }
+        img {
+            height: 50px;
+            width: 50px;
+        }
+    }
+    .remove-coin-btn {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .portfolio-coin-market-stats,
+    .portfolio-coin-user-stats {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+        row-gap: 1rem;
+    }
+    .portfolio-coin-header {
+        max-width: none;
+        padding: 1.5rem 0rem 1.5rem 0rem;
     }
 }
 
