@@ -22,5 +22,6 @@ import CryptoConverter from './CryptoConverter';
 import PortfolioList from './PortfolioList';
 import PortfolioCoin from './PortfolioCoin';
 import PortfolioTotals from './PortfolioTotals';
+import PortfolioSort from './PortfolioSort';
 
-export { Navbar, Sidebar, Footer, FeaturedCoins, CoinsFilters, ExtraFilters, CoinsSort, CoinsList, CoinsPagination, Loader, PageHero, CoinsTable, ExchangesTable, ExchangesSort, ExchangesList, ExchangesPagination, PriceHistoryChart, PriceChangeBoxes, TrackCoinButton, MarketStats, CryptoConverter, PortfolioList, PortfolioCoin, PortfolioTotals };
+export { Navbar, Sidebar, Footer, FeaturedCoins, CoinsFilters, ExtraFilters, CoinsSort, CoinsList, CoinsPagination, Loader, PageHero, CoinsTable, ExchangesTable, ExchangesSort, ExchangesList, ExchangesPagination, PriceHistoryChart, PriceChangeBoxes, TrackCoinButton, MarketStats, CryptoConverter, PortfolioList, PortfolioCoin, PortfolioTotals, PortfolioSort };
