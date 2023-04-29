@@ -9,7 +9,7 @@ const PortfolioCoin = ({ coin }) => {
             <article className='portfolio-item' key={coin.id}>
                 <p className='portfolio-number'>{coin.number}</p>
                 <div className='portfolio-name'>
-                    <img className='portfolio-image' src={coin.image} alt={coin.name} />
+                    <img className='portfolio-image' src={coin.image ? coin.image : coin.image.small} alt={coin.name} />
                     <p>{coin.name.substring(0, 18)}</p>
                 </div>
                 <p className='portfolio-symbol'>{coin.symbol.toUpperCase()}</p>
@@ -25,11 +25,11 @@ const PortfolioCoin = ({ coin }) => {
                 </div>
                 <p className='portfolio-ath'>{formatPrice(coin.ath)}</p>
                 <div className='portfolio-item-amount'>
-                    <button type='button'>
+                    <button type='button' className='decrease-amount-button'>
                         <HiMinus />
                     </button>
-                    <p>1</p>
-                    <button type='button'>
+                    <p>{coin.amount}</p>
+                    <button type='button' className='increase-amount-button'>
                         <HiPlus />
                     </button>
                 </div>

@@ -1825,6 +1825,15 @@ input[type='number']::-webkit-inner-spin-button {
     }
 }
 
+.portfolio-list {
+    border: 1px solid #1a1a1a;
+    border-radius: $radius-lg;
+}
+
+.portfolio-list-container {
+    border-radius: $radius-sm;
+}
+
 .portfolio-totals {
     display: flex;
     align-items: center;
@@ -1857,11 +1866,12 @@ input[type='number']::-webkit-inner-spin-button {
     grid-template-columns: 15px 150px 1fr 2fr 60px;
     align-items: center;
     column-gap: 1rem;
-    transition: $transition;
-    padding: 1rem;
+    padding: 0.6rem 1rem;
     color: $colorWhite;
-    background-color: #111;
-    border-bottom: 1px solid #222;
+}
+
+.portfolio-item:last-of-type {
+    border: none;
 }
 
 .portfolio-number {
@@ -1937,8 +1947,10 @@ input[type='number']::-webkit-inner-spin-button {
         background-color: transparent;
         color: $colorWhite;
         border: none;
-        font-size: 18px;
+        font-size: 20px;
         cursor: pointer;
+        display: grid;
+        transition: $transition;
     }
 }
 
@@ -2128,6 +2140,14 @@ input[type='number']::-webkit-inner-spin-button {
     .portfolio-sort-ath {
         display: flex;
     }
+}
+
+.decrease-amount-button:hover {
+    color: $colorDanger;
+}
+
+.increase-amount-button:hover {
+    color: $colorSuccess;
 }
 
 /* END */

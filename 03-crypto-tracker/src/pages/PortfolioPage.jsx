@@ -1,9 +1,15 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { PortfolioList, PortfolioTotals } from '../components';
+import { sortPortfolio } from '../features/portfolio/portfolioSlice';
 
 const PortfolioPage = () => {
-    const { portfolio } = useSelector((store) => store.portfolio);
+    const dispatch = useDispatch();
+    const { portfolio, sort } = useSelector((store) => store.portfolio);
+
+    useEffect(() => {
+        dispatch(sortPortfolio());
+    }, [sort, portfolio]);
 
     if (portfolio.length < 1) {
         return (
