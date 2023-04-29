@@ -27,7 +27,8 @@ const PortfolioCoin = ({ coin }) => {
                         className='apply-coin-data-btn'
                         onClick={(e) => {
                             e.preventDefault();
-                            dispatch(handleSubmit({ amount: e.currentTarget.previousElementSibling.firstElementChild.value, price: e.currentTarget.previousElementSibling.lastElementChild.value, coinName: coin.name }));
+                            dispatch(handleSubmit({ amount: e.currentTarget.previousElementSibling.firstElementChild.value, price: e.currentTarget.previousElementSibling.lastElementChild.value, coinName: coin.id }));
+                            e.currentTarget.parentElement.reset();
                         }}
                     >
                         Apply
@@ -57,19 +58,19 @@ const PortfolioCoin = ({ coin }) => {
                     <div className='portfolio-coin-user-stats'>
                         <div className='portfolio-coin-stat'>
                             <p className='portfolio-coin-stat-title'>Amount:</p>
-                            <p className='portfolio-coin-stat-value'>{coin.amount ? coin.amount : 1}</p>
+                            <p className='portfolio-coin-stat-value'>{coin.amount}</p>
                         </div>
                         <div className='portfolio-coin-stat'>
                             <p className='portfolio-coin-stat-title'>Purchase Price:</p>
-                            <p className='portfolio-coin-stat-value'>{coin.price ? formatPrice(coin.price) : formatPrice(coin.current_price)}</p>
+                            <p className='portfolio-coin-stat-value'>{formatPrice(coin.price)}</p>
                         </div>
                         <div className='portfolio-coin-stat'>
                             <p className='portfolio-coin-stat-title'>Price Since Purchase:</p>
-                            <p className='portfolio-coin-stat-value'>9.04%</p>
+                            <p className='portfolio-coin-stat-value'>{(((coin.current_price - coin.price) / coin.price) * 100).toFixed(0) + '%'}</p>
                         </div>
                         <div className='portfolio-coin-stat'>
                             <p className='portfolio-coin-stat-title'>Gained Profit</p>
-                            <p className='portfolio-coin-stat-value'>€2410</p>
+                            <p className='portfolio-coin-stat-value'>{formatPrice((coin.current_price - coin.price) * coin.amount)}</p>
                         </div>
                     </div>
                 </div>

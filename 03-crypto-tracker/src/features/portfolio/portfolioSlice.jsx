@@ -23,17 +23,19 @@ const portfolioSlice = createSlice({
     initialState,
     reducers: {
         handleSubmit: (state, { payload: { amount, price, coinName } }) => {
-            console.log(amount, price, coinName);
+            console.log(coinName);
             state.portfolio.map((coin) => {
+                console.log(coin.id);
                 if (coin.id.toLowerCase() === coinName.toLowerCase()) {
-                    coin.amount = amount;
-                    coin.price = price;
+                    coin.amount = parseInt(amount);
+                    coin.price = parseInt(price);
                 }
                 return coin;
             });
         },
         addToPortfolio: (state, { payload }) => {
-            const { id, coin } = payload;
+            let { id, coin } = payload;
+            coin = { ...coin, amount: 1, price: coin.current_price };
             const asset = state.portfolio.find((coin) => coin.id === id);
             if (asset) {
                 return;
