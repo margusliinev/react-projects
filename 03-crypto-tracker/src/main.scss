@@ -2012,16 +2012,16 @@ input[type='number']::-webkit-inner-spin-button {
         gap: 1rem;
         max-width: max-content;
         p:nth-of-type(1) {
-            font-size: 2rem;
+            font-size: 1.75rem;
         }
         p:nth-of-type(2) {
-            font-size: 1.25rem;
-            margin-top: 0.25rem;
+            font-size: 1rem;
+            margin-top: 0.5rem;
             color: #71717a;
         }
         img {
-            width: 75px;
-            height: 75px;
+            width: 60px;
+            height: 60px;
             background-color: transparent;
             padding: 0;
             border-radius: $radius-sm;
@@ -2096,7 +2096,7 @@ input[type='number']::-webkit-inner-spin-button {
 @media screen and (max-width: 380px) {
     .portfolio-coin-header {
         max-width: none;
-        padding: 1.5rem 0rem 1.5rem 0rem;
+        padding: 1rem 0rem;
     }
     .portfolio-coin-stat {
         display: grid;
@@ -2134,33 +2134,11 @@ input[type='number']::-webkit-inner-spin-button {
     }
     .portfolio-coin-stats-form {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
         justify-content: left;
         div {
             display: grid;
             row-gap: 1rem;
-        }
-        input {
-            width: 250px;
-        }
-        button {
-            justify-self: right;
-            align-self: end;
-        }
-    }
-}
-
-@media screen and (max-width: 380px) {
-    .portfolio-coin-stats-form {
-        grid-template-columns: 1fr;
-        justify-self: center;
-        width: 100%;
-        input {
-            width: 100%;
-        }
-        button {
-            justify-self: left;
-            width: 100%;
         }
     }
 }

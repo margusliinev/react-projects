@@ -22,6 +22,16 @@ const portfolioSlice = createSlice({
     name: 'portfolio',
     initialState,
     reducers: {
+        handleSubmit: (state, { payload: { amount, price, coinName } }) => {
+            console.log(amount, price, coinName);
+            state.portfolio.map((coin) => {
+                if (coin.id.toLowerCase() === coinName.toLowerCase()) {
+                    coin.amount = amount;
+                    coin.price = price;
+                }
+                return coin;
+            });
+        },
         addToPortfolio: (state, { payload }) => {
             const { id, coin } = payload;
             const asset = state.portfolio.find((coin) => coin.id === id);
@@ -36,5 +46,5 @@ const portfolioSlice = createSlice({
     },
 });
 
-export const { addToPortfolio } = portfolioSlice.actions;
+export const { addToPortfolio, handleSubmit } = portfolioSlice.actions;
 export default portfolioSlice.reducer;

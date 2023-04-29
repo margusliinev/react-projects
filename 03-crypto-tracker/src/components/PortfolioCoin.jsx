@@ -1,8 +1,11 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { CgClose } from 'react-icons/cg';
 import { formatPrice } from '../utils/formatPrice';
+import { handleSubmit } from '../features/portfolio/portfolioSlice';
 
 const PortfolioCoin = ({ coin }) => {
+    const dispatch = useDispatch();
     return (
         <article className='portfolio-item' key={coin.id}>
             <div className='portfolio-coin-header'>
@@ -19,7 +22,14 @@ const PortfolioCoin = ({ coin }) => {
                         <input type='number' id='amount' placeholder='Amount' />
                         <input type='number' id='purchase-price' placeholder='Purchase Price' />
                     </div>
-                    <button type='submit' className='apply-coin-data-btn'>
+                    <button
+                        type='button'
+                        className='apply-coin-data-btn'
+                        onClick={(e) => {
+                            e.preventDefault();
+                            dispatch(handleSubmit({ amount: e.currentTarget.previousElementSibling.firstElementChild.value, price: e.currentTarget.previousElementSibling.lastElementChild.value, coinName: coin.name }));
+                        }}
+                    >
                         Apply
                     </button>
                 </form>
@@ -47,11 +57,11 @@ const PortfolioCoin = ({ coin }) => {
                     <div className='portfolio-coin-user-stats'>
                         <div className='portfolio-coin-stat'>
                             <p className='portfolio-coin-stat-title'>Amount:</p>
-                            <p className='portfolio-coin-stat-value'>1</p>
+                            <p className='portfolio-coin-stat-value'>{coin.amount ? coin.amount : 1}</p>
                         </div>
                         <div className='portfolio-coin-stat'>
                             <p className='portfolio-coin-stat-title'>Purchase Price:</p>
-                            <p className='portfolio-coin-stat-value'>€22410</p>
+                            <p className='portfolio-coin-stat-value'>{coin.price ? formatPrice(coin.price) : formatPrice(coin.current_price)}</p>
                         </div>
                         <div className='portfolio-coin-stat'>
                             <p className='portfolio-coin-stat-title'>Price Since Purchase:</p>
