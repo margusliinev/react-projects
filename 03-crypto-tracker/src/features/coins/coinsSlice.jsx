@@ -140,6 +140,7 @@ const coinsSlice = createSlice({
                     }
                 });
             }
+            state.page = 1;
             state.filtered_coins = tempCoins;
             state.page_coins = Array.from({ length: Math.ceil(state.filtered_coins.length / state.itemsPerPage) }, (_, index) => {
                 const start = index * state.itemsPerPage;
