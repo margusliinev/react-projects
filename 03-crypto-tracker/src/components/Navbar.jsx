@@ -4,9 +4,12 @@ import { CgMenuGridO, CgClose } from 'react-icons/cg';
 import { useDispatch, useSelector } from 'react-redux';
 import { openSidebar, closeSidebar } from '../features/navigation/navigationSlice';
 
+import LoginButtons from './NavbarButtons';
+
 const Navbar = () => {
     const dispatch = useDispatch();
     const { isSidebarOpen } = useSelector((store) => store.navigation);
+
     return (
         <nav className={isSidebarOpen ? 'nav nav-change' : 'nav'}>
             <div className='nav-container'>
@@ -42,14 +45,7 @@ const Navbar = () => {
                         </Link>
                     </li>
                 </ul>
-                <div>
-                    <button type='button' className='btn navbar-login-btn'>
-                        Login
-                    </button>
-                    <button type='button' className='btn navbar-register-btn'>
-                        Register
-                    </button>
-                </div>
+                <LoginButtons />
             </div>
         </nav>
     );

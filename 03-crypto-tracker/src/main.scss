@@ -234,8 +234,17 @@ main {
 
 .nav-links,
 .navbar-login-btn,
-.navbar-register-btn {
+.navbar-register-btn,
+.navbar-logout-btn {
     display: none;
+}
+
+.navbar-logout-btn {
+    align-items: center;
+    gap: 0.5rem;
+    svg {
+        font-size: 1.25rem;
+    }
 }
 
 .content-divider-vertical {
@@ -252,7 +261,8 @@ main {
     }
     .nav-links,
     .navbar-login-btn,
-    .navbar-register-btn {
+    .navbar-register-btn,
+    .navbar-logout-btn {
         display: flex;
     }
     .nav-container {
@@ -290,7 +300,8 @@ main {
     }
 }
 
-.sidebar-register-btn {
+.sidebar-register-btn,
+.sidebar-logout-btn {
     width: 120px;
     background-color: $colorPrimary;
     border: transparent;
@@ -300,7 +311,22 @@ main {
     margin: 1rem 0rem 0rem 2rem;
     font-size: 18px;
 }
-.sidebar-register-btn:hover {
+
+.sidebar-logout-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    svg {
+        font-size: 1.25rem;
+    }
+}
+
+.hide-button {
+    display: none;
+}
+
+.sidebar-register-btn:hover,
+.sidebar-logout-btn:hover {
     background-color: lighten($colorPrimary, 10%);
 }
 

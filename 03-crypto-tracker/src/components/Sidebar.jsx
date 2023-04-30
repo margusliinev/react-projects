@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { closeSidebar } from '../features/navigation/navigationSlice';
+import { SidebarButtons } from '../components';
 
 const Sidebar = () => {
     const dispatch = useDispatch();
@@ -9,14 +10,7 @@ const Sidebar = () => {
     return (
         <aside className={isSidebarOpen ? 'sidebar sidebar-open' : 'sidebar'}>
             <div className='sidebar-container'>
-                <div>
-                    <button type='button' className='btn sidebar-register-btn'>
-                        Register
-                    </button>
-                    <button type='button' className='btn sidebar-login-btn'>
-                        Login
-                    </button>
-                </div>
+                <SidebarButtons />
                 <ul className='sidebar-links'>
                     <li>
                         <Link to={'/'} className='sidebar-link' onClick={() => dispatch(closeSidebar())}>
