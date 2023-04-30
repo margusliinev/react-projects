@@ -1825,9 +1825,48 @@ input[type='number']::-webkit-inner-spin-button {
     }
 }
 
+.empty-portfolio {
+    display: grid;
+    text-align: center;
+    align-self: center;
+    h3 {
+        font-weight: 600;
+        margin-top: 5rem;
+    }
+    .fill-portfolio-btn {
+        width: 150px;
+        justify-self: center;
+        margin-top: 1rem;
+        white-space: nowrap;
+        font-size: 1.25rem;
+    }
+}
+
+.portfolio-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
 .portfolio-list {
     border: 1px solid #1a1a1a;
     border-radius: $radius-lg;
+}
+
+.clear-coins-btn {
+    background-color: darken($colorDanger, 15%);
+    color: $colorWhite;
+    border: none;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border-radius: $radius-2xl;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    transition: $transition;
+}
+
+.clear-coins-btn:hover {
+    background-color: darken($colorDanger, 10%);
 }
 
 .portfolio-list-container {
@@ -1841,10 +1880,16 @@ input[type='number']::-webkit-inner-spin-button {
 }
 
 .totals-stat {
-    background-color: #141414;
+    display: grid;
+    row-gap: 0.25rem;
     padding: 2rem;
     border-radius: $radius-sm;
     font-size: 1.25rem;
+    box-shadow: 0px 0px 10px 2px rgba(22, 22, 22, 0.5);
+}
+
+.box-gray {
+    background-color: #141414;
 }
 
 @media screen and (max-width: $width-md) {
@@ -1868,6 +1913,11 @@ input[type='number']::-webkit-inner-spin-button {
     column-gap: 1rem;
     padding: 0.6rem 1rem;
     color: $colorWhite;
+    transition: $transition;
+}
+
+.portfolio-item:hover {
+    background-color: #111;
 }
 
 .portfolio-item:last-of-type {
@@ -1934,14 +1984,17 @@ input[type='number']::-webkit-inner-spin-button {
 
 .portfolio-item-amount {
     justify-self: end;
-    display: flex;
-    gap: 0.5rem;
+    display: grid;
+    grid-template-columns: 1fr 20px 1fr;
+    gap: 0.4rem;
+    width: 70px;
     align-items: center;
     color: $colorSuccess;
     font-weight: 500;
     transition: $transition;
     p {
         font-size: 18px;
+        justify-self: center;
     }
     button {
         background-color: transparent;

@@ -10,22 +10,21 @@ const PortfolioTotals = () => {
         return total;
     }, 0);
     const balanceChange = portfolio.reduce((total, current) => {
-        console.log(current.price_change_percentage_24h);
         total = total + current.price_change_percentage_24h;
-        return total / portfolio.length;
+        return total;
     }, 0);
     const uniqueCoins = portfolio.length;
     return (
         <div className='portfolio-totals'>
-            <div className='totals-stat'>
+            <div className='totals-stat box-green'>
                 <p>Total Balance:</p>
                 <p>{formatPrice(balance)}</p>
             </div>
-            <div className='totals-stat'>
+            <div className={balanceChange >= 0 ? 'totals-stat box-green' : 'totals-stat box-red'}>
                 <p>24h Portfolio Change:</p>
-                <p>{formatNumber(balanceChange) + '%'}</p>
+                <p>{balanceChange.toFixed(2) + '%'}</p>
             </div>
-            <div className='totals-stat'>
+            <div className='totals-stat box-gray'>
                 <p>Total Unique Coins:</p>
                 <p>{uniqueCoins}</p>
             </div>

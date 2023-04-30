@@ -14,7 +14,7 @@ const displayMessage = (id) => {
         icon: 'success',
         titleText: `${id.charAt(0).toUpperCase() + id.slice(1)} was added to your portfolio`,
         showConfirmButton: false,
-        timer: 1500,
+        timer: 1000,
         background: '#1a1a1a',
         color: '#ccc',
     });
@@ -77,8 +77,35 @@ const portfolioSlice = createSlice({
                 localStorage.setItem('portfolio', JSON.stringify(state.portfolio));
             }
         },
+        changeCoinAmount: (state, { payload: { id, value } }) => {
+            if (value === 'inc') {
+                state.portfolio.map((coin) => {
+                    if (coin.id === id) {
+                        coin.amount = coin.amount + 1;
+                    }
+                });
+            }
+            if (value === 'dec') {
+                state.portfolio.map((coin) => {
+                    if (coin.id === id) {
+                        if (coin.id === id) {
+                            coin.amount = coin.amount - 1;
+                        }
+                    }
+                    if (coin.amount < 1) {
+                        const newPortfolio = state.portfolio.filter((portfolioItem) => portfolioItem.id !== coin.id);
+                        state.portfolio = newPortfolio;
+                        localStorage.setItem('portfolio', JSON.stringify(state.portfolio));
+                    }
+                });
+            }
+        },
+        clearCoins: (state) => {
+            state.portfolio = [];
+            localStorage.setItem('portfolio', JSON.stringify(state.portfolio));
+        },
     },
 });
 
-export const { addToPortfolio, updateSort, sortPortfolio } = portfolioSlice.actions;
+export const { addToPortfolio, updateSort, sortPortfolio, changeCoinAmount, clearCoins } = portfolioSlice.actions;
 export default portfolioSlice.reducer;
