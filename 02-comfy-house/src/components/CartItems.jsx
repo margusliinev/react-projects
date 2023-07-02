@@ -33,14 +33,17 @@ const CartItems = () => {
             <div className='cart-total'>
                 <div className='cart-total-container'>
                     <p>
-                        Subtotal: <span>{formatPrice(cart_subtotal_price)}</span>
+                        <p>Subtotal:</p>
+                        <span>{formatPrice(cart_subtotal_price)}</span>
                     </p>
                     <p>
-                        Shipping Fee: <span>{formatPrice(cart_shipping_price)}</span>
+                        <p>Shipping Fee:</p>
+                        <span>{formatPrice(cart_shipping_price)}</span>
                     </p>
                     <hr />
                     <p>
-                        Order Total: <span>{formatPrice(cart_total_price)}</span>
+                        <p>Order Total:</p>
+                        <span>{formatPrice(cart_total_price)}</span>
                     </p>
                 </div>
                 <button type='button' className='btn login-btn'>

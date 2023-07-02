@@ -1,4 +1,12 @@
-import { GET_PRODUCTS_BEGIN, GET_PRODUCTS_SUCCESS, GET_PRODUCTS_ERROR, GET_SINGLE_PRODUCT_BEGIN, GET_SINGLE_PRODUCT_SUCCESS, GET_SINGLE_PRODUCT_ERROR, REMOVE_SINGLE_PRODUCT_ERROR } from '../utils/actions';
+import {
+    GET_PRODUCTS_BEGIN,
+    GET_PRODUCTS_SUCCESS,
+    GET_PRODUCTS_ERROR,
+    GET_SINGLE_PRODUCT_BEGIN,
+    GET_SINGLE_PRODUCT_SUCCESS,
+    GET_SINGLE_PRODUCT_ERROR,
+    REMOVE_SINGLE_PRODUCT_ERROR,
+} from '../utils/actions';
 import React, { useEffect, createContext, useReducer } from 'react';
 import reducer from '../reducers/ProductsReducer';
 import axios from 'axios';

@@ -144,6 +144,7 @@ section {
 .nav-links {
     display: none;
     gap: 1.5rem;
+    margin-right: 5rem;
     .nav-link {
         color: $colorDark;
         font-size: 1.2rem;
@@ -666,6 +667,17 @@ section {
     }
 }
 
+@media screen and (max-width: 350px) {
+    .contact-form {
+        .contact-form-input {
+            max-width: 175px;
+        }
+        .submit-btn {
+            max-width: 90px;
+        }
+    }
+}
+
 @media screen and (min-width: $width-md) {
     .home-page-contact-container {
         width: 90vw;
@@ -895,6 +907,11 @@ section {
         font-weight: 600;
     }
 }
+@media screen and (max-width: 350px) {
+    .single-product-info {
+        grid-template-columns: 90px 1fr;
+    }
+}
 
 hr {
     max-height: 1px;
@@ -1121,6 +1138,14 @@ hr {
                     overflow: hidden;
                 }
             }
+        }
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .list-products-container {
+        img {
+            width: 280px;
         }
     }
 }
@@ -1390,6 +1415,14 @@ hr {
     }
 }
 
+@media screen and (max-width: 350px) {
+    .cart-buttons {
+        display: grid;
+        row-gap: 1rem;
+        justify-content: center;
+    }
+}
+
 .cart-total {
     display: grid;
     place-items: center;
@@ -1420,13 +1453,16 @@ hr {
         border-top: 1px solid lighten($colorGray, 30%);
     }
     p {
-        justify-self: left;
         font-weight: 500;
         font-size: 1.1rem;
         display: grid;
-        grid-template-columns: 200px 1fr;
+        grid-template-columns: auto 1fr;
+        p {
+            justify-self: left;
+        }
         span {
             font-weight: 400;
+            justify-self: end;
         }
     }
     p:nth-of-type(3) {
@@ -1533,6 +1569,13 @@ hr {
             font-size: 2rem;
         }
     }
+    @media screen and (max-width: 350px) {
+        .amount-buttons {
+            h6 {
+                font-size: 1.75rem;
+            }
+        }
+    }
     .trash-btn {
         align-self: center;
         justify-self: end;
@@ -1556,10 +1599,11 @@ hr {
 
 @media screen and (max-width: 450px) {
     .cart-item {
-        grid-template-columns: 180px auto auto;
+        grid-template-columns: 160px auto auto;
         .cart-title {
             display: grid;
             grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
         }
         .trash-btn {
             margin-right: 0;
