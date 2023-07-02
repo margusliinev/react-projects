@@ -24,6 +24,32 @@ import PortfolioCoin from './PortfolioCoin';
 import PortfolioTotals from './PortfolioTotals';
 import PortfolioSort from './PortfolioSort';
 import NavbarButtons from './NavbarButtons';
-import SidebarButtons from './SidebarButtons';
 
-export { Navbar, Sidebar, Footer, FeaturedCoins, CoinsFilters, ExtraFilters, CoinsSort, CoinsList, CoinsPagination, Loader, PageHero, CoinsTable, ExchangesTable, ExchangesSort, ExchangesList, ExchangesPagination, PriceHistoryChart, PriceChangeBoxes, TrackCoinButton, MarketStats, CryptoConverter, PortfolioList, PortfolioCoin, PortfolioTotals, PortfolioSort, NavbarButtons, SidebarButtons };
+export {
+    Navbar,
+    Sidebar,
+    Footer,
+    FeaturedCoins,
+    CoinsFilters,
+    ExtraFilters,
+    CoinsSort,
+    CoinsList,
+    CoinsPagination,
+    Loader,
+    PageHero,
+    CoinsTable,
+    ExchangesTable,
+    ExchangesSort,
+    ExchangesList,
+    ExchangesPagination,
+    PriceHistoryChart,
+    PriceChangeBoxes,
+    TrackCoinButton,
+    MarketStats,
+    CryptoConverter,
+    PortfolioList,
+    PortfolioCoin,
+    PortfolioTotals,
+    PortfolioSort,
+    NavbarButtons,
+};

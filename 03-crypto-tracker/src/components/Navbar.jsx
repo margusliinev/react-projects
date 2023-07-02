@@ -4,7 +4,7 @@ import { CgMenuGridO, CgClose } from 'react-icons/cg';
 import { useDispatch, useSelector } from 'react-redux';
 import { openSidebar, closeSidebar } from '../features/navigation/navigationSlice';
 
-import LoginButtons from './NavbarButtons';
+import NavbarButtons from './NavbarButtons';
 
 const Navbar = () => {
     const dispatch = useDispatch();
@@ -45,7 +45,9 @@ const Navbar = () => {
                         </Link>
                     </li>
                 </ul>
-                <LoginButtons />
+                <div className='nav-buttons'>
+                    <NavbarButtons />
+                </div>
             </div>
         </nav>
     );
